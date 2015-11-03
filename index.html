@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html ng-app = "ZenLounge">
+	<head>
+		<meta charset="UTF-8">
+		<script src="Dependencies/angular.js"></script>
+		<script src="Controllers/app.js"></script>
+	</head>
+	<title>ZenLounge</title>
+	<body>
+		<header>
+			<h1>Bienvenue sur ZenLounge</h1>
+		</header>
+		<div ng-controller = "UserController as user">
+			<form name="userForm" ng-submit="user.HelloWorld()">
+				<h4>Recherche</h4>
+				<input type="text" placeholder="Identifiant" value ="{{user.id}}" ng-model="user.id"/>
+				<input ng-show="user.id > 0" type="submit" value="Récupérer un utilisateur"/>
+				<input ng-hide="user.id > 0" type="submit" value="Récupérer tous les utilisateurs"/>
+			</form>
+			{{result}}
+		</div>
+		<footer>
+		  <p>Created by Maître Yoga</p>
+		</footer>
+	</body>
+</html>
