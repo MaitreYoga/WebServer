@@ -2,11 +2,12 @@
 <html ng-app = "ZenLounge">
 	<head>
 		<meta charset="UTF-8">
-		<script src="Dependencies/angular.js"></script>
+        <script src="Dependencies/angular.js"></script>
 		<script src="Dependencies/bower-angular-route/angular-route.js"></script>
+        <script src="app.js"></script>
         <script src="Includes/navbar/navbarCtrl.js"></script>
-		<script src="app.js"></script>
-	</head>
+        <link href="Dependencies/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    </head>
 	<title>ZenLounge</title>
 	<body>
     <nav-bar></nav-bar>
@@ -22,7 +23,10 @@
 			</form>
 			{{result}}
 		</div>
-        <a href="test">User Profile</a>
+    <div ng-controller ="TestController">
+        {{bonjour}}
+    </div>
+        <a href="#/test">User Profile</a>
         <div ng-view></div>
 		<footer>
 		  <p>Created by Maître Yoga</p>
