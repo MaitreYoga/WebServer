@@ -9,4 +9,6 @@ Pour cloner le dépôt git :
 
 3 - Cloner le dépôt en mettant le nom "docroot"
 
-4 - Installer "angular.js" dans le dossier "Dependencies"
+4 - Créer le dossier "Dependencies" dans docroot
+
+5 - Installer "angular.js" dans le dossier "Dependencies" (pas besoin de JQuery)
