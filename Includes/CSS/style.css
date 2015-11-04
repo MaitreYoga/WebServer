@@ -1,0 +1,64 @@
+.cadre {
+-webkit-border-radius: 40px;
+-moz-border-radius: 40px;
+border-radius: 40px;
+width:900px;
+border: solid #00a69c 2px;
+padding-top:10px;
+}
+
+.titre1 {
+color:#A6C532;
+font-family:calibri;
+font-size: 20px;
+font-weight: bold;
+}
+
+.titre2 {
+color:#006515;
+font-family:calibri;
+font-size: 18px;
+font-weight: bold;
+}
+
+.titre2small{
+color:#006515;
+font-family:calibri;
+font-size: 16px;
+font-weight: bold;
+}
+
+.titreinscription {
+margin-top:-20px;
+color:#A6C532;
+font-weight: bold;
+background-color:#DADADA;
+-webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+border-radius: 5px;
+}
+
+.cadre1 {
+background-color: #f8f8f8;
+border: solid #e7e7e7 1px;
+-webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+border-radius: 5px;
+padding:5px;
+}
+
+.bloc1 {
+text-align:center;
+
+}
+
+.bloc2 {
+  width:400px;
+  margin:0 10px; /* espacement horizontal des blocs */
+  border:1px solid #fff;
+  display:inline-block;
+  vertical-align:middle;
+  text-align:left; 
+  
+}
+

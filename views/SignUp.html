@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Maitre Yoga</title>
+  <link rel="stylesheet" href="../includes/CSS/style.css"/>
+	<link rel="stylesheet" href="../includes/CSS/Bootstrap_CSS/bootstrap.css">
+	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+    
+  </head>
+<body style="margin:20px;padding-left:10px;padding-right:10px; width:1300px;">
+
+<div class="etip">
+
+	<div class="row clearfix">
+		<div class="col-xs-2 column">
+			<a href="../index.php"><img src="../includes/images/logo.png" style="width:120px;"></a>
+		</div>
+		
+		<div class="col-xs-10 column"><center>
+			<span class="titre2" style="font-size:40px;">Sign Up</h3></center>
+		</div> 										
+	</div>
+	
+	<br><br>
+	
+
+	<form method="post" action="../Actions/inscription_candidats_script.php"> 
+
+		<div class="row clearfix">
+			<!-- personal info -->
+			<div class="col-xs-5 column"  style="padding:10px; border: solid #DADADA 1px; height:180px;-webkit-border-radius: 8px; -moz-border-radius: 8px; border-radius: 8px; margin-right:2%; margin-left:6%; margin-bottom:30px;"><div class="form-group">
+				<center><div class="titreinscription">Personal information</div></center>
+					<label for="to_edit" class="titre2small">Last name*</label>
+					<input type="text" class="form-control" placeholder="Last name" name="last name" maxlength="30" required>
+					</div>
+					<div class="form-group">
+						<label for="to_edit" class="titre2small">First name*</label>
+						<input type="text" class="form-control" placeholder="First name" name="first name" maxlength="30" required>
+					</div>
+			</div>
+		  
+			<!-- address -->
+			<div class="col-xs-5 column"  style="padding:10px; border: solid #DADADA 1px; height:180px;-webkit-border-radius: 8px; -moz-border-radius: 8px; border-radius: 8px; margin-right:6%; margin-left:2%; margin-bottom:10px;">
+				<center><div class="titreinscription">Location</div></center>
+			
+				<div class="row clearfix">
+					<div class="col-md-6 column"><div class="form-group">
+						<label for="to_edit" class="titre2small">Number</label>
+						<input type="text" class="form-control" placeholder="Number" maxlength="11" name="number">
+						</div><div class="form-group">
+						<label for="to_edit" class="titre2small">Post code*</label>
+						<input type="number" class="form-control" placeholder="Post code"  maxlength="5" min="0" name="cp" required>
+						</div>
+					</div>
+		  
+					<div class="col-md-6 column"><div class="form-group">
+						<label for="to_edit" class="titre2small">Street</label>
+						<input type="text" class="form-control" placeholder="Street" maxlength="50" name="street">
+						</div><div class="form-group">
+						<label for="to_edit" class="titre2small">City*</label>
+						<input type="text" class="form-control" placeholder="City" name="city" maxlength="30" required>
+						</div>
+					</div> 										    
+				</div>
+		  </div> 
+		</div>
+	  
+		<div class="row clearfix">
+			<!-- connection -->
+			<div class="col-xs-5 column" style="padding:10px; border: solid #DADADA 1px; height:315px;-webkit-border-radius: 8px; -moz-border-radius: 8px; border-radius: 8px; margin-right:2%; margin-left:6%; margin-bottom:10px;"><div class="form-group">
+				<center><div class="titreinscription">Login information</div></center>
+					<label for="to_edit" class="titre2small">Username*</label>
+					<input type="text" class="form-control" placeholder="Username" name="username" maxlength="30" required>
+					</div><div class="form-group">
+					<label for="to_edit" class="titre2small">Password*</label>
+					<input type="password" class="form-control" placeholder="Password" name="pwd1" id="pwd1" required>
+					</div><div class="form-group">
+					<label for="to_edit" class="titre2small">Confirm password*</label>
+					<input type="password" class="form-control" placeholder="Password" name="pwd2" id="pwd2" required>
+					</div><div class="form-group">
+					<label for="to_edit" class="titre2small">Email address*</label>
+					<input type="email" class="form-control" placeholder="Email address" name="mail"  maxlength="50" required>
+					</div>
+			</div>
+			  
+			<!-- other -->
+			<div class="col-xs-5 column" style="padding:10px; border: solid #DADADA 1px; height:315px;-webkit-border-radius: 8px; -moz-border-radius: 8px; border-radius: 8px; margin-right:6%; margin-left:2%; margin-bottom:10px;">
+				<center><div class="titreinscription">Other</div>
+					<br>
+					<label for="to_edit" class="titre2small">Sign up with Facebook</label>
+					
+					<br><br>
+					
+					<label for="to_edit" class="titre2small">Sign up with Google</label>
+				</center>
+			</div>
+		</div>
+	  
+		<div class="wrap">
+			<center><INPUT class="btn btn-primary in" TYPE="submit" name="valide" style="background-color:#006515; border-color:#006515" value="S'inscrire"></center>
+		</div>
+	</form>
+	
+</div>
+ 
+ <!-- Verifier mdp !!!!!!!!!! -->
+ 
+
+ </body>
+</html>
