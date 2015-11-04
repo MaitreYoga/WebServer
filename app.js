@@ -2,10 +2,14 @@
 
     .config(function($routeProvider, $locationProvider) {
     $routeProvider
-        .when('/test', {
+        .when('/', {
             templateUrl: 'UsesCases/test.html'
         })
-        .otherwise({redirectTo: '/test'});
+        .when('/test',
+        {
+            templateUrl: 'UsesCases/test2.html'
+        })
+        .otherwise({redirectTo: 'test'});
 })
     .controller('UserController', function($http, $scope){
     $scope.result = "1";
@@ -16,7 +20,7 @@
 })
     .directive('navBar', function() {
         return {
-            templateUrl: 'Includes/navbar/navbar.html',
-            controller : 'NavBarCtrl'
+            restrict : 'E',
+            templateUrl: 'Includes/navbar/navbar.html'
         };
     });
