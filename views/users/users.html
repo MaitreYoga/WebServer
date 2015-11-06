@@ -1,0 +1,7 @@
+<div ng-controller="UsersController">
+<button ng-click="getUsers()">Récupérer les utilisateurs</button>
+<p><h2>Liste des utilisateurs : {{hello}}</h2></p>
+	<div ng-repeat="user in users">
+		{{user.firstname}}
+	</div>
+</div>
