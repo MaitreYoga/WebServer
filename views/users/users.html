@@ -1,7 +1,9 @@
 <div ng-controller="UsersController">
-<button ng-click="getUsers()">Récupérer les utilisateurs</button>
-<p><h2>Liste des utilisateurs : {{hello}}</h2></p>
-	<div ng-repeat="user in users">
-		{{user.firstname}}
-	</div>
+	<button ng-click="getUsers()">Show users list</button>
+	<p>
+		<div class="titre2small" ng-show="users.length > 0">Result :</h2>
+		<div ng-repeat="user in users">
+			<h4><a href={{"#/users/"+user.id}}>{{user.firstName}}</a><h4>
+		</div>
+	</p>
 </div>
