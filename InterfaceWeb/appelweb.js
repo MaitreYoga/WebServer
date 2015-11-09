@@ -19,6 +19,6 @@ angular.module('WebCall',[]).
             });
         };
         this.getUsers =function (callback){
-            $http.get(api+'/Users').success(function(response){callback(response)});
+            $http.get(api+'/users').success(function(response){callback(response)});
     }
     }]);
