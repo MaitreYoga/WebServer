@@ -7,7 +7,7 @@
         })
         .when('/signUp',
         {
-            templateUrl: 'views/SignUp.html'
+            templateUrl: 'views/common/SignUp.html'
         })
         .when('/users',
         {

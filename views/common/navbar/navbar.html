@@ -15,7 +15,7 @@
 
         <!-- welcome, login -->
         <div class="col-xs-6 column" ng-show="connected==0">
-            <form method="post" action="#" > <!-- a remplacer !!!-->
+            <form> <!-- a remplacer !!!-->
                 <div class="col-xs-4 column">
                     <div class="form-group">
                         <label ><span class="title2">Username:</span></label>
@@ -30,7 +30,7 @@
                 </div>
                 <div class="col-xs-4 column">
                     <div id="newElement278_wrap" class="wrap">
-                        <INPUT class="btn btn-primary buttonGreen" TYPE="submit" name="valide" value="Sign In">
+                        <INPUT class="btn btn-primary buttonGreen" TYPE="submit" name="valide" value="Sign In" ng-click="connect()">
                     </div>
                 </div>
             </form>
