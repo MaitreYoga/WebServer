@@ -1,0 +1,106 @@
+<div ng-controller="TestController">
+    <center><div class="cookies" class="row clearfix">
+        <div class="col-xs-12 column">
+            <p> Cookies help us to provide, protect and improve our services. By continuing to use our site, you agree to Maitre Yoga's cookie policy.  <a href="http://www.cnil.fr/vos-droits/vos-traces/les-cookies/" target="blank";>Know more.</a></p>
+        </div>
+    </div></center>
+
+    <!-- header -->
+    <div class="row clearfix lign">
+
+        <!-- logo -->
+        <div class="col-xs-6 column">
+            <img src="Includes/images/logo.png" class="logo">
+        </div>
+
+        <!-- welcome, login -->
+        <div class="col-xs-6 column" ng-show="connected==0">
+            <form method="post" action="#" > <!-- a remplacer !!!-->
+                <div class="col-xs-4 column">
+                    <div class="form-group">
+                        <label ><span class="title2">Username:</span></label>
+                        <input type="text" class="form-control" name="username" placeholder="Username">
+                    </div>
+                </div>
+                <div class="col-xs-4 column">
+                    <div class="form-group">
+                        <label f><span class="title2">Password:</span></label>
+                        <input type="password" class="form-control" name="psd" placeholder="Password">
+                    </div>
+                </div>
+                <div class="col-xs-4 column">
+                    <div id="newElement278_wrap" class="wrap">
+                        <INPUT class="btn btn-primary buttonGreen" TYPE="submit" name="valide" value="Sign In">
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!-- end of welcome -->
+
+        <!--menu-->
+        <div class="row clearfix lign">
+
+            <div class="etip">
+                <div id="newElement6" class="row clearfix">
+                    <div class="col-xs-12 column etip"><div class="bs-example bs-navbar-top-example drop etip">
+                        <nav class="navbar navbar-default" role="navigation">
+                            <div class="container-fluid">
+                                <div class="navbar-header">
+                                    <a class="navbar-brand">ZenLounge</a>
+                                </div>
+
+                                <!-- tabs -->
+                                <div class="collapse navbar-collapse">
+                                    <ul class="nav navbar-nav">
+                                        <li><a href="home.html">Home </a></li>
+
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" >My account <b class="caret"></b></a>
+                                            <ul class="dropdown-menu">
+                                                <li style="cursor:pointer; "><a href="../user_info.html">Information</a></li>
+                                                <li style="cursor:pointer; "><a href="#">Payment</a></li>
+                                                <li style="cursor:pointer; "><a href="#">Notifications</a></li>
+                                                <li style="cursor:pointer; "><a href="#">Planning</a></li>
+                                            </ul>
+                                        </li>
+
+                                        <li class="dropdown" >
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" >Shop <b class="caret"></b></a>
+                                            <ul class="dropdown-menu">
+                                                <li style="cursor:pointer; "><a href="../shop/products.html">Find a product</a></li>
+                                                <li style="cursor:pointer; "><a href="../shop/manageProducts.html">Manage products</a></li>
+                                            </ul>
+                                        </li>
+
+                                        <li class="dropdown" >
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" >Events <b class="caret"></b></a>
+                                            <ul class="dropdown-menu">
+                                                <li style="cursor:pointer; "><a href="#">Create an event</a></li>
+                                                <li style="cursor:pointer; "><a href="#">Find an event/activity</a></li>
+                                                <li style="cursor:pointer; "><a href="#">Manage event/room</a></li>
+                                                <li style="cursor:pointer; "><a href="#">Consult planning</a></li>
+                                            </ul>
+                                        </li>
+
+                                        <li class="dropdown" >
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" >Admin area <b class="caret"></b></a>
+                                            <ul class="dropdown-menu">
+                                                <li style="cursor:pointer; "><a href="#">Manage categories</a></li>
+                                                <li style="cursor:pointer; "><a href="#">Manage users</a></li>
+                                            </ul>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                                <!-- end tabs -->
+                            </div>
+                        </nav>
+                    </div></div>
+                </div>
+            </div>
+            <!-- end menu -->
+
+        </div>
+        </div>
+    </div>
+        <!-- end header -->
