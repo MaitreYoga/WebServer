@@ -8,6 +8,8 @@ angular.module('ZenLounge').controller('TestController', ['$scope','webcallservi
                 $scope.test=response;
                 alert(response.data.firstName);
                 $cookies.put('userID',response.data.firstName);
+                $cookies.putObject('user',response.data);
+                alert($cookies.get('user'));
                 alert($cookies.get('userID'));
 
             },
