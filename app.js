@@ -1,23 +1,24 @@
-﻿angular.module('ZenLounge', ['ngRoute'])
+﻿angular.module('ZenLounge', ['ngRoute','WebCall'])
 
     .config(function($routeProvider, $locationProvider) {
     $routeProvider
         .when('/', {
-            templateUrl: 'UsesCases/test.html'
+            templateUrl: 'views/home.html'
         })
-        .when('/test',
+        .when('/signUp',
         {
-            templateUrl: 'UsesCases/test2.html'
+            templateUrl: 'views/SignUp.html'
         })
-        .otherwise({redirectTo: 'test'});
-})
-    .controller('UserController', function($http, $scope){
-    $scope.result = "1";
-    this.HelloWorld = function()
-    {
-        $http.get('http://localhost:8080/ZenLounge/HelloWorld').success(function(response){alert(response+"\n"+response.data+"\n"+response.status+"\n"+response.headers); $scope.result = response.data});
-    };
-})
+        .when('/users',
+        {
+            templateUrl: 'views/users/users.html'
+        })
+        .when('/users/:id',
+        {
+            templateUrl: 'views/profile/profile.html'
+        })
+        .otherwise({redirectTo: '/'});
+	})
     .directive('navBar', function() {
         return {
             restrict : 'E',
