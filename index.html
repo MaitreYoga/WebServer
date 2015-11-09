@@ -21,7 +21,7 @@
 
 
     <body>
-    <div class="container">
+    <div class="conteneur">
         <nav-bar></nav-bar>
     <div ng-view></div>
     </div>
