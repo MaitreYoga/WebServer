@@ -1,4 +1,4 @@
-﻿angular.module('ZenLounge', ['ngRoute','WebCall'])
+angular.module('ZenLounge', ['ngRoute','WebCall','ngCookies'])
 
     .config(function($routeProvider, $locationProvider) {
     $routeProvider
