@@ -3,7 +3,7 @@
     .config(function($routeProvider, $locationProvider) {
     $routeProvider
         .when('/', {
-            templateUrl: 'views/home.html'
+            templateUrl: 'views/common/home.html'
         })
         .when('/signUp',
         {
@@ -22,6 +22,6 @@
     .directive('navBar', function() {
         return {
             restrict : 'E',
-            templateUrl: 'Includes/navbar/navbar.html'
+            templateUrl: 'views/common/navbar/navbar.html'
         };
     });
