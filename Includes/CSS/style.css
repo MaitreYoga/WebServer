@@ -1,34 +1,71 @@
-.cadre {
--webkit-border-radius: 40px;
--moz-border-radius: 40px;
-border-radius: 40px;
-width:900px;
-border: solid #00a69c 2px;
-padding-top:10px;
+#container {
+    width: 100%;
 }
 
-.titre1 {
-color:#A6C532;
+
+.body{
+margin-left:2%;
+margin-right:2%;
+padding-left:10px;
+padding-right:10px;
+}
+
+.lign {
+margin-top:2%;
+margin-bottom:2%;
+}
+
+/* texts */
+.textAlign {
+vertical-align:middle;
+text-align:center;
+}
+
+.text {
+text-align:justify;
+}
+
+.textItalic {
+color:grey;
+font-style:italic;
+margin-left:20px;
+}
+
+.marginSignUp {
+margin-left:-15px;
+margin-right:-15px;
+}
+
+/* titres */
+.title1 {
+color:#006515;
 font-family:calibri;
-font-size: 20px;
+font-size: 40px;
 font-weight: bold;
 }
 
-.titre2 {
+.title1bis {
+color:#006515;
+font-family:calibri;
+font-size: 26px;
+font-weight: bold;
+}
+
+.title2 {
 color:#006515;
 font-family:calibri;
 font-size: 18px;
 font-weight: bold;
 }
 
-.titre2small{
+.title2small{
 color:#006515;
 font-family:calibri;
 font-size: 16px;
 font-weight: bold;
 }
 
-.titreinscription {
+.titleSignUp {
 margin-top:-20px;
 color:#A6C532;
 font-weight: bold;
@@ -38,27 +75,52 @@ background-color:#DADADA;
 border-radius: 5px;
 }
 
-.cadre1 {
-background-color: #f8f8f8;
-border: solid #e7e7e7 1px;
+/*blocs, borders*/
+
+.borderGreyWhite {
+border: solid #DADADA 1px; 
+height:30%;
+-webkit-border-radius: 8px; 
+-moz-border-radius: 8px; 
+border-radius: 8px; 
+margin-right:3%; 
+margin-left:4%; 
+margin-bottom:10px;
+}
+
+
+.cookies {
+border: solid menu 1px;
+background-color:menu;
+color:GrayText;
+height:40px;
 -webkit-border-radius: 5px;
 -moz-border-radius: 5px;
 border-radius: 5px;
-padding:5px;
+padding-top:3px;
+font-size:12px;
 }
 
-.bloc1 {
-text-align:center;
-
+/*images */
+.logo {
+width:100px;
+margin-top:2%;
+margin-bottom:2%;
 }
 
-.bloc2 {
-  width:400px;
-  margin:0 10px; /* espacement horizontal des blocs */
-  border:1px solid #fff;
-  display:inline-block;
-  vertical-align:middle;
-  text-align:left; 
-  
+.logo2 {
+height:40px;
+width:250px;
+margin-bottom:2%;
 }
+
+/* buttons */
+.buttonGreen {
+margin-top:30px;
+}
+
+
+
+
+
 

@@ -1,106 +1,137 @@
 <!doctype html>
-<html lang="fr">
+<html lang="en-US">
 <head>
   <meta charset="utf-8">
   <title>Maitre Yoga</title>
   <link rel="stylesheet" href="../includes/CSS/style.css"/>
 	<link rel="stylesheet" href="../includes/CSS/Bootstrap_CSS/bootstrap.css">
+	<script src="https://code.jquery.com/jquery.js"></script>
 	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="http://twitter.github.io/bootstrap/assets/js/bootstrap-dropdown.js"></script>
     
   </head>
-<body style="margin:20px;padding-left:10px;padding-right:10px; width:1300px;">
+<body class="body">
+<div class="container">
 
 <!-- cookies -->
-<center><div class="row clearfix" style ="margin-bottom:20px">
-	<div class="col-xs-12 column" style="border: solid menu 1px; background-color:menu; color:GrayText; height:30px;-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; padding-top:3px; font-size:12px;">
-		<p> Les cookies assurent le bon fontionnement de nos services, en poursuivant la navigation, vous acceptez les cookies de Maitre Yoga. <a href="http://www.cnil.fr/vos-droits/vos-traces/les-cookies/" target="blank";>En savoir plus.</a></p>
+<center><div class="cookies" class="row clearfix">
+	<div class="col-xs-12 column"> 
+		<p> Cookies help us to provide, protect and improve our services. By continuing to use our site, you agree to Maitre Yoga's cookie policy.  <a href="http://www.cnil.fr/vos-droits/vos-traces/les-cookies/" target="blank";>Know more.</a></p>
 	</div>
 </div></center>
 
 <!-- header -->
-<div class="row clearfix" style ="margin-bottom:20px">
+<div class="row clearfix lign">
 	
 	<!-- logo -->
 	<div class="col-xs-6 column">
-		<img src="../includes/images/logo.png" style="width:15%; height:15%">
+		<img src="../includes/images/logo.png" class="logo">
 	</div>
 	
 	<!-- welcome, login -->
 	<div class="col-xs-6 column">
-		<form method="post" action="../Actions/connexion_script.php" >
+		<form method="post" action="#" > <!-- a remplacer !!!-->
 			<div class="col-xs-4 column">
 				<div class="form-group">
-					<label for="to_edit"><span class="titre2">Username:</span></label>
-					<input type="text" class="form-control" name="pseudo" placeholder="Pseudo">
+					<label for="to_edit"><span class="title2">Username:</span></label>
+					<input type="text" class="form-control" name="username" placeholder="Username">
 				</div>
-		</div>
-		<div class="col-xs-4 column">
-			<div class="form-group">
-				<label for="to_edit"><span class="titre2">Password:</span></label>
-				<input type="password" class="form-control" name="psd" placeholder="Password">
 			</div>
-		</div>
-		<div class="col-xs-4 column">
-			<div id="newElement278_wrap" class="wrap">
-				<INPUT class="btn btn-primary in" style="margin-top:30px; background-color:#006515; border-color:#006515" TYPE="submit" name="valide" value="Sign In">
+			<div class="col-xs-4 column">
+				<div class="form-group">
+					<label for="to_edit"><span class="title2">Password:</span></label>
+					<input type="password" class="form-control" name="psd" placeholder="Password">
+				</div>
 			</div>
-		</div>
+			<div class="col-xs-4 column">
+				<div id="newElement278_wrap" class="wrap">
+					<INPUT class="btn btn-primary buttonGreen" TYPE="submit" name="valide" value="Sign In">
+				</div>
+			</div>
 		</form>
 	</div>
 	<!-- end of welcome -->
 		
 	<!--menu-->
-	<div class="row clearfix"> 
+	<div class="row clearfix lign"> 
 		
-		<div class="etip"><div id="newElement6" class="row clearfix">
+	<div class="etip">
+		<div id="newElement6" class="row clearfix">
 			<div class="col-xs-12 column etip"><div class="bs-example bs-navbar-top-example drop etip">
 				<nav class="navbar navbar-default" role="navigation">
 				  <div class="container-fluid">
 					<div class="navbar-header">
-					  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-6">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					  </button>
+					  <a class="navbar-brand">ZenLounge</a>
 					</div>
 
 					<!-- tabs -->
 					<div class="collapse navbar-collapse">
-					  <ul class="nav navbar-nav">
-						<li><a href="#">ZenLounge</a></li>
-						<li><a href="#">Shop</a></li>
-						<li><a href="#">Events</a></li>
-						<li><a href="#">Activities</a></li>
+						<ul class="nav navbar-nav">
+							<li><a href="home.html">Home </a></li>
+
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown" >My account <b class="caret"></b></a>
+								<ul class="dropdown-menu">
+									<li style="cursor:pointer; "><a href="user_info.html">Information</a></li>
+									<li style="cursor:pointer; "><a href="#">Payment</a></li>
+									<li style="cursor:pointer; "><a href="#">Notifications</a></li>
+									<li style="cursor:pointer; "><a href="#">Planning</a></li>
+								</ul>
+							</li>
+					
+							<li class="dropdown" >
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown" >Shop <b class="caret"></b></a>
+								<ul class="dropdown-menu">
+									<li style="cursor:pointer; "><a href="products.html">Find a product</a></li>
+									<li style="cursor:pointer; "><a href="manageProducts.html">Manage products</a></li>
+								</ul>
+							</li>
+							
+							<li class="dropdown" >
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown" >Events <b class="caret"></b></a>
+								<ul class="dropdown-menu">
+									<li style="cursor:pointer; "><a href="#">Create an event</a></li>
+									<li style="cursor:pointer; "><a href="#">Find an event/activity</a></li>
+									<li style="cursor:pointer; "><a href="#">Manage event/room</a></li>
+									<li style="cursor:pointer; "><a href="#">Consult planning</a></li>
+								</ul>
+							</li>
+							
+							<li class="dropdown" >
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown" >Admin area <b class="caret"></b></a>
+								<ul class="dropdown-menu">
+									<li style="cursor:pointer; "><a href="#">Manage categories</a></li>
+									<li style="cursor:pointer; "><a href="#">Manage users</a></li>
+								</ul>
+							</li>
+					
 						</ul>
 					</div>
-					
+					<!-- end tabs -->
 				  </div>
 				</nav>
 			</div></div>
-		  </div></div>
-	  
+		</div>
 	</div>
 	<!-- end menu -->
 
-</div>
-<!-- end header -->
+	</div>
+	<!-- end header -->
 
 <!-- sign up -->
-<div class="row clearfix">
-	<center><div class="col-xs-5 column" style="border: solid #DADADA 1px; height:200px;-webkit-border-radius: 8px; -moz-border-radius: 8px; border-radius: 8px; margin-right:3%; margin-left:4%; margin-bottom:10px;">
-		<h3 style="margin-top:35px;">?????</h3>
-			<p style="text-align:justify; ">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam eget sapien sapien. Curabitur in metus urna. In hac habitasse platea dictumst. Phasellus eu sem sapien, sed vestibulum velit. Nam purus nibh, lacinia non faucibus et, pharetra in dolor. Sed iaculis posuere diam ut cursus. Morbi commodo sodales nisi id sodales</p>
-	</div></center>
+<div class="row clearfix textAlign">
+	<div class=" col-xs-6 column">
+		<h3>Presentation</h3>
+			<p class=textAlign>Welcome to ZenLounge! <br> Your motivation and goals + ZenLounge = Life Changing Results. <br>Improve cardiovascular fitness and endurance, tone and strengthen muscles. Or buy our products.</p>
+	</div>
 	
-	
-	<center><div class="col-xs-5 column" style="border: solid #DADADA 1px; height:200px; -webkit-border-radius: 8px; -moz-border-radius: 8px; border-radius: 8px; margin-right:3%; margin-left:4%; margin-bottom10px;">
-	<h3 style="margin-top:60px;">New user?<br></h3>
-	<div class="wrap"><a class="btn btn-primary in" href="SignUp.html" style="background-color:#006515; border-color:#006515" role="button">Sign Up</a></div>
-	</div></center>
-</div>
+	<div class="col-xs-6 column">
+		<h3>New user?<br></h3>
+		<div class="wrap"><a class="btn btn-primary buttonGreen" href="SignUp.html" role="button">Sign Up</a></div>
+	</div>
 </div>
 
+</div>
 </body>
 </html>
  
