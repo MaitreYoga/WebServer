@@ -7,15 +7,15 @@
         })
         .when('/signUp',
         {
-            templateUrl: 'views/SignUp.html'
+            templateUrl: 'views/common/SignUp.html'
         })
         .when('/users',
         {
-            templateUrl: 'views/users/users.html'
+            templateUrl: 'views/users/allUsers/users.html'
         })
         .when('/users/:id',
         {
-            templateUrl: 'views/profile/profile.html'
+            templateUrl: 'views/users/profile/profile.html'
         })
         .otherwise({redirectTo: '/'});
 	})
