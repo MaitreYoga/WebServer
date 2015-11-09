@@ -1,4 +1,4 @@
-﻿angular.module('ZenLounge', ['ngRoute','WebCall','ngCookies'])
+angular.module('ZenLounge', ['ngRoute','WebCall','ngCookies'])
 
     .config(function($routeProvider, $locationProvider) {
     $routeProvider
@@ -11,11 +11,11 @@
         })
         .when('/users',
         {
-            templateUrl: 'views/users/users.html'
+            templateUrl: 'views/users/allUsers/users.html'
         })
         .when('/users/:id',
         {
-            templateUrl: 'views/profile/user_info.html'
+            templateUrl: 'views/users/profile/profile.html'
         })
         .otherwise({redirectTo: '/'});
 	})
