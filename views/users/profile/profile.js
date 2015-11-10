@@ -3,7 +3,7 @@
  */
 angular.module('ZenLounge').controller('ProfileController', ['$scope', '$http', '$routeParams', function($scope, $http, $routeParams){
     $scope.init = function () {
-		$http.get('/ZenLounge/Users?id='+$routeParams.id)
+		$http.get('/ZenLounge/users?id='+$routeParams.id)
 		.success(function(response)
 		{
 			$scope.user = response;

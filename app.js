@@ -17,6 +17,14 @@ angular.module('ZenLounge', ['ngRoute','WebCall','ngCookies'])
         {
             templateUrl: 'views/users/profile/profile.html'
         })
+        .when('/products',
+        {
+            templateUrl: 'views/shop/products/allProducts/products.html'
+        })
+        .when('/products/:id',
+        {
+            templateUrl: 'views/shop/products/product/product.html'
+        })
         .otherwise({redirectTo: '/'});
 	})
     .directive('navBar', function() {
