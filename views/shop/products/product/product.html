@@ -1,23 +1,38 @@
 <div ng-controller="ProductController">
 	<h3>{{errorMessage}}</h3>
 	<div ng-show="product">
-		<h3>{{p.login}}</h3>
 		<table width="300px" style="line-height:200%">
 			<tr>
-				<td>First name :</td>
-				<td>{{user.firstName}}</td>
+				<td>Product name :</td>
+				<td>{{product.name}}</td>
+			</tr>
+            <tr>
+				<td>Brand :</td>
+				<td>{{Product.brand}}</td>
 			</tr>
 			<tr>
-				<td>Last name :</td>
-				<td>{{user.lastName}}</td>
+				<td>Price :</td>
+				<td>{{Product.price}}</td>
 			</tr>
 			<tr>
-				<td>Phone number :</td>
-				<td>{{user.phone}}</td>
+				<td>Quantity available :</td>
+				<td>{{product.quantityAvailable}}</td>
 			</tr>
 			<tr>
-				<td>Mail adress :</td>
-				<td>{{user.mail}}</td>
+				<td>Member price :</td>
+				<td>{{product.memberPrice}}</td>
+			</tr>
+            <tr>
+				<td>Product category :</td>
+				<td>{{product.productCat}}</td>
+			</tr>
+			<tr>
+				<td>Seller :</td>
+				<td>{{product.seller}}</td>
+			</tr>
+            <tr>
+				<td>Image :</td>
+				<td><img src={{product.urlImage}} alt="product image"></td>
 			</tr>
 		</table>
 	</div>
