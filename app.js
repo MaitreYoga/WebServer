@@ -24,4 +24,10 @@ angular.module('ZenLounge', ['ngRoute','WebCall','ngCookies'])
             restrict : 'E',
             templateUrl: 'views/common/navbar/navbar.html'
         };
+    })
+    .directive('login', function() {
+        return {
+            restrict : 'E',
+            templateUrl: 'views/users/login/login.html'
+        };
     });
