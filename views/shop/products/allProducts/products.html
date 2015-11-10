@@ -1,0 +1,18 @@
+<div ng-controller="ProductsController">
+	<button ng-click="getProducts()">Show users list</button>
+	<p>
+		<div class="titre2small" ng-show="products.length > 0">Result :</h2>
+		<div ng-repeat="product in products">
+			<h4><a href={{"#/products/"+product.id}}>{{product.name}}</a></h4>
+            <p>Brand: {{product.brand}}
+               Price: {{product.price}}
+               Quantity available: {{product.quantityAvailable}}
+               Member price: {{product.memberPrice}}
+               Product category: {{product.productCat}}
+               Seller: {{product.seller}}
+               <img src={{product.urlImage}} alt="product image">            
+            </p>
+		</div>
+    </div>
+	</p>
+</div>
