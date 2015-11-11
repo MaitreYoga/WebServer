@@ -1,0 +1,20 @@
+<div ng-controller="EventsController">
+	<button ng-click="getEvents()">Show events list</button>
+	<p>
+		<div class="titre2small" ng-show="events.length > 0"><h2>Result :</h2>
+            <div ng-repeat="event in events">
+                <h4><a href={{"#/events/"+event.id}}>{{event.name}}</a></h4>
+                <p>Place: {{event.place}}</br>
+                   Price: {{event.price}}</br>
+                   Period: {{event.period}}</br>
+                   Start Date: {{event.startDate}}</br>
+                   End Date: {{event.endDate}}</br>
+                   Activity: {{event.activity}}</br>
+                   Speaker: {{event.speaker}}</br>
+                   Room: {{event.room}}</br>
+                   State: {{event.state}}</br>
+                </p>
+            </div>
+        </div>
+	</p>
+</div>

@@ -27,4 +27,8 @@ angular.module('WebCall', []).
             $http.get(api + '/users').success(function (response) {callback(response); });
         };
         
+        this.getEvents = function (callback) {
+            $http.get(api + '/events').success(function (response) {callback(response); });
+        };
+        
     }]);
