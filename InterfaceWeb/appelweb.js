@@ -43,5 +43,15 @@ angular.module('WebCall', []).
             }).success(function successCallback(response) {
                 callback(response);
             });
-		}
+		};
+		this.addUser = function(user, callback) {
+			$http({
+                url: api + '/users',
+                method: "POST",
+                params: user
+            }).success(function successCallback(response) {
+                callback(response);
+            });
+		};
+		
     }]);

@@ -7,7 +7,7 @@ angular.module('ZenLounge', ['ngRoute','WebCall','ngCookies'])
         })
         .when('/signUp',
         {
-            templateUrl: 'views/common/SignUp.html'
+            templateUrl: 'views/common/signup/signup.html'
         })
         .when('/users',
         {
