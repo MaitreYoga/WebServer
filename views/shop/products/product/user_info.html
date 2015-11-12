@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <title>Maitre Yoga</title>
+  <link rel="stylesheet" href="../includes/CSS/style.css"/>
+	<link rel="stylesheet" href="../includes/CSS/Bootstrap_CSS/bootstrap.css">
+	<script src="https://code.jquery.com/jquery.js"></script>
+	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="http://twitter.github.io/bootstrap/assets/js/bootstrap-dropdown.js"></script>
+    
+  </head>
+<body class="body">
+<div class="container">
+
+<!-- On inclut l'en t�te et le menu-->
+<!-- verifier les mdp !! -->
+<!-- On r�cup�re les infos des utilisateur pour les afficher -->
+<!-- On affiche les messages d'erreur n�cessaires (mot de passe) -->
+
+	
+<span class="title1bis lign">Login information</span>
+<!-- name, mail -->
+<div class="row clearfix">
+	<div class="col-xs-4 column">
+		<div class="form-group">
+			<label >Last name</label>
+			<input type="text" class="form-control" disabled="disabled" value="#">
+		</div>
+	</div>
+	<div class="col-xs-4 column">
+		<div class="form-group">
+			<label >First name</label>
+			<input type="text" class="form-control" disabled="disabled" value="#">
+	  </div>
+	</div>
+	
+	<div class="col-xs-4 column"></div> 										   
+</div>
+	  
+<div class="row clearfix">
+	<form method="post" action="#"> 
+		<div class="col-xs-4 column">
+			<div class="form-group">
+				<label for="to_edit">Username</label>
+				<input type="text" class="form-control" disabled="disabled" name="username" value="#" required title="This field is required" x-moz-errormessage="This field is required" />
+			</div>
+		</div>
+  
+		<div class="col-xs-4 column">
+			<div class="form-group">
+				<label for="to_edit">Email address</label>
+				<input type="text" class="form-control" maxlength="50" name="email" value="#" required title="This field is required" x-moz-errormessage="This field is required" />
+			</div>
+		</div>
+  
+		<div class="col-xs-4 column">
+			<INPUT class="btn btn-primary buttonGreen" TYPE="submit" name="valide" value="Change email">
+		</div> 		
+	</form>
+</div>
+<!-- end name, mail -->
+ 
+<!-- password -->
+<span class="title1bis lign">Password</span>
+<form method="post" action="#"> 
+<div class="row clearfix">
+	<div class="col-xs-4 column">
+		<div class="form-group">
+			<label for="to_edit">Old password</label>
+			<input type="password" class="form-control" placeholder="Old password" name="oldpwd" required title="This field is required" x-moz-errormessage="This field is required" />
+		</div>
+	</div>
+	
+	<div class="col-xs-4 column"></div>
+	<div class="col-xs-4 column"></div> 										    
+</div>
+
+<div class="row clearfix">
+	<div class="col-xs-4 column">
+		<div class="form-group">
+			<label for="to_edit">New password</label>
+			<input type="password" class="form-control" placeholder="New password" name="pwd1" id="pwd1" required title="This field is required" x-moz-errormessage="This field is required" />
+		</div>
+	</div>
+	
+	<div class="col-xs-4 column">
+		<div class="form-group">
+			<label for="to_edit">Confirm new password</label>
+			<input type="password" class="form-control" placeholder="New password" name="pwd2" id="pwd2" required title="This field is required" x-moz-errormessage="This field is required">
+		</div>
+	</div>
+	
+	<div class="col-xs-4 column">
+	  <INPUT class="btn btn-primary buttonGreen" TYPE="submit" name="valide" value="Change password">
+	</div> 										    
+</div>
+</form>
+<!-- end password -->
+
+<!-- address -->
+<span class="title1bis lign">Address</span>
+<form method="post" action="#"> 
+  
+<div class="row clearfix">
+	<div class="col-md-4 column">
+		<div class="form-group">
+			<label for="to_edit">Number</label>
+			<input type="text" class="form-control" value="#" name="number" />
+		</div>
+	</div>
+	
+	<div class="col-md-4 column">
+		<div class="form-group">
+			<label for="to_edit">Street</label>
+			<input type="text" class="form-control" maxlength="50" value="#" name="street"/>
+		</div>
+	</div>
+	
+	<div class="col-md-4 column"></div> 
+	
+</div>
+	
+<div class="row clearfix">
+	<div class="col-md-4 column">
+		<div class="form-group">
+			<label for="to_edit">Post code</label>
+			<input type="number" class="form-control" value="#" name="pc" >
+		</div>
+	</div>
+	
+	<div class="col-md-4 column">
+		<div class="form-group">
+			<label for="to_edit">City</label>
+			<input type="text" class="form-control" maxlength="30" value="#" name="city">
+		</div>
+	</div>
+	
+	<div class="col-md-4 column">
+		<div class="wrap">
+			<INPUT class="btn btn-primary buttonGreen" TYPE="submit" name="valide" value="Change address">
+		</div>
+	</div> 										    
+</div>
+</form>
+
+
+</div>
+</body>
+</html>

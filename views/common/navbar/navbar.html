@@ -1,17 +1,21 @@
 <div ng-controller="TestController">
-    <center><div class="cookies" class="row clearfix">
-        <div class="col-xs-12 column">
-            <p> Cookies help us to provide, protect and improve our services. By continuing to use our site, you agree to Maitre Yoga's cookie policy.  <a href="http://www.cnil.fr/vos-droits/vos-traces/les-cookies/" target="blank";>Know more.</a></p>
-        </div>
-    </div></center>
+    <center>
+		<div class="cookies" class="row clearfix">
+			<div class="col-xs-12 column">
+				<p> Cookies help us to provide, protect and improve our services. By continuing to use our site, you agree to Maitre Yoga's cookie policy.  <a href="http://www.cnil.fr/vos-droits/vos-traces/les-cookies/" target="blank";>Know more.</a></p>
+			</div>
+		</div>
+	</center>
 
     <!-- header -->
     <div class="row clearfix lign">
 
         <!-- logo -->
         <div class="col-xs-6 column">
-            <img src="Includes/images/logo.png" class="logo">
+			<a href="#/"><img src="Includes/images/logo.png" class="logo"></a>
         </div>
+		
+		<login></login>
 
         <!-- welcome, login -->
         <div class="col-xs-6 column">
@@ -25,7 +29,7 @@
                 <div class="col-xs-4 column">
                     <div class="form-group">
                         <label ><span class="title2">Password:</span></label>
-                        <input type="password" class="form-control"  placeholder="Password">
+                        <input type="password" class="form-control" name="psd" placeholder="Password">
                     </div>
                 </div>
                 <div class="col-xs-4 column">
@@ -52,7 +56,7 @@
                                 <!-- tabs -->
                                 <div class="collapse navbar-collapse">
                                     <ul class="nav navbar-nav">
-                                        <li><a href="home.html">Home </a></li>
+                                        <li><a href="#/">Home </a></li>
 
                                         <li class="dropdown">
                                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" >My account <b class="caret"></b></a>

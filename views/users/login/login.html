@@ -1,0 +1,24 @@
+<div ng-controller="LoginController">
+	<div class="col-xs-6 column">
+		<form ng-submit=login()>
+			<div class="col-xs-4 column">
+				<div class="form-group">
+					<label ><span class="title2">Username:</span></label>
+					<input type="text" class="form-control" name="username" placeholder="Username" ng-model="username"/>
+				</div>
+			</div>
+			<div class="col-xs-4 column">
+				<div class="form-group">
+					<label ><span class="title2">Password:</span></label>
+					<input type="password" class="form-control" name="psd" placeholder="Password" ng-model="pwd"/>
+				</div>
+			</div>
+			<div class="col-xs-4 column">
+				<div id="newElement278_wrap" class="wrap">
+					<input class="btn btn-primary buttonGreen" TYPE="submit" name="valide" value="Sign In"/>
+				</div>
+			</div>
+		</form>
+	</div>
+	<h4 ng-show="errorMessage">{{errorMessage}}</h4>
+</div>
