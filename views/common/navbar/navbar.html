@@ -37,7 +37,7 @@
                                         <li class="dropdown">
                                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" >My account <b class="caret"></b></a>
                                             <ul class="dropdown-menu">
-                                                <li style="cursor:pointer; "><a href="/users/">Information</a></li>
+                                                <li style="cursor:pointer; "><a href="/#/profile">Information</a></li>
                                                 <li style="cursor:pointer; "><a href="#">Payment</a></li>
                                                 <li style="cursor:pointer; "><a href="#">Notifications</a></li>
                                                 <li style="cursor:pointer; "><a href="#">Planning</a></li>
@@ -70,7 +70,7 @@
                                             </ul>
                                         </li>
 
-                                        <li class="dropdown" >
+                                        <li class="dropdown" ng-show="$root.user.connectiontoken">
                                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" >Admin area <b class="caret"></b></a>
                                             <ul class="dropdown-menu">
                                                 <li style="cursor:pointer; "><a href="#">Manage categories</a></li>

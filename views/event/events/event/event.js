@@ -3,7 +3,7 @@
  */
 angular.module('ZenLounge').controller('EventController', ['$scope', '$http', '$routeParams', function ($scope, $http, $routeParams  ) {
     $scope.init = function () {
-		$http.get('/ZenLounge/events?id=' + $routeParams.id)
+		$http.get('/ZenLounge/events/' + $routeParams.id)
 		      .success(function (response) {
                 $scope.event = response;
 			    if (response === undefined || response === null) {

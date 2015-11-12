@@ -13,9 +13,9 @@ angular.module('ZenLounge', ['ngRoute','WebCall','ngCookies'])
         {
             templateUrl: 'views/users/allUsers/users.html'
         })
-        .when('/users/:id',
+        .when('/profile',
         {
-            templateUrl: 'views/users/profile/profile.html'
+            templateUrl: 'views/users/profile/user_info.html'
         })
         .when('/products',
         {
