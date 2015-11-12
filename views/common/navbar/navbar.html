@@ -1,41 +1,21 @@
 <div ng-controller="TestController">
-    <center><div class="cookies" class="row clearfix">
-        <div class="col-xs-12 column">
-            <p> Cookies help us to provide, protect and improve our services. By continuing to use our site, you agree to Maitre Yoga's cookie policy.  <a href="http://www.cnil.fr/vos-droits/vos-traces/les-cookies/" target="blank";>Know more.</a></p>
-        </div>
-    </div></center>
+    <center>
+		<div class="cookies" class="row clearfix">
+			<div class="col-xs-12 column">
+				<p> Cookies help us to provide, protect and improve our services. By continuing to use our site, you agree to Maitre Yoga's cookie policy.  <a href="http://www.cnil.fr/vos-droits/vos-traces/les-cookies/" target="blank";>Know more.</a></p>
+			</div>
+		</div>
+	</center>
 
     <!-- header -->
     <div class="row clearfix lign">
 
         <!-- logo -->
         <div class="col-xs-6 column">
-            <img src="Includes/images/logo.png" class="logo">
+			<a href="#/"><img src="Includes/images/logo.png" class="logo"></a>
         </div>
-
-        <!-- welcome, login -->
-        <div class="col-xs-6 column">
-            <form> <!-- a remplacer !!!-->
-                <div class="col-xs-4 column">
-                    <div class="form-group">
-                        <label ><span class="title2">Username:</span></label>
-                        <input type="text" class="form-control" name="username" placeholder="Username">
-                    </div>
-                </div>
-                <div class="col-xs-4 column">
-                    <div class="form-group">
-                        <label ><span class="title2">Password:</span></label>
-                        <input type="password" class="form-control" name="psd" placeholder="Password">
-                    </div>
-                </div>
-                <div class="col-xs-4 column">
-                    <div id="newElement278_wrap" class="wrap">
-                        <INPUT class="btn btn-primary buttonGreen" TYPE="submit" name="valide" value="Sign In" ng-click="login('toto','toto')">
-                    </div>
-                </div>
-            </form>
-        </div>
-        <!-- end of welcome -->
+		
+		<login></login>
 
         <!--menu-->
         <div class="row clearfix lign">
