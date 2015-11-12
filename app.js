@@ -33,6 +33,11 @@ angular.module('ZenLounge', ['ngRoute','WebCall','ngCookies'])
         {
             templateUrl: 'views/event/events/event/event.html'
         })
+        .when('/activitycategories',
+        {
+            templateUrl: 'views/event/activityCategory/activitycategory.html'
+        })
+		
         .otherwise({redirectTo: '/'});
 	})
     .directive('navBar', function() {

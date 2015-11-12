@@ -30,5 +30,18 @@ angular.module('WebCall', []).
         this.getEvents = function (callback) {
             $http.get(api + '/events').success(function (response) {callback(response); });
         };
-        
+		
+		this.getActivityCategories = function(callback) {
+            $http.get(api + '/activitycategories').success(function (response) {callback(response); });
+		}
+		
+		this.addActivityCategories = function(name, callback) {
+			$http({
+                url: api + '/activitycategories',
+                method: "POST",
+                params: {name: name}
+            }).success(function successCallback(response) {
+                callback(response);
+            });
+		}
     }]);
