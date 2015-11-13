@@ -22,7 +22,10 @@ angular.module('WebCall', []).
         this.getProducts = function (callback) {
             $http.get(api + '/products').success(function (response) {callback(response); });
         };
-        
+
+        this.getProductCategories = function(callback) {
+            $http.get(api + '/products/categories').success(function(response) {callback(response);})
+        }
         this.getUsers = function (callback) {
             $http.get(api + '/users').success(function (response) {callback(response); });
         };
