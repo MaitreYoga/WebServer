@@ -1,0 +1,26 @@
+<div ng-controller="ActivityCategoriesController">
+	<p>
+		<div class="titre2small">List of activity categories :</h2>
+			<table width="300px" style="line-height:200%">
+					<tr ng-repeat="catact in activityCategories">
+						<td>{{catact.name}}</td>
+					</tr>
+			</table>
+		</div>
+	</p>
+	<p>
+		<form ng-submit=addActivityCategory()>
+			<div class="col-xs-4 column">
+				<div class="form-group">
+					<label ><span class="title2">Add a new activity category :</span></label>
+					<input type="text" class="form-control" name="name" placeholder="Name" ng-model="newCatAct.name"/>
+				</div>
+			</div>
+			<div class="col-xs-4 column">
+				<div id="newElement278_wrap" class="wrap">
+					<input class="btn btn-primary buttonGreen" TYPE="submit" name="valide" value="Add"/>
+				</div>
+			</div>
+		</form>
+	</p>
+</div>

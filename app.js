@@ -7,15 +7,15 @@ angular.module('ZenLounge', ['ngRoute','WebCall','ngCookies'])
         })
         .when('/signUp',
         {
-            templateUrl: 'views/common/SignUp.html'
+            templateUrl: 'views/common/signup/signup.html'
         })
         .when('/users',
         {
             templateUrl: 'views/users/allUsers/users.html'
         })
-        .when('/users/:id',
+        .when('/profile',
         {
-            templateUrl: 'views/users/profile/profile.html'
+            templateUrl: 'views/users/profile/user_info.html'
         })
         .when('/products',
         {
@@ -33,6 +33,15 @@ angular.module('ZenLounge', ['ngRoute','WebCall','ngCookies'])
         {
             templateUrl: 'views/event/events/event/event.html'
         })
+        .when('/activitycategories',
+        {
+            templateUrl: 'views/event/activityCategory/activitycategory.html'
+        })
+        .when('/cart',
+        {
+            templateUrl: 'views/shop/cart/listProductsCart.html'
+        })
+		
         .otherwise({redirectTo: '/'});
 	})
     .directive('navBar', function() {

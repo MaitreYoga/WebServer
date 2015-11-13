@@ -3,7 +3,7 @@
  */
 angular.module('ZenLounge').controller('ProductController', ['$scope', '$http', '$routeParams', function ($scope, $http, $routeParams  ) {
     $scope.init = function () {
-		$http.get('/ZenLounge/products?id=' + $routeParams.id)
+		$http.get('/ZenLounge/products/' + $routeParams.id)
 		      .success(function (response) {
                 $scope.product = response;
 			    if (response === undefined || response === null) {
