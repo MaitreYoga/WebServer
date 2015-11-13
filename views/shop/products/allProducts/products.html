@@ -1,18 +1,71 @@
 <div ng-controller="ProductsController">
-	<button ng-click="getProducts()">Show products list</button>
-	<p>
-		<div class="titre2small" ng-show="products.length > 0"><h2>Result :</h2>
-            <div ng-repeat="product in products">
-                <h4><a href={{"#/products/"+product.id}}>{{product.name}}</a></h4>
-                <p>Brand: {{product.brand}}</br>
-                   Price: {{product.price}}</br>
-                   Quantity available: {{product.quantityAvailable}}</br>
-                   Member price: {{product.memberPrice}}</br>
-                   Product category: {{product.productCat}}</br>
-                   Seller: {{product.seller}}</br>
-                   <!--img src={{product.urlImage}} alt="product image"-->            
-                </p>
-            </div>
+    <!-- <button ng-click="products()">Show products list</button> -->
+    <p>
+    <div class="row clearfix textAlign lign">
+        <div class="col-xs-3"><input type="text"  ng-model="recherche"></div>
+
+        <div class="col-xs-3">
+            <select name="repeatSelect" id="repeatSelect" ng-model="selectedCat">
+                <option lab value="">All</option><br>
+                <option ng-repeat="option in categories" value="{{option}}">{{option}}</option>
+            </select>
         </div>
+
+        <div class="col-xs-3"></div>
+
+        <div class="col-xs-3">
+            <a href="#/cart"><img src="Includes/images/cart.png" class="logo3"></a>
+        </div>
+
+    </div>
+{{selectedCat}}
+    {{cart}}
+
+    <table class="table table-striped">
+
+            <tr>
+                <th width="15%">Name</th>
+                <th width="10%">Brand</th>
+                <th width="10%">Price</th>
+                <th width="10%">Quantity Available</th>
+                <th width="10%">Member Price</th>
+                <th width="10%">Category</th>
+                <th width="10%">Seller</th>
+                <th width="10%">Quantity wanted</th>
+                <th width="8%">Total</th>
+                <th width="7%">Add to cart</th>
+            </tr>
+
+            <tr ng-repeat="product in products" ng-show="isSearched($index)">
+                <th><a href={{"#/products/"+product.id}}>{{product.name}}</a></th>
+                <th>{{product.brand}}</th>
+                <th>{{product.price}}</th>
+                <th>{{product.quantityAvailable-product.quantityWanted}}</th>
+                <th>{{product.memberPrice}}</th>
+                <th>{{product.productCat}}</th>
+                <th>{{product.seller}}</th>
+                <th><sapn class="plus-icon glyphicon glyphicon-minus" ng-click="minusOne($index)"></sapn>
+                    {{product.quantityWanted}}
+                    <sapn class="minus-icon glyphicon glyphicon-plus" ng-click="plusOne($index)"></sapn></th>
+                <th>{{product.memberPrice*product.quantityWanted}}</th>
+                <th><sapn class="minus-icon glyphicon glyphicon-plus" ng-click="addToCart($index)"></sapn></th></th>
+                   <!--img src={{product.urlImage}} alt="product image"-->
+            </tr>
+        </table>
 	</p>
+
+
+<!-- total -->
+<div class="row clearfix">
+    <center><p class="title2small">Total = {{getTotal()}}</p></center>
+</div>
+
+
+<!-- button -->
+<div class="row clearfix">
+    <div class="wrap">
+        <center><INPUT class="btn btn-primary buttonGreen logo2" TYPE="submit" name="valide" value="Order"></center>
+    </div>
+</div>
+
 </div>

@@ -10,10 +10,6 @@ padding-left:10px;
 padding-right:10px;
 }
 
-.lign {
-margin-top:2%;
-margin-bottom:2%;
-}
 
 /* texts */
 .textAlign {
@@ -112,6 +108,12 @@ margin-bottom:2%;
 height:40px;
 width:250px;
 margin-bottom:2%;
+}
+
+.logo3 {
+    height:50px;
+    width:80px;
+    padding-right: -15px;
 }
 
 /* buttons */
