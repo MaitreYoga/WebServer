@@ -1,8 +1,8 @@
-<div ng-controller="TestController">
+<div ng-controller="NavbarController">
     <center>
-		<div class="cookies" class="row clearfix">
+		<div class="cookies" class="row clearfix" ng-show="cookiesInfos">
 			<div class="col-xs-12 column">
-				<p> Cookies help us to provide, protect and improve our services. By continuing to use our site, you agree to Maitre Yoga's cookie policy.  <a href="http://www.cnil.fr/vos-droits/vos-traces/les-cookies/" target="blank";>Know more.</a></p>
+				<p>Cookies help us to provide, protect and improve our services. By continuing to use our site, you agree to Maitre Yoga's cookie policy. <a href="http://www.cnil.fr/vos-droits/vos-traces/les-cookies/" target="blank";>Know more</a> - <a ng-click="hideCookiesInfos()">Close</a></p>
 			</div>
 		</div>
 	</center>
