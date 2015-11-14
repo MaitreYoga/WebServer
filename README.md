@@ -9,6 +9,10 @@ Pour cloner le dépôt git :
 
 3 - Cloner le dépôt en mettant le nom "docroot"
 
-4 - Créer le dossier "Dependencies" dans docroot
+4 - Aller dans "glassfish4\glassfish\domains\payaradomain"
 
-5 - Installer "angular.js" dans le dossier "Dependencies" (pas besoin de JQuery)
+5 - Supprimer le dossier "docroot"
+
+6 - Faites un lien symbolique renvoyant à votre "docroot"
+
+7 - Copiiez le fichier mysql-connector-java-5.1.-bin.jar dans "payara41/glassfish/lib"
