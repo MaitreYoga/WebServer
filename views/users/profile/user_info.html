@@ -1,7 +1,8 @@
 
 
 <div ng-controller="ProfileController as prof">
-	{{user}}
+	{{loggedUser}}
+    {{user}}
 <span class="title1bis lign">Login information</span>
 <!-- name, mail -->
 <div class="row clearfix">
@@ -52,7 +53,7 @@
 	<div class="col-xs-12 column col-md-4">
 		<div class="form-group">
 			<label  >Old password</label>
-			<input type="password" class="form-control" >
+			<input type="password" class="form-control" ng-model="user.oldPassword">
 		</div>
 	</div>
 
@@ -60,14 +61,14 @@
 	<div class="col-xs-12 column col-md-4">
 		<div class="form-group">
 			<label  >New password</label>
-			<input type="password" class="form-control" >
+			<input type="password" class="form-control" ng-model="user.newPassword">
 		</div>
 	</div>
 	
 	<div class="col-xs-12 column col-md-4">
 		<div class="form-group">
 			<label  >Confirm new password</label>
-			<input type="password" class="form-control" >
+			<input type="password" class="form-control" ng-model="user.confirmNewPassword">
 		</div>
 	</div>
 

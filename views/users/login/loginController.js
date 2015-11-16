@@ -19,9 +19,9 @@ angular.module('ZenLounge').controller('LoginController', ['$scope', 'webcallser
 				else
 				{
                     $cookies.put('userID',successresponse.data.firstName);
-                    $cookies.putObject('user',successresponse.data);
-                    alert($cookies.get('user'));
-                    $root.user = $cookies.getObject('user');
+                    $cookies.putObject('loggedUser',successresponse.data);
+                    alert($cookies.get('loggedUser'));
+                    $root.user = $cookies.getObject('loggedUser');
 				}
 			},
 			function(errorResponse){
