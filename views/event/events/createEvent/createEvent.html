@@ -1,0 +1,351 @@
+<div ng-controller="CreateEventController">
+
+	<div class="row clearfix lign">
+		<div class="col-xs-10 column"><center>
+			<span class="title1">Create your event</h3></span></center>
+		</div> 										
+	</div>
+	
+	<form ng-submit="createEvent()"> <!-- ACTION -->
+	<div class="row clearfix lign">
+	
+		<!-- general info-->
+		<div class="col-xs-5 column borderGreyWhite lign">
+		<center><div class="titleSignUp">Information</div></center><br>
+			
+			<!-- name -->
+			<div class="row clearfix marginSignUp lign">
+				<div class="col-xs-2 column">
+					<div class="form-group">
+						<label for="to_edit" class="title2small">Name*</label>
+					</div>
+				</div>
+				<div class="col-xs-10 column">
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="Name of your event" name="nameEvent" maxlength="50" required title="This field is required" x-moz-errormessage="This field is required"/>
+					</div>
+				</div>
+			</div>
+			
+			<!-- room -->
+			<div class="row clearfix marginSignUp lign">
+				<div class="col-xs-2 column">
+					<label for="to_edit" class="title2small">Room*</label>
+				</div>
+				<div class="col-xs-10 column">
+					<div class="form-group">
+						<select name="repeatSelect" id="repeatSelect" ng-model="selectedRoom" required>
+							<option lab value="">Choose a room</option><br>
+							<option ng-repeat="room in rooms" value="{{room.id}}">{{room.name}} (capacity: {{room.numberPeople}})</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			
+			<!-- activity -->
+			<div class="row clearfix marginSignUp lign">
+				<div class="col-xs-2 column">
+					<label for="to_edit" class="title2small">Activity*</label>
+				</div>
+				<div class="col-xs-10 column">
+					<div class="form-group">
+						<select name="repeatSelect" id="repeatSelect" ng-model="selectedAct" required>
+							<option lab value="">Choose an activity</option><br>
+							<option ng-repeat="activity in activities" value="{{activity.id}}">{{activity.name}}</option>
+						</select>
+					</div>
+					</div>
+			</div>
+			
+			<!-- speaker -->
+			<div class="row clearfix marginSignUp lign">
+				<div class="col-xs-2 column">
+					<label for="to_edit" class="title2small">Speaker*</label>
+				</div>
+				<div class="col-xs-10 column">
+					<div class="form-group">
+						<select name="repeatSelect" id="repeatSelect" ng-model="selectedAct" required>
+							<option lab value="">Choose a speaker</option><br>
+							<option ng-repeat="speaker in speakers" value="{{speaker.id}}">{{speaker.firstName}} {{speaker.lastName}}</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			
+			<!-- price -->
+			<div class="row clearfix marginSignUp lign">
+				<div class="col-xs-2 column">
+					<label for="to_edit" class="title2small">Price*</label>
+				</div>
+				<div class="col-xs-10 column">
+					<div class="form-group">
+						<input type="number" min=0 class="form-control" placeholder="Price of your event" name="priceEvent" maxlength="30" required title="This field is required" x-moz-errormessage="This field is required"/>
+					</div>
+				</div>				
+			</div>
+		
+		</div>
+		
+		<!-- date -->
+		<div class="col-xs-5 column borderGreyWhite lign">
+		<center><div class="titleSignUp">Date and time</div></center>
+		
+			<div class="row clearfix marginSignUp lign">
+				<div class="form-group">
+				<center><button type="button" ng-click="showPunctual=true; showRepet=false" class="btn btn-default" id="puncutal">Punctual</button>
+				<button type="button" ng-click="showRepet=true; showPunctual=false" class="btn btn-default" id="repetitive">Repetitive</button></center>
+				</div>
+			</div>
+			
+			<!-- punctual event -->
+			<div class="row clearfix marginSignUp lign" ng-show="showPunctual" id="displayPunctualEvt">
+				<div class="rowclearfix lign">
+					<p class="textItalic">If the event takes place on 2 days, pick the date of the first day. </p>
+				</div>
+				
+				<!-- date -->
+				<div class="row clearfix lign">
+					<div class="col-xs-1 column">
+						<p> Date </p>
+					</div>
+					<div class="col-xs-6 column">
+						<input type="date" name="pickDate" class="form-control">
+					</div>
+					<div class="col-xs-5 column"></div>
+				</div>
+				
+				<!-- hours -->
+				<div class="row clearfix lign">
+					<div class="col-xs-1 column">
+						<p>From</p>
+					</div>
+					<div class="col-xs-5 column">
+						<table><td><select class="form-control" name="startHour">
+							<option value="00">00</option>
+							<option value="01">01</option>
+							<option value="02">02</option>
+							<option value="03">03</option>
+							<option value="04">04</option>
+							<option value="05">05</option>
+							<option value="06">06</option>
+							<option value="07">07</option>
+							<option value="08">08</option>
+							<option value="09">09</option>
+							<option value="10">10</option>
+							<option value="11">11</option>
+							<option value="12">12</option>
+							<option value="13">13</option>
+							<option value="14">14</option>
+							<option value="15">15</option>
+							<option value="16">16</option>
+							<option value="17">17</option>
+							<option value="18">18</option>
+							<option value="19">19</option>
+							<option value="20">20</option>
+							<option value="21">21</option>
+							<option value="22">22</option>
+							<option value="23">23</option>
+						</select ></td>
+						
+						<td> : </td>
+						
+						<td><select class="form-control" name="startHour">
+							<option value="00">00</option>
+							<option value="15">15</option>
+							<option value="30">30</option>
+							<option value="45">45</option>
+						</select ></td>
+						</tr></table>
+					</div>
+					
+					<div class="col-xs-1 column">
+						<p>to</p>
+					</div>
+					<div class="col-xs-5 column">
+						<table><td><select class="form-control" name="endHour">
+							<option value="00">00</option>
+							<option value="01">01</option>
+							<option value="02">02</option>
+							<option value="03">03</option>
+							<option value="04">04</option>
+							<option value="05">05</option>
+							<option value="06">06</option>
+							<option value="07">07</option>
+							<option value="08">08</option>
+							<option value="09">09</option>
+							<option value="10">10</option>
+							<option value="11">11</option>
+							<option value="12">12</option>
+							<option value="13">13</option>
+							<option value="14">14</option>
+							<option value="15">15</option>
+							<option value="16">16</option>
+							<option value="17">17</option>
+							<option value="18">18</option>
+							<option value="19">19</option>
+							<option value="20">20</option>
+							<option value="21">21</option>
+							<option value="22">22</option>
+							<option value="23">23</option>
+						</select ></td>
+						
+						<td> : </td>
+						
+						<td><select class="form-control" name="endmin">
+							<option value="00">00</option>
+							<option value="15">15</option>
+							<option value="30">30</option>
+							<option value="45">45</option>
+						</select ></td>
+						</tr></table>
+					</div>
+				</div>
+			</div>
+			
+			<!-- repetitive event -->
+			<div class="row clearfix marginSignUp lign" ng-show="showRepet" id="displayRepetitiveEvt">
+				<div class="row clearfix lign">
+					<div class="col-xs-1 column">
+					<p>Every</p>
+					</div>
+					
+					<div class="col-xs-5 column" >
+						<select class="form-control" name="dayWeek">
+						<option value="Lundi">Monday</option>
+						<option value="Mardi">Tuesday</option>
+						<option value="Mercredi">Wenesday</option>
+						<option value="Jeudi">Thursday</option>
+						<option value="Vendredi">Friday</option>
+						<option value="Samedi">Saturday</option>
+						<option value="Dimanche">Sunday</option>
+						</select >
+					</div>
+				</div>
+				
+				<div class="row clearfix lign">
+					<div class="col-xs-1 column">
+						<p>From</p>
+					</div>
+						
+					<div class="col-xs-5 column" >
+						<input type="date" name="startDate" class="form-control" required>
+					</div>
+					
+					<div class="col-xs-1 column" >
+						<p>to</p>
+					</div>
+						
+					<div class="col-xs-5 column">
+						<input type="date" name="endDate" class="form-control" required>
+					</div>
+				</div>
+				
+				<div class="row clearfix lign">
+					<div class="col-xs-1 column">
+						<p>From</p>
+					</div>
+					<div class="col-xs-5 column">
+						<table><td><select class="form-control" name="startHour">
+							<option value="00">00</option>
+							<option value="01">01</option>
+							<option value="02">02</option>
+							<option value="03">03</option>
+							<option value="04">04</option>
+							<option value="05">05</option>
+							<option value="06">06</option>
+							<option value="07">07</option>
+							<option value="08">08</option>
+							<option value="09">09</option>
+							<option value="10">10</option>
+							<option value="11">11</option>
+							<option value="12">12</option>
+							<option value="13">13</option>
+							<option value="14">14</option>
+							<option value="15">15</option>
+							<option value="16">16</option>
+							<option value="17">17</option>
+							<option value="18">18</option>
+							<option value="19">19</option>
+							<option value="20">20</option>
+							<option value="21">21</option>
+							<option value="22">22</option>
+							<option value="23">23</option>
+						</select ></td>
+						
+						<td> : </td>
+						
+						<td><select class="form-control" name="startHour">
+							<option value="00">00</option>
+							<option value="15">15</option>
+							<option value="30">30</option>
+							<option value="45">45</option>
+						</select ></td>
+						</tr></table>
+					</div>
+					
+					
+					<div class="col-xs-1 column">
+						<p>to</p>
+					</div>
+					<div class="col-xs-5 column">
+						<table><td><select class="form-control" name="endHour">
+							<option value="00">00</option>
+							<option value="01">01</option>
+							<option value="02">02</option>
+							<option value="03">03</option>
+							<option value="04">04</option>
+							<option value="05">05</option>
+							<option value="06">06</option>
+							<option value="07">07</option>
+							<option value="08">08</option>
+							<option value="09">09</option>
+							<option value="10">10</option>
+							<option value="11">11</option>
+							<option value="12">12</option>
+							<option value="13">13</option>
+							<option value="14">14</option>
+							<option value="15">15</option>
+							<option value="16">16</option>
+							<option value="17">17</option>
+							<option value="18">18</option>
+							<option value="19">19</option>
+							<option value="20">20</option>
+							<option value="21">21</option>
+							<option value="22">22</option>
+							<option value="23">23</option>
+						</select ></td>
+						
+						<td> : </td>
+						
+						<td><select class="form-control" name="endmin">
+							<option value="00">00</option>
+							<option value="15">15</option>
+							<option value="30">30</option>
+							<option value="45">45</option>
+						</select ></td>
+						</tr></table>
+					</div>
+				</div>
+			</div>
+			
+			
+			
+		</div>
+	</div>
+		
+	<p class="textItalic">* Fields required</p>
+	
+	
+	<!-- button -->
+	<div class="row clearfix ">
+		<div class="wrap">
+			<center><INPUT class="btn btn-primary buttonGreen logo2" TYPE="submit" name="valide" value="Create event"></center>
+		</div>
+	</div>
+		
+</div>
+</form>
+
+<br>
+
+</div>

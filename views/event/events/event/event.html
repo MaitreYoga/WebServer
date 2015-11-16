@@ -1,11 +1,114 @@
-<div ng-controller="EventController">
+﻿<div ng-controller="EventController">
 	<h3>{{errorMessage}}</h3>
 	<div ng-show="event">
-		<table width="300px" style="line-height:200%">
-			<tr>
-				<td>Event name :</td>
-				<td>{{event.name}}</td>
-			</tr>
-		</table>
+		
+		<center><div class="row clearfix title1bis lign">
+			{{event.name}}
+		</div></center>
+		
+		<div class="row clearfix lign">
+	
+			<div class="col-xs-2"></div>
+			
+			<div class="col-xs-7 column borderGreyWhite lign">
+				<center><div class="titleSignUp lign">Information</div></center> 
+				
+				<br>
+				
+				<center><div class="row clearfix">
+					<div class="col-xs-6 column">
+						<div class="form-group">
+							<label >Room's name:</label>
+							{{event.room}}
+						</div>
+					</div>
+					<div class="col-xs-6 column">
+						<div class="form-group">
+							<label >Room's surface:</label>
+							{{event.room.surface}}
+					  </div>
+					</div>
+				</div><center>
+				
+				<center><div class="row clearfix">
+					<div class="col-xs-6 column">
+						<div class="form-group">
+							<label >Activity's name:</label>
+							{{event.eventAct}}
+						</div>
+					</div>
+					<div class="col-xs-6 column">
+						<div class="form-group">
+							<label >Speaker:</label>
+							{{event.speaker}}
+						</div>
+					</div>
+				</div><center>
+				
+				<br>
+				
+				<center><div class="row clearfix">
+					<div class="col-xs-6 column">
+						<div class="form-group">
+							<label >Start date:</label>
+							{{event.startDate}}
+						</div>
+					</div>
+					<div class="col-xs-6 column">
+						<div class="form-group">
+							<label >End date:</label>
+							{{event.endDate}}
+					  </div>
+					</div>
+				</div><center>
+				
+				<center><div class="row clearfix">
+					<div class="col-xs-6 column">
+						<div class="form-group">
+							<label >Time:</label>
+							{{event.period}}
+						</div>
+					</div>
+					<div class="col-xs-6 column">
+						<div class="form-group">
+							<label >Price:</label>
+							{{event.price}} €
+					  </div>
+					</div>
+				</div><center>
+				
+				<center><div class="row clearfix">
+					<div class="col-xs-6 column">
+						<div class="form-group">
+							<label >Place(s) left:</label>
+							{{event.place}}
+						</div>
+					</div>
+					<div class="col-xs-6 column">
+						<div class="form-group">
+							<label >You:</label>
+							You are {{event.state}}
+					  </div>
+					</div>
+				</div><center>
+				
+			</div>
+			
+			<div class="col-xs-2"></div>
+		
+		</div>
+
 	</div>
+	
+	
+	
+<!-- button -->
+<div class="row clearfix" ng-show="showRegisterButton()">
+    <div class="wrap">
+        <center><INPUT class="btn btn-primary buttonGreen logo2" TYPE="submit" name="valide" value="Register"></center>
+    </div>
+</div>
+
+<br>
+
 </div>

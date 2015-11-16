@@ -1,20 +1,53 @@
 <div ng-controller="EventsController">
-	<button ng-click="getEvents()">Show events list</button>
+	<!--<button ng-click="getEvents()">Show events list</button> -->
+		
 	<p>
-		<div class="titre2small" ng-show="events.length > 0"><h2>Result :</h2>
-            <div ng-repeat="event in events">
-                <h4><a href={{"#/events/"+event.id}}>{{event.name}}</a></h4>
-                <p>Place: {{event.place}}</br>
-                   Price: {{event.price}}</br>
-                   Period: {{event.period}}</br>
-                   Start Date: {{event.startDate}}</br>
-                   End Date: {{event.endDate}}</br>
-                   Activity: {{event.activity}}</br>
-                   Speaker: {{event.speaker}}</br>
-                   Room: {{event.room}}</br>
-                   State: {{event.state}}</br>
-                </p>
-            </div>
-        </div>
+    <div class="row clearfix textAlign lign">
+        <div class="col-xs-3">
+			Search:  
+			<input type="text"  ng-model="recherche">
+		</div>
+
+        <div class="col-xs-3">
+			Sort by activity:  
+			<select name="repeatSelect" id="repeatSelect" ng-model="selectedAct">
+                <option lab value="">All</option><br>
+                <option ng-repeat="option in activities" value="{{option}}">{{option}}</option>
+            </select>
+		</div>
+		
+		<div class="col-xs-6"></div>
+    </div>
+
+    <table class="table table-striped">
+
+            <tr>
+                <th width="10%" class="title2">Name</th>
+                <th width="8%" class="title2">Places left</th>
+                <th width="8%" class="title2">Price (€)</th>
+                <th width="11%" class="title2">Time</th>
+                <th width="11%" class="title2">Start date</th>
+                <th width="11%" class="title2">End date</th>
+                <th width="10%" class="title2">Activity</th>
+                <th width="10%" class="title2">Speaker</th>
+                <th width="11%" class="title2">Room</th>
+                <th width="10%" class="title2">State</th>
+            </tr>
+
+            <tr ng-repeat="event in events" ng-show="isSearched($index)">
+                <th><a href={{"#/events/"+event.id}}>{{event.name}}</a></th>
+                <th>{{event.place}}</th>
+                <th>{{event.price}}</th>
+                <th>{{event.period}}</th>
+                <th>{{event.startDate}}</th>
+				<th>{{event.endDate}}</th></th>
+                <th>{{event.eventAct}}</th>
+                <th>{{event.speaker}}</th>
+                <th>{{event.room}}</th>
+                <th>{{event.state}}</th>
+            </tr>
+        </table>
 	</p>
+	
+	<p class="textItalic"> Click on an event's name to see the details and to register. </p>
 </div>

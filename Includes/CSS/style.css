@@ -10,6 +10,10 @@ padding-left:10px;
 padding-right:10px;
 }
 
+.lign {
+margin-top:2%;
+margin-bottom:2%;
+}
 
 /* texts */
 .textAlign {
@@ -19,6 +23,14 @@ text-align:center;
 
 .text {
 text-align:justify;
+}
+
+.textRight {
+text-align:right;
+}
+
+.textLeft {
+text-align:left;
 }
 
 .textItalic {

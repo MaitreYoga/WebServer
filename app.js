@@ -41,6 +41,10 @@ angular.module('ZenLounge', ['ngRoute','WebCall','ngCookies'])
         {
             templateUrl: 'views/shop/cart/listProductsCart.html'
         })
+		.when('/createEvent',
+        {
+            templateUrl: 'views/event/events/createEvent/createEvent.html'
+        })
 		
         .otherwise({redirectTo: '/'});
 	})
