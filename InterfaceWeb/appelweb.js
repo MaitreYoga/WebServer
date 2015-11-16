@@ -31,7 +31,7 @@ angular.module('WebCall', []).
         };
         
         this.getEvents = function (callback) {
-            $http.get(api + '/events').success(function (response) {callback(response); });
+            $http.get(api + '/events').success(function (response) {alert(response);callback(response); });
         };
 		
 		this.getActivityCategories = function(callback) {

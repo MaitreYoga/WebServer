@@ -2,14 +2,15 @@
  * Created by jorismaillet on 06/11/15.
  */
 angular.module('ZenLounge').controller('EventsController', ['$scope', 'webcallservice', function ($scope, webcallservice) {
-    /*$scope.getEvents = webcallservice.getEvents(function (data) {
+    $scope.getEvents = webcallservice.getEvents(function (data) {
 		$scope.events = data;
-	});*/
+		alert('ok');
+	});
 	
 	$scope.recherche ="";
     $scope.selectedAct="";
 	$scope.activities= ["Yoga", "Fitness", "Salsa", "Conference"];
-	$scope.events = [
+	/*$scope.events = [
         {
             id:1,
 			name:"Cours yoga",
@@ -50,7 +51,7 @@ angular.module('ZenLounge').controller('EventsController', ['$scope', 'webcallse
 			room:"room conference",
 			state:"unregistered"
         }
-    ];
+    ];*/
 
 	$scope.isSearched = function(index) {
         if($scope.selectedAct=="" || $scope.selectedAct==$scope.events[index].eventAct){
