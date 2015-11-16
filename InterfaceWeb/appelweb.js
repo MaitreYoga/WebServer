@@ -18,7 +18,14 @@ angular.module('WebCall', []).
 
             });
         };
-        
+
+        this.userProfile = function (id,success,error) {
+            $http({
+                url: api + '/users',
+                method: "GET",
+                params: {id: id}
+            }).then(function(response){success(response)},function(response){error(response)})
+        }
         this.getProducts = function (callback) {
             $http.get(api + '/products').success(function (response) {callback(response); });
         };
