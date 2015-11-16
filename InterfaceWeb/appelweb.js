@@ -64,4 +64,9 @@ angular.module('WebCall', []).
             });
 		};
 		
-    }]);
+    }])
+    .run(function($http,$cookies) {
+        $http.defaults.headers.common.login = $cookies.getObject('loggedUser').login
+        $http.defaults.headers.common.token = $cookies.getObject('loggedUser').connectiontoken;
+
+    });
