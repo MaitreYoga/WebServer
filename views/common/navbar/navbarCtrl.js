@@ -2,7 +2,7 @@
  * Created by lucasesteban on 04/11/15.
  */
 angular.module('ZenLounge').controller('NavbarController', ['$scope','webcallservice','$cookies','$rootScope', function($scope, webcallservice,$cookies,$root){
-    $root.user=$cookies.getObject('user');
+    $root.loggedUser=$cookies.getObject('loggedUser');
 	
 	$scope.cookiesInfos = ($cookies.get("cookiesInfos") === undefined);
 	
