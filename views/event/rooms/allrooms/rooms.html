@@ -1,0 +1,36 @@
+<div ng-controller="RoomsController">
+ 
+    <p>
+    <div class="row clearfix textAlign lign">
+        <div class="col-xs-3"><center><label>Find a room</label> <input type="text"  ng-model="recherche"></center></div>
+
+    
+        <div class="col-xs-3"></div>
+
+    </div>
+
+
+    <table class="table table-striped">
+
+            <tr>
+                <th width="20%">Name</th>
+                <th width="20%">Surface</th>
+            </tr>
+
+            <tr ng-repeat="room in Rooms" ng-show="isSearched($index)">
+                <th>{{room.name}}</th>
+                <th>{{room.surface}}</th>
+                 
+            </tr>
+        </table>
+    </p>
+
+<div class="row clearfix">
+    <div class="wrap">
+    <center><button onclick=""></button></center>
+        <center><a href="#/createroom"><INPUT class="btn btn-primary buttonGreen logo2" TYPE="submit" name="valide"  value="Add One"></center>
+    </div>
+</div
+
+
+</div>

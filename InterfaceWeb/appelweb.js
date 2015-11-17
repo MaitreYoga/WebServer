@@ -41,6 +41,10 @@ angular.module('WebCall', []).
             $http.get(api + '/events').success(function (response) {callback(response); });
         };
 		
+        this.getRooms = function (callback) {
+            $http.get(api + '/rooms').success(function (response) {alert(response);callback(response); });
+        };
+        
 		this.getActivities = function (callback) {
             $http.get(api + '/activities').success(function (response) {callback(response); });
         };
