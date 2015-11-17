@@ -1,7 +1,7 @@
 /**
  * Created by jorismaillet on 09/11/15.
  */
-angular.module('ZenLounge').controller('LoginController', ['$scope', 'webcallservice','$cookies','$rootScope',function($scope, webcallservice,$cookies,$root){
+angular.module('ZenLounge').controller('LoginController', ['$scope', 'webcallservice','$cookies','$rootScope','$route',function($scope, webcallservice,$cookies,$root,$route){
     $root.loggedUser=$cookies.getObject('loggedUser');
     //alert($root.loggedUser.firstName);
 
@@ -27,6 +27,7 @@ angular.module('ZenLounge').controller('LoginController', ['$scope', 'webcallser
                     alert($cookies.get('loggedUser'));
                     $root.loggedUser = $cookies.getObject('loggedUser');
                     alert($root.loggedUser);
+                    $route.reload();
 				}
 			},
 			function(errorResponse){
@@ -37,6 +38,7 @@ angular.module('ZenLounge').controller('LoginController', ['$scope', 'webcallser
     $scope.logOut = function() {
         $root.loggedUser= null;
         $cookies.remove('loggedUser');
+        $route.reload();
     }
 
 }]);
