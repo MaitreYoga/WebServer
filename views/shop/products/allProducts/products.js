@@ -105,7 +105,6 @@ angular.module('ZenLounge').controller('ProductsController', ['$scope', 'webcall
         cookies.putObject('cart',$root.cart)
     };
     /*$scope.getProducts = webcallservice.getProducts(function (data) {
-        alert('ok');
 		$scope.products = data;
 	});*/
 }]);
