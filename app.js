@@ -13,7 +13,7 @@ angular.module('ZenLounge', ['ngRoute','WebCall','ngCookies'])
         {
             templateUrl: 'views/users/allUsers/users.html'
         })
-        .when('/editOwnProfile',
+        .when('/profile',
         {
             templateUrl: 'views/users/editOwnProfile/user_info.html'
         })

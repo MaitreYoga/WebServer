@@ -18,9 +18,6 @@
         </div>
 
     </div>
-{{selectedCat}}
-    {{cart}}
-
     <table class="table table-striped">
 
             <tr>
@@ -37,7 +34,7 @@
             </tr>
 
             <tr ng-repeat="product in products" ng-show="isSearched($index)">
-                <th><a href={{"#/products/"+product.id}}>{{product.name}}</a></th>
+                <th><a href="#/products/{{product.id}}">{{product.name}}</a></th>
                 <th>{{product.brand}}</th>
                 <th>{{product.price}}</th>
                 <th>{{product.quantityAvailable-product.quantityWanted}}</th>
