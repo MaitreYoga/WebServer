@@ -1,7 +1,7 @@
 /**
  * Created by jorismaillet on 09/11/15.
  */
-angular.module('ZenLounge').controller('LoginController', ['$scope', 'webcallservice','$cookies','$rootScope','$route',function($scope, webcallservice,$cookies,$root,$route){
+angular.module('ZenLounge').controller('LoginController', ['$scope', 'webcallservice','$cookies','$rootScope','$route','$location','$window',function($scope, webcallservice,$cookies,$root,$route,$location,window){
     $root.loggedUser=$cookies.getObject('loggedUser');
     //alert($root.loggedUser.firstName);
 
@@ -24,11 +24,9 @@ angular.module('ZenLounge').controller('LoginController', ['$scope', 'webcallser
 				{
                     $cookies.put('userID',successresponse.data.firstName);
                     $cookies.putObject('loggedUser',successresponse.data);
-                    alert($cookies.get('loggedUser'));
                     $root.loggedUser = $cookies.getObject('loggedUser');
-                    alert($root.loggedUser);
-                    $route.reload();
-				}
+                    window.location = "http://localhost:8080/";
+                }
 			},
 			function(errorResponse){
                 alert('connection failed' + errorResponse);
@@ -38,7 +36,7 @@ angular.module('ZenLounge').controller('LoginController', ['$scope', 'webcallser
     $scope.logOut = function() {
         $root.loggedUser= null;
         $cookies.remove('loggedUser');
-        $route.reload();
+        window.location = "http://localhost:8080/";
     }
 
 }]);
