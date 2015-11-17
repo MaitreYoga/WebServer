@@ -8,8 +8,8 @@ angular.module('ZenLounge').controller('ProductsController', ['$scope', 'webcall
     $root.cart= cookies.getObject('cart');
     //cookies.remove('cart');
     //$scope.categories = webcallservice.getProductCategories();
-    $scope.categories= ["chaussures","bando"];
-    /*$scope.products = [
+
+    $scope.products = [
         {
             name:"chaussures adidas",
             brand:"adidas",
@@ -40,7 +40,20 @@ angular.module('ZenLounge').controller('ProductsController', ['$scope', 'webcall
             seller:"titi",
             quantityWanted:0
         }
-    ];*/
+    ];
+
+    $scope.categories= [];
+    getCategories = function (tableau) {
+        for (i = 0; i < tableau.length; i++) {
+            if($scope.categories.indexOf(tableau[i].productCat)>=0) {
+
+            } else {
+                $scope.categories.push(tableau[i].productCat)
+            }
+        }
+    };
+    getCategories($scope.products);
+
 
     $scope.getTotal = function(){
         var total = 0;
@@ -91,8 +104,8 @@ angular.module('ZenLounge').controller('ProductsController', ['$scope', 'webcall
         $root.cart.push($scope.products[index]);
         cookies.putObject('cart',$root.cart)
     };
-    $scope.getProducts = webcallservice.getProducts(function (data) {
+    /*$scope.getProducts = webcallservice.getProducts(function (data) {
         alert('ok');
 		$scope.products = data;
-	});
+	});*/
 }]);

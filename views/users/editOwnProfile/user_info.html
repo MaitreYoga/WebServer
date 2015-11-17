@@ -1,8 +1,8 @@
 
 
 <div ng-controller="ProfileController as prof">
-	{{loggedUser}}
-    {{user}}
+	$rootScope.loggedUser : {{loggedUser}}
+    $scope.user : {{user}}
 <span class="title1bis lign">Login information</span>
 <!-- name, mail -->
 <div class="row clearfix">
@@ -101,20 +101,20 @@
 	<div class="col-md-4 column">
 		<div class="form-group">
 			<label  >Post code</label>
-			<input type="number" class="form-control" value="#" name="pc" >
+			<input type="number" class="form-control" ng-model="user.pc" >
 		</div>
 	</div>
 	
 	<div class="col-md-4 column">
 		<div class="form-group">
-			<label  >City</label>
-			<input type="text" class="form-control" maxlength="30" value="#" name="city">
+			<label >City</label>
+			<input type="text" class="form-control" maxlength="30" ng-model="user.city">
 		</div>
 	</div>
 	
 	<div class="col-md-4 column">
 		<div class="wrap">
-			<INPUT class="btn btn-primary buttonGreen" TYPE="submit" name="valide" value="Change address">
+			<INPUT class="btn btn-primary buttonGreen" TYPE="submit" name="valide" value="Valider">
 		</div>
 	</div> 										    
 </div>
