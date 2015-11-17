@@ -38,7 +38,11 @@ angular.module('WebCall', []).
         };
         
         this.getEvents = function (callback) {
-            $http.get(api + '/events').success(function (response) {alert(response);callback(response); });
+            $http.get(api + '/events').success(function (response) {callback(response); });
+        };
+		
+		this.getActivities = function (callback) {
+            $http.get(api + '/activities').success(function (response) {callback(response); });
         };
 		
 		this.getActivityCategories = function(callback) {
@@ -54,6 +58,15 @@ angular.module('WebCall', []).
                 callback(response);
             });
 		};
+		
+		this.getRooms = function (callback) {
+            $http.get(api + '/rooms').success(function (response) {callback(response); });
+        };
+		
+		this.getSpeakers = function (callback) {
+            $http.get(api + '/speakers').success(function (response) {callback(response); });
+        };
+		
 		this.addUser = function(user, callback) {
 			$http({
                 url: api + '/users',

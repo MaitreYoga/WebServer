@@ -4,13 +4,38 @@
 angular.module('ZenLounge').controller('EventsController', ['$scope', 'webcallservice', function ($scope, webcallservice) {
     $scope.getEvents = webcallservice.getEvents(function (data) {
 		$scope.events = data;
-		alert('ok');
+		getActEvent();
+		getRoomEvent();
+		getSpeakerEvent();
+	});
+	
+	$scope.selectedAct="";
+	
+	$scope.getActivities=webcallservice.getActivities(function (data) {
+		$scope.activities = data.activities;
+		getActEvent();
+		getRoomEvent();
+		getSpeakerEvent();
+	});
+	
+	$scope.getRooms=webcallservice.getRooms(function (data) {
+		$scope.rooms = data.rooms;
+		getActEvent();
+		getRoomEvent();
+		getSpeakerEvent();
+	});
+	
+	$scope.getSpeakers=webcallservice.getSpeakers(function (data) {
+		$scope.speakers = data.speakers;
+		getActEvent();
+		getRoomEvent();
+		getSpeakerEvent();
 	});
 	
 	$scope.recherche ="";
-    $scope.selectedAct="";
-	$scope.activities= ["Yoga", "Fitness", "Salsa", "Conference"];
-	/*$scope.events = [
+    
+	/*$scope.activities= ["Yoga", "Fitness", "Salsa", "Conference"];
+	$scope.events = [
         {
             id:1,
 			name:"Cours yoga",
@@ -65,7 +90,37 @@ angular.module('ZenLounge').controller('EventsController', ['$scope', 'webcallse
         else {
             return 0;
         }
-
     };
+	
+	var getActEvent = function() {
+        for(j=0;j<$scope.events.length;j++) {
+			for (i=0; i< $scope.activities.length;i++) {
+				if($scope.activities[i].ID == $scope.events[j].activity) {
+					$scope.events[j].eventActName=$scope.activities[i].name;
+				}
+			}
+		}
+    };
+	
+	var getRoomEvent = function() {
+	for(j=0;j<$scope.events.length;j++) {
+		for (i=0; i< $scope.rooms.length;i++) {
+			if($scope.rooms[i].idRoom == $scope.events[j].room) {
+				$scope.events[j].eventRoomName=$scope.rooms[i].name;
+			}
+		}
+	}
+    };
+	
+	var getSpeakerEvent = function() {
+        for(j=0;j<$scope.events.length;j++) {
+			for (i=0; i< $scope.speakers.length;i++) {
+				if($scope.speakers[i].id == $scope.events[j].speaker) {
+					$scope.events[j].eventSpeakerName=$scope.speakers[i].name;
+				}
+			}
+		}
+    };
+	
 	
 }]);
