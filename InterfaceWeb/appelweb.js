@@ -4,8 +4,9 @@
 angular.module('WebCall', []).
     service('webcallservice', ['$http', function ($http) {
         //api='https://zenlounge-restapi.herokuapp.com';
-        api = 'http://localhost:8080/ZenLounge';
-
+        //api = 'http://localhost:8080/ZenLounge';
+        api='https://zenlounge-maven.herokuapp.com';
+        
         this.login = function (login, mdp, success, error) {
             $http({
                 url: api + '/login',
