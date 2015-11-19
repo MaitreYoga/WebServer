@@ -69,6 +69,9 @@ angular.module('WebCall', []).
 
         this.getProductCategories = function(callback) {
             $http.get(api + '/products/categories').success(function(response) {callback(response);})
+        }
+        this.getUsers = function (callback) {
+            $http.get(api + '/users').success(function (response) {callback(response); });
         };
 
         this.getBrands = function (success,error) {
