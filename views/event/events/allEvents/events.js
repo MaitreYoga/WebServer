@@ -2,35 +2,38 @@
  * Created by jorismaillet on 06/11/15.
  */
 angular.module('ZenLounge').controller('EventsController', ['$scope', 'webcallservice', function ($scope, webcallservice) {
+    $scope.compteur = 0;
+
+    $scope.compter=function() {
+        $scope.compteur +=1;
+        if($scope.compteur==4) {
+            getActEvent();
+            getRoomEvent();
+            getSpeakerEvent();
+        }
+    };
+
     $scope.getEvents = webcallservice.getEvents(function (data) {
 		$scope.events = data;
-		getActEvent();
-		getRoomEvent();
-		getSpeakerEvent();
-	});
+        $scope.compter();
+    });
 	
 	$scope.selectedAct="";
 	
 	$scope.getActivities=webcallservice.getActivities(function (data) {
 		$scope.activities = data.activities;
-		getActEvent();
-		getRoomEvent();
-		getSpeakerEvent();
-	});
+        $scope.compter();
+    });
 	
 	$scope.getRooms=webcallservice.getRooms(function (data) {
 		$scope.rooms = data.rooms;
-		getActEvent();
-		getRoomEvent();
-		getSpeakerEvent();
-	});
+        $scope.compter();
+    });
 	
 	$scope.getSpeakers=webcallservice.getSpeakers(function (data) {
 		$scope.speakers = data.speakers;
-		getActEvent();
-		getRoomEvent();
-		getSpeakerEvent();
-	});
+        $scope.compter();
+    });
 	
 	$scope.recherche ="";
     
@@ -77,7 +80,6 @@ angular.module('ZenLounge').controller('EventsController', ['$scope', 'webcallse
 			state:"unregistered"
         }
     ];*/
-
 	$scope.isSearched = function(index) {
         if($scope.selectedAct=="" || $scope.selectedAct==$scope.events[index].eventAct){
             if($scope.recherche=="" || $scope.events[index].name.indexOf($scope.recherche)>-1) {

@@ -56,7 +56,26 @@ angular.module('ZenLounge', ['ngRoute','WebCall','ngCookies'])
         {
             templateUrl: 'views/event/events/createEvent/createEvent.html'
         })
-		
+        .when('/notifications',
+        {
+            templateUrl : 'views/users/notifications/notifications.html'
+        })
+        .when('/manageProducts',
+        {
+            templateUrl : 'views/shop/products/manageProducts/manageProducts.html'
+        })
+        .when('/manageProducts/:id',
+        {
+            templateUrl : 'views/shop/products/manageProducts/manageproduct/manageProduct.html'
+        })
+        .when('/manageActivities',
+        {
+            templateUrl : 'views/event/activity/activities.html'
+        })
+        .when('/manageActivity/:id',
+        {
+            templateUrl : 'views/event/activity/manageOneActivity/manageOneActivity.html'
+        })
         .otherwise({redirectTo: '/'});
 	})
     .directive('navBar', function() {

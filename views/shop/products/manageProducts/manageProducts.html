@@ -1,0 +1,47 @@
+﻿
+<div ng-controller="ownProductsCtrl">
+<!-- products table -->
+<span class="title1bis lign">Your products</span>
+<div class="row clearfix">
+	
+<table class="table table-striped" height="20">
+        <thead>
+            <tr>
+                <th width="10%">Quantity available</th>
+                <th width="15%">Name</th>
+				<th width="15%">Brand</th>
+				<th width="15%">Category</th>
+                <th width="10%">Price (€)</th>
+                <th width="10%"></th>
+                <th width="10%"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- a completer !!!!-->
+			<tr ng-repeat="product in products">
+                <td>{{product.quantityAvailable}}</td>
+                <td>{{product.name}}</td>
+                <td>{{product.brand}}</td>
+                <td>{{product.productCat}}</td>
+				<td>{{product.price}}</td>
+                <td><a href="#/manageProducts/{{product.id}}"><button>Update</button></a></td>
+                <td><button ng-click="delete(product)">Delete</button></td>
+            </tr>
+        </tbody>
+    </table>
+	
+	
+</div>
+
+<!-- end list products -->
+
+<!-- button -->
+<div class="row clearfix">
+	<div class=" col-xs-4 column">
+		<div class="wrap">
+		<a href="#/manageProducts/new"><INPUT class="btn btn-primary buttonGreen logo2"  name="valide" value="Create"></a>
+		</div>
+	</div>
+</div>
+
+</div>
