@@ -1,0 +1,60 @@
+<div ng-controller="CreateRoomController">
+
+	<div class="row clearfix lign">
+		<div class="col-xs-10 column"><center>
+			<span class="title1">Create a room</h3></span></center>
+		</div> 										
+	</div>
+	
+	<form ng-submit="createRoom()"> <!-- ACTION -->
+	<div class="row clearfix lign">
+	
+		<!-- general info-->
+		<div class="col-xs-5 column borderGreyWhite lign">
+		<center><div class="titleSignUp">Information</div></center><br>
+			
+			<!-- name -->
+			<div class="row clearfix marginSignUp lign">
+				<div class="col-xs-2 column">
+					<div class="form-group">
+						<label for="to_edit" class="title2small">Name*</label>
+					</div>
+				</div>
+				<div class="col-xs-10 column">
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="Name of the room" name="nameRoom" maxlength="50" required title="This field is required" x-moz-errormessage="This field is required"/>
+					</div>
+				</div>
+			</div>
+			
+				<!-- Surface -->
+			<div class="row clearfix marginSignUp lign">
+				<div class="col-xs-2 column">
+					<label for="to_edit" class="title2small">Surface*</label>
+				</div>
+				<div class="col-xs-10 column">
+					<div class="form-group">
+						<input type="number" min=0 class="form-control" placeholder="Surface of the room" name="roomSurface" maxlength="30" required title="This field is required" x-moz-errormessage="This field is required"/>
+					</div>
+				</div>				
+			</div>
+		
+		</div>
+			
+		
+	<p class="textItalic">* Fields required</p>
+	
+	
+	<!-- button -->
+	<div class="row clearfix ">
+		<div class="wrap">
+			<center><INPUT class="btn btn-primary buttonGreen logo2" TYPE="submit" name="valide" value="Create room"></center>
+		</div>
+	</div>
+		
+</div>
+</form>
+
+<br>
+
+</div>

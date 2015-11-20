@@ -1,0 +1,30 @@
+<div ng-controller="ownActivitiesController">
+    {{acts}}
+    <span class="title1bis lign">Your Activities</span>
+    <div class="row clearfix">
+
+        <table class="table table-striped" height="20">
+            <thead>
+            <tr>
+                <th width="10%">Name</th>
+                <th width="15%">Short Description</th>
+                <th width="15%">Category</th>
+                <th width="10%"></th>
+                <th width="10%"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- a completer !!!!-->
+            <tr ng-repeat="act in acts">
+                <td>{{act.name}}</td>
+                <td>{{act.shortDescription}}</td>
+                <td>{{act.catAct.name}}</td>
+                <td><a href="#/manageActivity/{{act.ID}}"><button>Update</button></a></td>
+                <td><button ng-click="delete(act)">Delete</button></td>
+            </tr>
+            </tbody>
+        </table>
+
+
+    </div>
+</div>

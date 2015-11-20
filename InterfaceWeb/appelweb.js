@@ -6,6 +6,7 @@ angular.module('WebCall', []).
         //api='https://zenlounge-restapi.herokuapp.com';
         api = 'http://localhost:8080/ZenLounge';
 
+        //users
         this.login = function (login, mdp, success, error) {
             $http({
                 url: api + '/login',
@@ -19,15 +20,50 @@ angular.module('WebCall', []).
             });
         };
 
-        this.userProfile = function (id,success,error) {
+        this.addUser = function(user, callback) {
             $http({
                 url: api + '/users',
+                method: "POST",
+                params: user
+            }).success(function successCallback(response) {
+                callback(response);
+            });
+        };
+
+        this.userProfile = function (id,success,error) {
+            $http({
+                url: api + '/users/'+id,
+                method: "GET"
+            }).then(function(response){success(response)},function(response){error(response)})
+        };
+
+        this.getUsers = function (callback) {
+            $http.get(api + '/users').success(function (response) {callback(response); });
+        };
+
+    //shop
+        //products
+        this.getProducts = function (callback) {
+            $http.get(api + '/products').success(function (response) {callback(response); });
+        };
+
+        this.getProduct = function (id,success,error) {
+            $http({
+                url: api + '/products',
                 method: "GET",
                 params: {id: id}
             }).then(function(response){success(response)},function(response){error(response)})
-        }
-        this.getProducts = function (callback) {
-            $http.get(api + '/products').success(function (response) {callback(response); });
+        };
+
+        this.updateProduct =function() {};
+
+        this.createProduct = function() {};
+
+        this.getOwnProducts = function (success,error) {
+            $http({
+                url: api + '/products',
+                method: "GET"
+            }).then(function(response){success(response)},function(response){})
         };
 
         this.getProductCategories = function(callback) {
@@ -36,11 +72,20 @@ angular.module('WebCall', []).
         this.getUsers = function (callback) {
             $http.get(api + '/users').success(function (response) {callback(response); });
         };
-        
+
+        this.getBrands = function (success,error) {
+            $http({
+                url: api + '/brands',
+                method: "GET"
+            }).then(function(response){success(response)},function(response){error(response)})
+        };
+
+    //events
         this.getEvents = function (callback) {
             $http.get(api + '/events').success(function (response) {callback(response); });
         };
 		
+<<<<<<< HEAD
 		this.getEvent = function (id,success,error) {
             $http({
                 url: api + '/events',
@@ -57,13 +102,31 @@ angular.module('WebCall', []).
             $http.get(api + '/repetitives').success(function (response) {callback(response); });
         };
 		
+=======
+        this.getRooms = function (callback) {
+            $http.get(api + '/rooms').success(function (response) {alert(response);callback(response); });
+        };
+        
+>>>>>>> 9d72e247869fb788d0b0d4dbf526ee3f8c51d91f
 		this.getActivities = function (callback) {
             $http.get(api + '/activities').success(function (response) {callback(response); });
+        };
+
+        this.createActivity = function () {};
+
+        this.updateActivity = function() {};
+
+        this.getActivity = function (id,success) {
+            $http({
+                url: api + '/activity',
+                method: "GET",
+                params: {id: id}
+            }).then(function(response){success(response)},function(response){})
         };
 		
 		this.getActivityCategories = function(callback) {
             $http.get(api + '/activitycategories').success(function (response) {callback(response); });
-		}
+		};
 		
 		this.addActivityCategories = function(name, callback) {
 			$http({
@@ -82,17 +145,34 @@ angular.module('WebCall', []).
 		this.getSpeakers = function (callback) {
             $http.get(api + '/speakers').success(function (response) {callback(response); });
         };
-		
-		this.addUser = function(user, callback) {
-			$http({
-                url: api + '/users',
-                method: "POST",
-                params: user
-            }).success(function successCallback(response) {
-                callback(response);
+
+        //Notifications
+        this.getNotifs = function(callback) {
+            $http({
+                url : api+'/notifications',
+                method:"GET"
+            }).success(function success(response){callback(response)});
+        }
+        this.readNotif = function(notif) {
+            $http({
+                url : api + '/notifications',
+                method :"PUT",
+                params : notif
             });
-		};
-		
+        }
+        this.deleteNotif = function(notif) {
+            $http({
+                url : api+'/notifications',
+                method:'DELETE',
+                params : notif
+            });
+        }
+        this.deleteAllNotifs= function(callback){
+            $http({
+                url : api+'/notifications',
+                method :'delete'
+            }).success(function(response){callback} )
+        }
     }])
     .run(function($http,$cookies) {
         if ($cookies.getObject('loggedUser') !== undefined) {
