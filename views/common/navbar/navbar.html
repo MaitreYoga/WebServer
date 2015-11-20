@@ -1,4 +1,4 @@
-<div ng-controller="NavbarController">
+<div ng-controller="NavbarController" media="screen and (min-width:768px)">
     <center>
 		<div class="cookies" class="row clearfix" ng-show="cookiesInfos">
 			<div class="col-xs-12 column">
@@ -7,6 +7,7 @@
 		</div>
 	</center>
 
+	
     <!-- header -->
     <div class="row clearfix ">
 
@@ -16,9 +17,79 @@
         </div>
 		
 		<login></login>
+	</div>
+	
+	<nav class="navbar navbar-default" role="navigation" media="(min-width: 768px) and (max-width: 980px)">
+		<div class="container-fluid">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">ZenLounge</a>
+			</div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			  <ul class="nav navbar-nav">
+				
+				<li><a href="#/">Home </a></li>
+
+				<li class="dropdown">
+					<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="false" aria-expanded="false">My account <b class="caret"></b></a>
+					<ul class="dropdown-menu">
+						<li style="cursor:pointer; "><a href="/#/profile">Information</a></li>
+						<li style="cursor:pointer; "><a href="#">Payment</a></li>
+						<li style="cursor:pointer; "><a href="#">Notifications</a></li>
+						<li style="cursor:pointer; "><a href="#">Planning</a></li>
+					</ul>
+				</li>
+				
+				<li class="dropdown" >
+					<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Shop <b class="caret"></b></a>
+					<ul class="dropdown-menu">
+						<li style="cursor:pointer; "><a href="#/products">Find a product</a></li>
+						<li style="cursor:pointer; "><a href="#/manageProducts">Manage products</a></li>
+					</ul>
+				</li>
+
+				<li class="dropdown" >
+					<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Events <b class="caret"></b></a>
+					<ul class="dropdown-menu">
+						<li style="cursor:pointer; "><a href="#/createEvent">Create an event</a></li>
+						<li style="cursor:pointer; "><a href="#/events">Find an event/register</a></li>
+						<li style="cursor:pointer; "><a href="#">Manage event/room</a></li>
+						<li style="cursor:pointer; "><a href="#">Consult planning</a></li>
+					</ul>
+				</li>
+				
+				<li class="dropdown" >
+					<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Activities<b class="caret"></b></a>
+					<ul class="dropdown-menu">
+						<li style="cursor:pointer; "><a href="#">Manage activities</a></li>
+						<li style="cursor:pointer; "><a href="#/activitycategories">Manage activity categories</a></li>
+					</ul>
+				</li>
+
+				<li class="dropdown" ng-show="loggedUser.connectiontoken">
+					<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin area <b class="caret"></b></a>
+					<ul class="dropdown-menu">
+						<li style="cursor:pointer; "><a href="#">Manage categories</a></li>
+						<li style="cursor:pointer; "><a href="#/users">Manage users</a></li>
+					</ul>
+				</li>
+				
+				
+			</ul>
+			</div><!-- /.navbar-collapse -->
+	</div><!-- /.container-fluid -->
+	</nav>
 
         <!--menu-->
-        <div class="row clearfix ">
+        <!--<div class="row clearfix" >
 
             <div class="etip">
                 <div id="newElement6" class="row clearfix">
@@ -29,7 +100,7 @@
                                     <a class="navbar-brand">ZenLounge</a>
                                 </div>
 
-                                <!-- tabs -->
+                                
                                 <div class="collapse navbar-collapse">
                                     <ul class="nav navbar-nav">
                                         <li><a href="#/">Home </a></li>
@@ -80,12 +151,11 @@
 
                                     </ul>
                                 </div>
-                                <!-- end tabs -->
                             </div>
                         </nav>
                     </div></div>
                 </div>
-            </div>
+            </div> -->
             <!-- end menu -->
 
         </div>

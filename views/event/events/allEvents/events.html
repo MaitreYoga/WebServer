@@ -1,6 +1,4 @@
 <div ng-controller="EventsController">
-	<!--<button ng-click="getEvents()">Show events list</button> -->
-		
 	<p>
     <div class="row clearfix textAlign lign">
         <div class="col-xs-3">
@@ -24,7 +22,7 @@
             <tr>
                 <th width="10%" class="title2">Name</th>
                 <th width="10%" class="title2">Price (€)</th>
-                <th width="11%" class="title2">Time</th>
+                <th width="11%" class="title2">Repetitive</th>
                 <th width="13%" class="title2">Start date</th>
                 <th width="13%" class="title2">End date</th>
                 <th width="10%" class="title2">Activity</th>
@@ -36,13 +34,13 @@
             <tr ng-repeat="event in events" ng-show="isSearched($index)">
                 <th><a href={{"#/events/"+event.id}}>{{event.name}}</a></th>
                 <th>{{event.price}}</th>
-                <th>{{event.period}}</th>
+                <th>{{event.eventRepetitive}}</th>
                 <th>{{event.startDate}}</th>
 				<th>{{event.endDate}}</th>
                 <th>{{event.eventActName}}</th>
                 <th>{{event.eventSpeakerName}}</th>
                 <th>{{event.eventRoomName}}</th>
-                <th>{{event.state}}</th>
+                <th>{{event.eventState}}</th>
             </tr>
         </table>
 	</p>

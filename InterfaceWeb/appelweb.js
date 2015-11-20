@@ -41,6 +41,22 @@ angular.module('WebCall', []).
             $http.get(api + '/events').success(function (response) {callback(response); });
         };
 		
+		this.getEvent = function (id,success,error) {
+            $http({
+                url: api + '/events',
+                method: "GET",
+                params: {id: id}
+            }).then(function(response){success(response)},function(response){error(response)})
+        }
+		
+		this.getRegistrations = function (callback) {
+            $http.get(api + '/registrations').success(function (response) {callback(response); });
+        };
+		
+		this.getRepetitives = function (callback) {
+            $http.get(api + '/repetitives').success(function (response) {callback(response); });
+        };
+		
 		this.getActivities = function (callback) {
             $http.get(api + '/activities').success(function (response) {callback(response); });
         };
