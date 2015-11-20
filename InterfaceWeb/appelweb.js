@@ -32,9 +32,8 @@ angular.module('WebCall', []).
 
         this.userProfile = function (id,success,error) {
             $http({
-                url: api + '/users',
-                method: "GET",
-                params: {id: id}
+                url: api + '/users/'+id,
+                method: "GET"
             }).then(function(response){success(response)},function(response){error(response)})
         };
 
