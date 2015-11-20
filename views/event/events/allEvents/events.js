@@ -1,7 +1,6 @@
 /**
  * Created by jorismaillet on 06/11/15.
  */
-<<<<<<< HEAD
 angular.module('ZenLounge').controller('EventsController', ['$scope', 'webcallservice', '$cookies', function ($scope, webcallservice, $cookies) {
     $scope.user=$cookies.getObject('loggedUser');
 	
@@ -13,7 +12,7 @@ angular.module('ZenLounge').controller('EventsController', ['$scope', 'webcallse
 		getRegistrations();
 		isRepetitive();
 	});
-=======
+
 angular.module('ZenLounge').controller('EventsController', ['$scope', 'webcallservice', function ($scope, webcallservice) {
     $scope.compteur = 0;
 
@@ -30,13 +29,11 @@ angular.module('ZenLounge').controller('EventsController', ['$scope', 'webcallse
 		$scope.events = data;
         $scope.compter();
     });
->>>>>>> 9d72e247869fb788d0b0d4dbf526ee3f8c51d91f
 	
 	$scope.selectedAct="";
 	
 	$scope.getActivities=webcallservice.getActivities(function (data) {
 		$scope.activities = data.activities;
-<<<<<<< HEAD
 		getActEvent();
 		getRoomEvent();
 		getSpeakerEvent();
@@ -80,7 +77,6 @@ angular.module('ZenLounge').controller('EventsController', ['$scope', 'webcallse
 		getRegistrations();
 		isRepetitive();
 	});
-=======
         $scope.compter();
     });
 	
@@ -93,7 +89,6 @@ angular.module('ZenLounge').controller('EventsController', ['$scope', 'webcallse
 		$scope.speakers = data.speakers;
         $scope.compter();
     });
->>>>>>> 9d72e247869fb788d0b0d4dbf526ee3f8c51d91f
 	
 	$scope.recherche ="";
     
