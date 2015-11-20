@@ -1,18 +1,6 @@
 /**
  * Created by jorismaillet on 06/11/15.
  */
-angular.module('ZenLounge').controller('EventsController', ['$scope', 'webcallservice', '$cookies', function ($scope, webcallservice, $cookies) {
-    $scope.user=$cookies.getObject('loggedUser');
-	
-	$scope.getEvents = webcallservice.getEvents(function (data) {
-		$scope.events = data;
-		getActEvent();
-		getRoomEvent();
-		getSpeakerEvent();
-		getRegistrations();
-		isRepetitive();
-	});
-
 angular.module('ZenLounge').controller('EventsController', ['$scope', 'webcallservice', function ($scope, webcallservice) {
     $scope.compteur = 0;
 
@@ -22,6 +10,7 @@ angular.module('ZenLounge').controller('EventsController', ['$scope', 'webcallse
             getActEvent();
             getRoomEvent();
             getSpeakerEvent();
+			isRepetitive();
         }
     };
 
@@ -34,49 +23,23 @@ angular.module('ZenLounge').controller('EventsController', ['$scope', 'webcallse
 	
 	$scope.getActivities=webcallservice.getActivities(function (data) {
 		$scope.activities = data.activities;
-		getActEvent();
-		getRoomEvent();
-		getSpeakerEvent();
-		getRegistrations();
-		isRepetitive();
 	});
 	
 	$scope.getRooms=webcallservice.getRooms(function (data) {
 		$scope.rooms = data.rooms;
-		getActEvent();
-		getRoomEvent();
-		getSpeakerEvent();
-		getRegistrations();
-		isRepetitive();
 	});
 	
 	$scope.getSpeakers=webcallservice.getSpeakers(function (data) {
 		$scope.speakers = data.speakers;
-		getActEvent();
-		getRoomEvent();
-		getSpeakerEvent();
-		getRegistrations();
-		isRepetitive();
 	});
 	
 	$scope.registrations = webcallservice.getRegistrations(function (data) {
 		$scope.registrations = data.registrations;
-		getActEvent();
-		getRoomEvent();
-		getSpeakerEvent();
-		getRegistrations();
-		isRepetitive();
 	});
 	
 	
 	$scope.getRepetitives =webcallservice.getRepetitives(function (data) {
 		$scope.repetitives = data.repetitives;
-		getActEvent();
-		getRoomEvent();
-		getSpeakerEvent();
-		getRegistrations();
-		isRepetitive();
-	});
         $scope.compter();
     });
 	
@@ -179,8 +142,7 @@ angular.module('ZenLounge').controller('EventsController', ['$scope', 'webcallse
 		}
     };
 	
-	var getState = function() {
-		
+	var getState = function() {	
 		for(j=0;j<$scope.events.length;j++) {
 			for (i=0; i< $scope.registrations.length;i++) {
 					$scope.event[j].eventState="Unregistered";
@@ -205,7 +167,7 @@ angular.module('ZenLounge').controller('EventsController', ['$scope', 'webcallse
 				}
 			}
 		}
-	}
+	};
 	
 	
 }]);

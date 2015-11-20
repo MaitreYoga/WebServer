@@ -85,7 +85,6 @@ angular.module('WebCall', []).
             $http.get(api + '/events').success(function (response) {callback(response); });
         };
 		
-<<<<<<< HEAD
 		this.getEvent = function (id,success,error) {
             $http({
                 url: api + '/events',
@@ -102,12 +101,10 @@ angular.module('WebCall', []).
             $http.get(api + '/repetitives').success(function (response) {callback(response); });
         };
 		
-=======
         this.getRooms = function (callback) {
             $http.get(api + '/rooms').success(function (response) {alert(response);callback(response); });
         };
         
->>>>>>> 9d72e247869fb788d0b0d4dbf526ee3f8c51d91f
 		this.getActivities = function (callback) {
             $http.get(api + '/activities').success(function (response) {callback(response); });
         };
