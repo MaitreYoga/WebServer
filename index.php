@@ -51,6 +51,6 @@
         <nav-bar></nav-bar>
     <div ng-view></div>
     </div>
-
     </body>
 </html>
+
