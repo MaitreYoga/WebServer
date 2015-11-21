@@ -128,18 +128,28 @@ angular.module('WebCall', []).
         };
 		
 		this.getActivityCategories = function(callback) {
-            $http.get(api + '/categories').success(function (response) {callback(response); });
+            $http.get(api + '/activitycategories').success(function (response) {callback(response); });
 		};
 		
 		this.addActivityCategories = function(name, callback) {
 			$http({
-                url: api + '/categories',
+                url: api + '/activitycategories',
                 method: "POST",
                 data: name
             }).success(function successCallback(response) {
                 callback(response);
             });
 		};
+
+        this.deleteActivityCategories = function(activityCat, callback) {
+            $http({
+                url: api + '/activitycategories',
+                method: "DELETE",
+                data: activityCat
+            }).success(function successCallback(response) {
+                callback(response);
+            });
+        };
 		
 		this.getRooms = function (callback) {
             $http.get(api + '/rooms').success(function (response) {callback(response); });

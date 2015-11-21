@@ -3,7 +3,7 @@
 		<div class="titre2small">List of activity categories :</h2>
 			<table width="300px" style="line-height:200%">
 					<tr ng-repeat="catact in activityCategories">
-						<td>{{catact.name}}</td>
+						<td>{{catact.name}} <button ng-click="delete(catact)">Supprimer</button></td>
 					</tr>
 			</table>
 		</div>
@@ -13,7 +13,7 @@
 			<div class="col-xs-4 column">
 				<div class="form-group">
 					<label ><span class="title2">Add a new activity category :</span></label>
-					<input type="text" class="form-control" name="name" placeholder="Name" ng-model="newCatAct.name"/>
+					<input type="text" class="form-control" name="name" placeholder="Name" ng-model="activityCategory.name"/>
 				</div>
 			</div>
 			<div class="col-xs-4 column">

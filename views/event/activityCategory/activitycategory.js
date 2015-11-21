@@ -3,13 +3,18 @@
  */
 angular.module('ZenLounge').controller('ActivityCategoriesController', ['$scope','webcallservice', function($scope, webcallservice){
     $scope.getActivityCategories = webcallservice.getActivityCategories(function(data) {
-		$scope.activityCategories=data.catActs;
+		$scope.activityCategories=data;
 	});
-	$scope.newCatAct = new Object();
 	$scope.addActivityCategory = function() {
-		webcallservice.addActivityCategories($scope.newCatAct.name,function(data) {
+		webcallservice.addActivityCategories($scope.activityCategory,function(data) {
 			$scope.activityCategories=data.catActs;
 			$scope.newCatAct.name = "";
 		})
 	};
+
+    $scope.delete= function(activityCat) {
+        webcallservice.deleteActivityCategories(activityCat, function () {alert('ok')});
+    }
+
+
 }]);
