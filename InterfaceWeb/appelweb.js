@@ -6,7 +6,7 @@ angular.module('WebCall', []).
         
         //api = 'http://localhost:8080/ZenLounge';
         //api = 'https://zenlounge-api.herokuapp.com';
-        api = 'https://zenlounge-api-preprod.herokuapp.com';
+        api = 'https://zenlounge-api.herokuapp.com/';
 
         //users
         this.login = function (login, mdp, success, error) {
@@ -103,6 +103,9 @@ angular.module('WebCall', []).
         this.getRooms = function (callback) {
             $http.get(api + '/rooms').success(function (response) {alert(response);callback(response); });
         };
+        this.getAccessories = function (callback) {
+            $http.get(api + '/accessories').success(function (response) {alert(response);callback(response); });
+        };
         
 		this.getActivities = function (callback) {
             $http.get(api + '/activities').success(function (response) {callback(response); });
@@ -133,11 +136,22 @@ angular.module('WebCall', []).
                 callback(response);
             });
 		};
-		
+		// Rooms 
 		this.getRooms = function (callback) {
             $http.get(api + '/rooms').success(function (response) {callback(response); });
         };
 		
+        this.CreateRoom = function(callback) {
+            $http({
+                url: api + '/rooms',
+                method: "POST",
+                data: name
+            }).success(function successCallback(response) {
+                callback(response);
+            });
+
+        };
+
 		this.getSpeakers = function (callback) {
             $http.get(api + '/speakers').success(function (response) {callback(response); });
         };

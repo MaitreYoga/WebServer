@@ -1,5 +1,5 @@
 
-angular.module('ZenLounge').controller('RoomsController', ['$scope', 'webcallservice', function ($scope, webcallservice) {
+angular.module('ZenLounge').controller('CreateAccessoriesController', ['$scope', 'webcallservice', function ($scope, webcallservice) {
 
  $scope.getRooms = webcallservice.getRooms(function (data) {
         $scope.rooms = data;
@@ -7,8 +7,6 @@ angular.module('ZenLounge').controller('RoomsController', ['$scope', 'webcallser
     });
     
     	$scope.recherche ="";
-        $scope.newroom=   new Object();
-
 		/*$scope.Rooms =  [
         {
             name:"chaussures adidas",
@@ -21,24 +19,18 @@ angular.module('ZenLounge').controller('RoomsController', ['$scope', 'webcallser
         }
     ];
 */
-    $scope.CreateRoom = function() {
-        webcallservice.CreateRoom($scope.newroom.name,function(data) {
-            $scope.newroom="";
-        })
-    };
     $scope.isSearched = function(index) {
-            if($scope.recherche=="" || $scope.rooms[index].name.indexOf($scope.recherche)>-1) {
+            if($scope.recherche=="" || $scope.Rooms[index].name.indexOf($scope.recherche)>-1) {
                 return 1 ;
             }
             else {
                 return 0;
             }
-    $scope.DeleteRoom = function(){
-    
-        })
-    }
          
     };
+$scope.createAccessorie = function(index) {
+
+}
 
 
 	}]);
