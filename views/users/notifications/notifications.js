@@ -1,12 +1,15 @@
 /**
  * Created by lucasesteban on 19/11/15.
  */
-angular.module('ZenLounge').controller('NotifsCtrl', ['$scope', 'webcallservice','$cookies','$rootScope', function ($scope, webcallservice, cookies,$root) {
+angular.module('ZenLounge').controller('notifsCtrl', ['$scope', 'webcallservice','$cookies','$rootScope', function ($scope, webcallservice, cookies,$root) {
 
-    /*webcallservice.getNotifs(function (data) {
+    $scope.user = cookies.getObject('loggedUser');
+
+    webcallservice.getNotifs($scope.user.id,function (data) {
      $scope.notifs = data;
-     });*/
-    $scope.notifs = [
+     });
+
+  /*  $scope.notifs = [
         {
             id : "1",
             label:"chaussures adidas",
@@ -17,7 +20,7 @@ angular.module('ZenLounge').controller('NotifsCtrl', ['$scope', 'webcallservice'
             label:"chaussures nike",
             isread :"0"
         }
-    ];
+    ];*/
 
     $scope.read = function (notif) {
         notif.isread=1;

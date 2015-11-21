@@ -26,7 +26,7 @@ angular.module('WebCall', []).
             $http({
                 url: api + '/users',
                 method: "POST",
-                params: user
+                data: user
             }).success(function successCallback(response) {
                 callback(response);
             });
@@ -40,6 +40,7 @@ angular.module('WebCall', []).
         };
 
         this.getUsers = function (callback) {
+            alert("getusers");
             $http.get(api + '/users').success(function (response) {callback(response); });
         };
 
@@ -70,7 +71,7 @@ angular.module('WebCall', []).
 
         this.getProductCategories = function(callback) {
             $http.get(api + '/productcategories').success(function(response) {callback(response);})
-        }
+        };
 
         this.getBrands = function (success,error) {
             $http({
@@ -108,7 +109,7 @@ angular.module('WebCall', []).
         };
 		
         this.getRooms = function (callback) {
-            $http.get(api + '/rooms').success(function (response) {alert(response);callback(response); });
+            $http.get(api + '/rooms').success(function (response) {callback(response); });
         };
         
 		this.getActivities = function (callback) {
@@ -128,7 +129,12 @@ angular.module('WebCall', []).
         };
 		
 		this.getActivityCategories = function(callback) {
-            $http.get(api + '/activitycategories').success(function (response) {callback(response); });
+            $http({
+                url: api + '/activitycategories',
+                method: "GET"
+            }).success(function success(response) {
+                callback(response);
+            });
 		};
 		
 		this.addActivityCategories = function(name, callback) {
@@ -143,9 +149,8 @@ angular.module('WebCall', []).
 
         this.deleteActivityCategories = function(activityCat, callback) {
             $http({
-                url: api + '/activitycategories',
-                method: "DELETE",
-                data: activityCat
+                url: api + '/activitycategories/'+activityCat,
+                method: "DELETE"
             }).success(function successCallback(response) {
                 callback(response);
             });
@@ -183,13 +188,14 @@ angular.module('WebCall', []).
         this.deleteAllNotifs= function(callback){
             $http({
                 url : api+'/notifications',
-                method :'delete'
+                method :'DELETE'
             }).success(function(response){callback} )
         }
     }])
     .run(function($http,$cookies) {
         if ($cookies.getObject('loggedUser') !== undefined) {
-            $http.defaults.headers.common.login = $cookies.getObject('loggedUser').login;
-            $http.defaults.headers.common.token = $cookies.getObject('loggedUser').connectiontoken;
+           // $http.defaults.headers.Access-Control-Allow-Origin="*";
+            $http.defaults.headers.Authorization = $cookies.getObject('loggedUser').login+$cookies.getObject('loggedUser').connectiontoken;
+           // $http.defaults.headers.common.token = $cookies.getObject('loggedUser').connectiontoken;
         }
     });

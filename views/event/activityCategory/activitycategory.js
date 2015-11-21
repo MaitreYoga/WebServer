@@ -5,15 +5,17 @@ angular.module('ZenLounge').controller('ActivityCategoriesController', ['$scope'
     $scope.getActivityCategories = webcallservice.getActivityCategories(function(data) {
 		$scope.activityCategories=data;
 	});
+
 	$scope.addActivityCategory = function() {
-		webcallservice.addActivityCategories($scope.activityCategory,function(data) {
-			$scope.activityCategories=data.catActs;
-			$scope.newCatAct.name = "";
+        $scope.activityCategory.id="";
+        webcallservice.addActivityCategories($scope.activityCategory,function(data) {
+            alert("ok");
+			$scope.activityCategory.name = "";
 		})
 	};
 
     $scope.delete= function(activityCat) {
-        webcallservice.deleteActivityCategories(activityCat, function () {alert('ok')});
+        webcallservice.deleteActivityCategories(activityCat.id, function () {alert('ok')});
     }
 
 

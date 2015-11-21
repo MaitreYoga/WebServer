@@ -1,6 +1,9 @@
 <div ng-controller="ProductsController">
     <!-- <button ng-click="products()">Show products list</button> -->
     <p>
+    {{products}}
+    {{brands}}
+    {{categories}}
     <div class="row clearfix textAlign lign">
         <div class="col-xs-3"><input type="text"  ng-model="recherche"></div>
 
@@ -27,7 +30,6 @@
                 <th width="10%">Quantity Available</th>
                 <th width="10%">Member Price</th>
                 <th width="10%">Category</th>
-                <th width="10%">Seller</th>
                 <th width="10%">Quantity wanted</th>
                 <th width="8%">Total</th>
                 <th width="7%">Add to cart</th>
@@ -35,16 +37,15 @@
 
             <tr ng-repeat="product in products" ng-show="isSearched($index)">
                 <th><a href="#/products/{{product.id}}">{{product.name}}</a></th>
-                <th>{{product.brand}}</th>
+                <th>{{product.brandName}}</th>
                 <th>{{product.price}}</th>
                 <th>{{product.quantityavailable-product.quantityWanted}}</th>
-                <th>{{product.memberprice}}</th>
-                <th>{{product.productcat}}</th>
-                <th>{{product.seller}}</th>
+                <th>{{product.memberreduction}}</th>
+                <th>{{product.catName}}</th>
                 <th><sapn class="plus-icon glyphicon glyphicon-minus" ng-click="minusOne($index)"></sapn>
-                    {{product.quantitywanted}}
+                    {{product.quantityWanted}}
                     <sapn class="minus-icon glyphicon glyphicon-plus" ng-click="plusOne($index)"></sapn></th>
-                <th>{{product.memberprice*product.quantitywanted}}</th>
+                <th>{{product.price*product.quantityWanted}}</th>
                 <th><sapn class="minus-icon glyphicon glyphicon-plus" ng-click="addToCart($index)"></sapn></th></th>
                    <!--img src={{product.urlImage}} alt="product image"-->
             </tr>
@@ -54,7 +55,7 @@
 
 <!-- total -->
 <div class="row clearfix">
-    <center><p class="title2small">Total = {{getTotal()}}</p></center>
+    <center><p class="title2small">Total = </p></center>
 </div>
 
 
