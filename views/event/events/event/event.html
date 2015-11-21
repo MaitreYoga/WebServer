@@ -1,4 +1,5 @@
 ﻿<div ng-controller="EventController">
+$scope.event : {{event}}
 	<h3>{{errorMessage}}</h3>
 	<div ng-show="event">
 		
@@ -12,9 +13,7 @@
 			
 			<div class="col-xs-7 column borderGreyWhite lign">
 				<center><div class="titleSignUp lign">Information</div></center> 
-				
 				<br>
-				
 				<center><div class="row clearfix">
 					<div class="col-xs-6 column">
 						<div class="form-group">
@@ -24,24 +23,24 @@
 					</div>
 					<div class="col-xs-6 column">
 						<div class="form-group">
-							<label >Room's surface:</label>
-							{{event.room.surface}}
-					  </div>
+							<label >Activity's name:</label>
+							{{event.eventAct}}
+						</div>
 					</div>
 				</div><center>
 				
 				<center><div class="row clearfix">
 					<div class="col-xs-6 column">
 						<div class="form-group">
-							<label >Activity's name:</label>
-							{{event.eventAct}}
+							<label >Speaker:</label>
+							{{event.speaker}}
 						</div>
 					</div>
 					<div class="col-xs-6 column">
 						<div class="form-group">
-							<label >Speaker:</label>
-							{{event.speaker}}
-						</div>
+							<label >You:</label>
+							You are {{event.state}}
+					  </div>
 					</div>
 				</div><center>
 				
@@ -85,9 +84,23 @@
 						</div>
 					</div>
 					<div class="col-xs-6 column">
+						
+					</div>
+				</div><center>
+				<br>
+				
+				show que si repetitive
+				<center><div class="row clearfix">
+					<div class="col-xs-6 column">
 						<div class="form-group">
-							<label >You:</label>
-							You are {{event.state}}
+							<label >Per week:</label>
+							{{event.}}
+						</div>
+					</div>
+					<div class="col-xs-6 column">
+						<div class="form-group">
+							<label >Per month:</label>
+							{{event.}}
 					  </div>
 					</div>
 				</div><center>

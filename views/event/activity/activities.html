@@ -17,14 +17,12 @@
             <!-- a completer !!!!-->
             <tr ng-repeat="act in acts">
                 <td>{{act.name}}</td>
-                <td>{{act.shortDescription}}</td>
-                <td>{{act.catAct.name}}</td>
+                <td>{{act.shortdescription}}</td>
+                <td>{{act.catact.name}}</td>
                 <td><a href="#/manageActivity/{{act.ID}}"><button>Update</button></a></td>
                 <td><button ng-click="delete(act)">Delete</button></td>
             </tr>
             </tbody>
         </table>
-
-
     </div>
 </div>

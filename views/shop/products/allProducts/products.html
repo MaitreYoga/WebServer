@@ -37,14 +37,14 @@
                 <th><a href="#/products/{{product.id}}">{{product.name}}</a></th>
                 <th>{{product.brand}}</th>
                 <th>{{product.price}}</th>
-                <th>{{product.quantityAvailable-product.quantityWanted}}</th>
-                <th>{{product.memberPrice}}</th>
-                <th>{{product.productCat}}</th>
+                <th>{{product.quantityavailable-product.quantityWanted}}</th>
+                <th>{{product.memberprice}}</th>
+                <th>{{product.productcat}}</th>
                 <th>{{product.seller}}</th>
                 <th><sapn class="plus-icon glyphicon glyphicon-minus" ng-click="minusOne($index)"></sapn>
-                    {{product.quantityWanted}}
+                    {{product.quantitywanted}}
                     <sapn class="minus-icon glyphicon glyphicon-plus" ng-click="plusOne($index)"></sapn></th>
-                <th>{{product.memberPrice*product.quantityWanted}}</th>
+                <th>{{product.memberprice*product.quantitywanted}}</th>
                 <th><sapn class="minus-icon glyphicon glyphicon-plus" ng-click="addToCart($index)"></sapn></th></th>
                    <!--img src={{product.urlImage}} alt="product image"-->
             </tr>

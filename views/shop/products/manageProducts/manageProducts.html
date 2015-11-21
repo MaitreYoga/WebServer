@@ -1,4 +1,4 @@
-﻿
+
 <div ng-controller="ownProductsCtrl">
 <!-- products table -->
 <span class="title1bis lign">Your products</span>
@@ -19,10 +19,10 @@
         <tbody>
             <!-- a completer !!!!-->
 			<tr ng-repeat="product in products">
-                <td>{{product.quantityAvailable}}</td>
+                <td>{{product.quantityavailable}}</td>
                 <td>{{product.name}}</td>
                 <td>{{product.brand}}</td>
-                <td>{{product.productCat}}</td>
+                <td>{{product.productcat}}</td>
 				<td>{{product.price}}</td>
                 <td><a href="#/manageProducts/{{product.id}}"><button>Update</button></a></td>
                 <td><button ng-click="delete(product)">Delete</button></td>

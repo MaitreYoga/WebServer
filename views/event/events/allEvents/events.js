@@ -10,6 +10,7 @@ angular.module('ZenLounge').controller('EventsController', ['$scope', 'webcallse
             getActEvent();
             getRoomEvent();
             getSpeakerEvent();
+			isRepetitive();
         }
     };
 
@@ -22,6 +23,23 @@ angular.module('ZenLounge').controller('EventsController', ['$scope', 'webcallse
 	
 	$scope.getActivities=webcallservice.getActivities(function (data) {
 		$scope.activities = data.activities;
+	});
+	
+	$scope.getRooms=webcallservice.getRooms(function (data) {
+		$scope.rooms = data.rooms;
+	});
+	
+	$scope.getSpeakers=webcallservice.getSpeakers(function (data) {
+		$scope.speakers = data.speakers;
+	});
+	
+	$scope.registrations = webcallservice.getRegistrations(function (data) {
+		$scope.registrations = data.registrations;
+	});
+	
+	
+	$scope.getRepetitives =webcallservice.getRepetitives(function (data) {
+		$scope.repetitives = data.repetitives;
         $scope.compter();
     });
 	
@@ -81,7 +99,7 @@ angular.module('ZenLounge').controller('EventsController', ['$scope', 'webcallse
         }
     ];*/
 	$scope.isSearched = function(index) {
-        if($scope.selectedAct=="" || $scope.selectedAct==$scope.events[index].eventAct){
+        if($scope.selectedAct=="" || $scope.selectedAct==$scope.events[index].activity){
             if($scope.recherche=="" || $scope.events[index].name.indexOf($scope.recherche)>-1) {
                 return 1 ;
             }
@@ -123,6 +141,33 @@ angular.module('ZenLounge').controller('EventsController', ['$scope', 'webcallse
 			}
 		}
     };
+	
+	var getState = function() {	
+		for(j=0;j<$scope.events.length;j++) {
+			for (i=0; i< $scope.registrations.length;i++) {
+					$scope.event[j].eventState="Unregistered";
+			}
+		}
+		
+		for(j=0;j<$scope.events.length;j++) {
+			for (i=0; i< $scope.registrations.length;i++) {
+				if(($scope.registrations[i].idevent == $scope.events[j].id) && ($scope.registrations[i].idmember == $scope.user.id)) {
+					$scope.event[j].eventState="Registered";
+				}
+			}
+		}
+	}
+	
+	var isRepetitive = function() {
+		$scope.event[j].eventRepetitive="No";
+		for(j=0;j<$scope.events.length;j++) {
+			for (i=0; i< $scope.repetitives.length;i++) {
+				if($scope.repetitives[i].id == $scope.events[j].id) {
+					$scope.event[j].eventRepetitive="Yes";
+				}
+			}
+		}
+	};
 	
 	
 }]);
