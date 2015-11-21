@@ -25,7 +25,7 @@ angular.module('ZenLounge').controller('LoginController', ['$scope', 'webcallser
                     $cookies.put('userID',successresponse.data.firstName);
                     $cookies.putObject('loggedUser',successresponse.data);
                     $root.loggedUser = $cookies.getObject('loggedUser');
-                    window.location = "http://localhost:8080/";
+                    window.location = window.location.host;
                 }
 			},
 			function(errorResponse){

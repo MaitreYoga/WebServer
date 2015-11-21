@@ -89,8 +89,15 @@ angular.module('WebCall', []).
                 method: "GET",
                 params: {id: id}
             }).then(function(response){success(response)},function(response){error(response)})
-        }
-		
+        };
+
+        this.getPeriods = function (success,error) {
+            $http({
+                url: api + '/periods',
+                method: "GET"
+            }).then(function(response){success(response)},function(response){error(response)})
+        };
+
 		this.getRegistrations = function (callback) {
             $http.get(api + '/registrations').success(function (response) {callback(response); });
         };
