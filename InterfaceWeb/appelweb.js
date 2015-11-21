@@ -3,25 +3,27 @@
  */
 angular.module('WebCall', []).
     service('webcallservice', ['$http', function ($http) {
-        //api = 'http://localhost:8080/ZenLounge';
+        //api = 'http://localhost:8080';
+        //api = 'https://zenlounge-api-preprod.herokuapp.com';
         api = 'https://zenlounge-api.herokuapp.com';
 
         //users
         this.login = function (login, mdp, success, error) {
             $http({
-                url: api + '/users/login',
+                url: api + '/login',
                 method: "GET",
-                params: {login: login, password : mdp}
+                params: {login: login, mdp : mdp}
             }).then(function successCallback(response) {
                 success(response);
             }, function errorCallback(response) {
                 error(response);
+
             });
         };
 
         this.addUser = function(user, callback) {
             $http({
-                url: api + '/users/subscribe',
+                url: api + '/users',
                 method: "POST",
                 params: user
             }).success(function successCallback(response) {
@@ -38,10 +40,6 @@ angular.module('WebCall', []).
 
         this.getUsers = function (callback) {
             $http.get(api + '/users').success(function (response) {callback(response); });
-        };
-		
-		this.getUsersByLogin = function (login,callback) {
-            $http.get(api + '/users?login='+login).success(function (response) {callback(response); });
         };
 
     //shop
@@ -70,7 +68,7 @@ angular.module('WebCall', []).
         };
 
         this.getProductCategories = function(callback) {
-            $http.get(api + '/productcategories').success(function(response) {callback(response);})
+            $http.get(api + '/products/categories').success(function(response) {callback(response);})
         }
 
         this.getBrands = function (success,error) {
@@ -129,7 +127,7 @@ angular.module('WebCall', []).
 			$http({
                 url: api + '/categories',
                 method: "POST",
-                params: {name: name}
+                data: name
             }).success(function successCallback(response) {
                 callback(response);
             });
