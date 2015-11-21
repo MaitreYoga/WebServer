@@ -1,13 +1,12 @@
 
 angular.module('ZenLounge').controller('RoomsController', ['$scope', 'webcallservice', function ($scope, webcallservice) {
-
  $scope.getRooms = webcallservice.getRooms(function (data) {
         $scope.rooms = data;
         alert('ok');
     });
     
-    	$scope.recherche ="";
-		/*$scope.Rooms =  [
+        $scope.recherche ="";
+        /*$scope.Rooms =  [
         {
             name:"chaussures adidas",
             surface:60
@@ -30,4 +29,4 @@ angular.module('ZenLounge').controller('RoomsController', ['$scope', 'webcallser
     };
 
 
-	}]);
+    }]);

@@ -1,36 +1,41 @@
-
-angular.module('ZenLounge').controller('CreateAccessoriesController', ['$scope', 'webcallservice', function ($scope, webcallservice) {
-
- $scope.getRooms = webcallservice.getRooms(function (data) {
-        $scope.rooms = data;
-        alert('ok');
-    });
-    
-    	$scope.recherche ="";
-		/*$scope.Rooms =  [
-        {
-            name:"chaussures adidas",
-            surface:60
-         
-        },
-        {
-            name:"chaussures nike",
-            surface:80
-        }
-    ];
-*/
-    $scope.isSearched = function(index) {
-            if($scope.recherche=="" || $scope.Rooms[index].name.indexOf($scope.recherche)>-1) {
-                return 1 ;
+angular.module('ZenLounge').controller('CreateAccessoriesController', ['$scope', 'webcallservice','$routeParams','$location', function($scope,webcallservice,$params,loc){
+    if($params.id!="new") {
+        webcallservice.getAccessory($params.id,
+            function(response) {
+                $scope.acc=response;
+            },
+            function(response) {
+                alert ("Erreur : " + response);
             }
-            else {
-                return 0;
-            }
-         
+        );
+    } else {
+        $scope.acc={};
     };
-$scope.createAccessorie = function(index) {
 
-}
+
+  $scope.validate = function() {
+        if($params.id!="new") {
+            webcallservice.updateAccessory($params.id,
+                function() {
+                    alert("Accessory created");
+                    loc.path("#/accessories");
+                },
+                function () {
+                    alert("Error updating Accessory")
+                }
+            );
+        } else {
+            webcallservice.createAccessory($params.id,
+                function() {
+                    alert("Accessory created");
+                    loc.path("#/accessories");
+                },
+                function () {
+                    alert("Error creating Accessory")
+                }
+            );
+        }
+    };
 
 
 	}]);

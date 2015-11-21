@@ -2,7 +2,7 @@
  
     <p>
     <div class="row clearfix textAlign lign">
-        <div class="col-xs-3"><center><label>Find an accessorie</label> <input type="text"  ng-model="recherche"></center></div>
+        <div class="col-xs-3"><center><label>Find an accessory</label> <input type="text"  ng-model="recherche"></center></div>
 
     
         <div class="col-xs-3"></div>
@@ -14,11 +14,12 @@
 
             <tr>
                 <th width="20%">Description</th>
+       
               
             </tr>
 
-            <tr ng-repeat="accessorie in accessories" ng-show="isSearched($index)">
-                <th>{{accessorie.description}}</th>
+            <tr ng-repeat="accessory in accessories" ng-show="isSearched($index)">
+                <th>{{accessory.description}}</th>
                
             </tr>
         </table>
