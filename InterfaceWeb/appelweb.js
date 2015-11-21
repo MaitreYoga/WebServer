@@ -5,8 +5,8 @@ angular.module('WebCall', []).
     service('webcallservice', ['$http', function ($http) {
         
         //api = 'http://localhost:8080/ZenLounge';
-        //api = 'https://zenlounge-api.herokuapp.com';
-        api = 'https://zenlounge-api-preprod.herokuapp.com';
+        api = 'https://zenlounge-api.herokuapp.com';
+        //api = 'https://zenlounge-api-preprod.herokuapp.com';
 
         //users
         this.login = function (login, mdp, success, error) {
