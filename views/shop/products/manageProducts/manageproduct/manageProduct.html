@@ -1,0 +1,54 @@
+<div ng-controller="ownProductCtrl">
+    <div class="row clearfix">
+        <div class="col-xs-12 column">
+            <div class="form-group">
+                <label>Product name</label>
+                <input type="text" class="form-control" ng-model="product.name">
+            </div>
+        </div>
+        <div class="col-xs-12column">
+            <div class="form-group">
+                <label>Category</label>
+                <select name="repeatSelect" id="repeatSelect" ng-model="product.category" required>
+                    <option lab value="">Choose a category</option><br>
+                    <option ng-repeat="category in categories" value="{{category.name}}">{{category.name}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-xs-12 column">
+            <div class="form-group">
+                <label>Brand</label>
+                <select name="repeatSelect"  ng-model="product.category" required>
+                    <option lab value="">Choose a category</option><br>
+                    <option ng-repeat="brand in brands" value="{{brand.name}">{{brand.name}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-xs-12 column">
+            <div class="form-group">
+                <label>Price</label>
+                <input type="text" class="form-control" ng-model="product.price">
+            </div>
+        </div>
+        <div class="col-xs-12 column">
+            <div class="form-group">
+                <label>Quantity Available</label>
+                <input type="text" class="form-control" ng-model="product.quantityAvailable">
+            </div>
+        </div>
+        <div class="col-xs-12 column">
+            <div class="form-group">
+                <label>Member reduction</label>
+                <input type="text" class="form-control" ng-model="product.memeberReduction">
+            </div>
+        </div>
+        <div class="col-xs-12 column">
+            <div class="form-group">
+                <label>Image</label>
+                <input type="url" class="form-control" ng-model="product.urlImage">
+            </div>
+        </div>
+    </div>
+    <INPUT class="btn btn-primary buttonGreen logo2" ng-click="validate()" name="valide" value="Save">
+
+</div>

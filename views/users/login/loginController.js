@@ -3,7 +3,7 @@
  */
 angular.module('ZenLounge').controller('LoginController', ['$scope', 'webcallservice','$cookies','$rootScope','$route','$location','$window',function($scope, webcallservice,$cookies,$root,$route,$location,window){
     $root.loggedUser=$cookies.getObject('loggedUser');
-    //alert($root.loggedUser.firstName);
+
 
 	$scope.username = "";
 	$scope.pwd = "";

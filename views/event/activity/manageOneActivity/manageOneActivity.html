@@ -1,0 +1,33 @@
+<div ng-controller="ownActCtrl">
+    {{actCats}}
+    <div class="row clearfix">
+        <div class="col-xs-12 column">
+            <div class="form-group">
+                <label>Activity name</label>
+                <input type="text" class="form-control" ng-model="act.name">
+            </div>
+        </div>
+        <div class="col-xs-12 column">
+            <div class="form-group">
+                <label>Category</label>
+                <select name="repeatSelect"  ng-model="product.category" required>
+                    <option lab value="">Choose a category</option><br>
+                    <option ng-repeat="cat in actCats" value="{{cat.id}">{{cat.name}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-xs-12 column">
+            <div class="form-group">
+                <label>Short description</label>
+                <input type="text" class="form-control" ng-model="act.shortDescription">
+            </div>
+        </div>
+        <div class="col-xs-12 column">
+            <div class="form-group">
+                <label>Long Description</label>
+                <input type="text" class="form-control" ng-model="act.longDescription">
+            </div>
+        </div>
+    </div>
+    <INPUT class="btn btn-primary buttonGreen logo2" ng-click="validate()" name="valide" value="Save">
+</div>
