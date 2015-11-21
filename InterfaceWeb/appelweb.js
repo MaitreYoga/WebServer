@@ -3,14 +3,15 @@
  */
 angular.module('WebCall', []).
     service('webcallservice', ['$http', function ($http) {
-        //api = 'http://localhost:8080';
-        //api = 'https://zenlounge-api-preprod.herokuapp.com';
-        api = 'https://zenlounge-api.herokuapp.com';
+        
+        //api = 'http://localhost:8080/ZenLounge';
+        //api = 'https://zenlounge-api.herokuapp.com';
+        api = 'https://zenlounge-api-preprod.herokuapp.com';
 
         //users
         this.login = function (login, mdp, success, error) {
             $http({
-                url: api + '/login',
+                url: api + '/users/login',
                 method: "GET",
                 params: {login: login, mdp : mdp}
             }).then(function successCallback(response) {
@@ -68,7 +69,7 @@ angular.module('WebCall', []).
         };
 
         this.getProductCategories = function(callback) {
-            $http.get(api + '/products/categories').success(function(response) {callback(response);})
+            $http.get(api + '/productcategories').success(function(response) {callback(response);})
         }
 
         this.getBrands = function (success,error) {
@@ -120,7 +121,7 @@ angular.module('WebCall', []).
 
         this.getActivity = function (id,success) {
             $http({
-                url: api + '/activity',
+                url: api + '/activites',
                 method: "GET",
                 params: {id: id}
             }).then(function(response){success(response)},function(response){})
