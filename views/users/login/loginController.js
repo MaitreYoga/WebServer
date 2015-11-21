@@ -36,7 +36,7 @@ angular.module('ZenLounge').controller('LoginController', ['$scope', 'webcallser
     $scope.logOut = function() {
         $root.loggedUser= null;
         $cookies.remove('loggedUser');
-        window.location = "http://localhost:8080/";
+        window.location = window.location.host;
     }
 
 }]);
