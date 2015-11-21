@@ -1,7 +1,6 @@
 <div ng-controller="UsersController">
-	<button ng-click="getUsers()">Show users list</button>
 	<p>
-		<div class="titre2small" ng-show="users.length > 0">Result :</h2>
+		<h4>All users :</h4>
 		<div ng-repeat="n in users">
 			<h4><a href="#/users/{{n.id}}/profile">{{n.firstname}}</a></h4>
 		</div>
