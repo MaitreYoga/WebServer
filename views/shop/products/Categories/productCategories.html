@@ -1,0 +1,31 @@
+<div ng-controller="ProductCatsController">
+    {{productCats}}
+	<p>
+		<div class="titre2small">List of product categories :</h2>
+			<table width="300px" style="line-height:200%">
+					<tr ng-repeat="cat in productCats">
+						<td>{{cat.name}} <button ng-click="delete(cat)">Supprimer</button></td>
+					</tr>
+			</table>
+		</div>
+	</p>
+	<p>
+		<form ng-submit=addProductCat()>
+			<div class="col-xs-4 column">
+				<div class="form-group">
+					<label ><span class="title2">Add a new product category :</span></label>
+					<input type="text" class="form-control" name="name" placeholder="Name" ng-model="cat.name"/>
+                    <select name="repeatSelect"  ng-model="cat.idparentcategory" required>
+                        <option lab value="">Choose a parent category</option><br>
+                        <option ng-repeat="catp in productCats" value="{{catp.id}">{{catp.name}}</option>
+                    </select>
+				</div>
+			</div>
+			<div class="col-xs-4 column">
+				<div id="newElement278_wrap" class="wrap">
+					<input class="btn btn-primary buttonGreen" TYPE="submit" name="valide" value="Add"/>
+				</div>
+			</div>
+		</form>
+	</p>
+</div>

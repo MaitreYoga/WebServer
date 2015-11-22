@@ -73,7 +73,26 @@ angular.module('WebCall', []).
         this.getProductCategories = function(callback) {
             $http.get(api + '/productcategories').success(function(response) {callback(response);})
         };
+		
+		this.addProductCategories = function(cat, callback) {
+			$http({
+                url: api + '/productcategories',
+                method: "POST",
+                data: cat
+            }).success(function successCallback(response) {
+                callback(response);
+            });
+		};
 
+        this.deleteProductCategories = function(cat, callback) {
+            $http({
+                url: api + '/productcategories/'+cat,
+                method: "DELETE"
+            }).success(function successCallback(response) {
+                callback(response);
+            });
+        };
+        
         this.getBrands = function (success,error) {
             $http({
                 url: api + '/brands',

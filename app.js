@@ -32,6 +32,10 @@ angular.module('ZenLounge', ['ngRoute','WebCall','ngCookies'])
         {
             templateUrl: 'views/shop/products/product/product.html'
         })
+        .when('/categories',
+        {
+            templateUrl: 'views/shop/products/categories/productCategories.html'
+        })
         .when('/events',
         {
             templateUrl: 'views/event/events/allEvents/events.html'
