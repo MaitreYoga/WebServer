@@ -3,15 +3,24 @@
  */
 angular.module('ZenLounge').controller('SignUpController', ['$scope','webcallservice', function($scope, webcallservice){
 	$scope.user = new Object();
+    $scope.user.login=null;
+    $scope.user.id=null;
+    $scope.user.connectiontoken=null;
+    $scope.user.firstname=null;
+    $scope.user.lastname=null;
+    $scope.user.phonenumber=null;
+    $scope.user.mailadress=null;
+    $scope.user.idadress=null;
+    $scope.user.password=null;
+    $scope.user.idmember=null;
+    $scope.user.idspeaker=null;
+    $scope.user.idadministrator=null;
+    $scope.user.idmanager=null;
+
     $scope.addUser = function() {
-		$scope.user.hashpwd = CryptoJS.SHA512($scope.user.pwd).toString(CryptoJS.enc.Hex);
-		$scope.user.pwd = "";
-		$scope.user.pwd2 = "";
-        $scope.user.idmember=null;
-        $scope.user.id="";
-        $scope.user.idadministrator=null;
-        /*{"id":"14","connectiontoken":null,"firstname":"SALUT","lastname":"Last Name","phonenumber":null,"mailadress":"mail@mail.com"
-            ,"idadress":null,"login":"SALUTsava","password":"salut","idmember":null,"idspeaker":null,"idmanager":null,"idadministrator":null}}*/
+		$scope.user.password = CryptoJS.SHA512($scope.user.pwd).toString(CryptoJS.enc.Hex);
+		delete $scope.user.pwd;
+		delete $scope.user.pwd2;
 		webcallservice.addUser($scope.user,function(data) {
 			$scope.errorMessage = data.errorMessage;
 			if(data.successMessage !== null && data.successMessage !== undefined)

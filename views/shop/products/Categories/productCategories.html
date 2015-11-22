@@ -14,8 +14,8 @@
 			<div class="col-xs-4 column">
 				<div class="form-group">
 					<label ><span class="title2">Add a new product category :</span></label>
-					<input type="text" class="form-control" name="name" placeholder="Name" ng-model="cat.name"/>
-                    <select name="repeatSelect"  ng-model="cat.idparentcategory" required>
+					<input type="text" class="form-control" name="name" placeholder="Name" ng-model="catadd.name"/>
+                    <select name="repeatSelect"  ng-model="catadd.idparentcategory" required>
                         <option lab value="">Choose a parent category</option><br>
                         <option ng-repeat="catp in productCats" value="{{catp.id}}">{{catp.name}}</option>
                     </select>

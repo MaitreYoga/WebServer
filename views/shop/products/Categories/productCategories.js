@@ -8,11 +8,11 @@ angular.module('ZenLounge').controller('ProductCatsController', ['$scope', 'webc
 	});
 
 	$scope.addProductCat = function () {
-        $scope.cat.id = "";
-        webcallservice.addProductCategories($scope.cat, function (data) {
+        $scope.catadd.id = "";
+        webcallservice.addProductCategories($scope.catadd, function (data) {
             alert("ok");
-			$scope.cat.name = "";
-            $scope.cat.idparentcategory = "";
+			$scope.catadd.name = "";
+            $scope.catadd.idparentcategory = "";
 		})
 	};
 
