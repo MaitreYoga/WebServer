@@ -114,6 +114,14 @@ angular.module('WebCall', []).
             }).then(function(response){success(response)},function(response){error(response)})
         };
 
+        this.register = function(registration,callback) {
+            $http({
+                url: api + '/inscriptions',
+                method: "POST",
+                data : registration
+            }).then(function(response){callback()},function(response){alert('error registrering'+response)})
+        };
+
         this.getPeriods = function (success,error) {
             $http({
                 url: api + '/periods',
