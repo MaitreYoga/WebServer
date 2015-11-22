@@ -45,9 +45,9 @@ angular.module('ZenLounge').controller('EventsController', ['$scope', 'webcallse
 
     $scope.register = function(event) {
         var registration={};
-        registration.id=0;
+        registration.id=null;
         registration.idevent=event.id;
-        registration.idstate="0";
+        registration.idstate=1;
         registration.idmember=cookies.getObject('loggedUser').idmember;
         webcallservice.register(registration,function() {alert('You have registred')})
     };
