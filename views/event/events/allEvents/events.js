@@ -6,52 +6,48 @@ angular.module('ZenLounge').controller('EventsController', ['$scope', 'webcallse
 
     $scope.compter=function() {
         $scope.compteur +=1;
-        if($scope.compteur==4) {
+        if($scope.compteur==5) {
             getActEvent();
             getRoomEvent();
             getSpeakerEvent();
-			isRepetitive();
+            getPeriodEvent();
         }
     };
 
     $scope.getEvents = webcallservice.getEvents(function (data) {
 		$scope.events = data;
         $scope.compter();
+        getPeriods();
     });
 	
 	$scope.selectedAct="";
-	
+
+    webcallservice.getPeriods( function(response){
+        $scope.periods=response.data;
+        $scope.compter();
+    } , function() {
+        alert("cannot get periods");
+    });
+
 	$scope.getActivities=webcallservice.getActivities(function (data) {
-		$scope.activities = data.activities;
-	});
-	
+		$scope.activities = data;
+        $scope.compter();
+    });
+
 	$scope.getRooms=webcallservice.getRooms(function (data) {
-		$scope.rooms = data.rooms;
-	});
+		$scope.rooms = data;
+        $scope.compter();
+    });
 	
 	$scope.getSpeakers=webcallservice.getSpeakers(function (data) {
-		$scope.speakers = data.speakers;
-	});
+		$scope.speakers = data;
+        $scope.compter();
+    });
 	
-	$scope.registrations = webcallservice.getRegistrations(function (data) {
+	/*$scope.registrations = webcallservice.getRegistrations(function (data) {
 		$scope.registrations = data.registrations;
-	});
-	
-	
-	$scope.getRepetitives =webcallservice.getRepetitives(function (data) {
-		$scope.repetitives = data.repetitives;
-        $scope.compter();
-    });
-	
-	$scope.getRooms=webcallservice.getRooms(function (data) {
-		$scope.rooms = data.rooms;
-        $scope.compter();
-    });
-	
-	$scope.getSpeakers=webcallservice.getSpeakers(function (data) {
-		$scope.speakers = data.speakers;
-        $scope.compter();
-    });
+	});*/
+
 	
 	$scope.recherche ="";
     
@@ -99,7 +95,7 @@ angular.module('ZenLounge').controller('EventsController', ['$scope', 'webcallse
         }
     ];*/
 	$scope.isSearched = function(index) {
-        if($scope.selectedAct=="" || $scope.selectedAct==$scope.events[index].activity){
+        if($scope.selectedAct=="" || $scope.selectedAct==$scope.events[index].idactivity){
             if($scope.recherche=="" || $scope.events[index].name.indexOf($scope.recherche)>-1) {
                 return 1 ;
             }
@@ -111,17 +107,18 @@ angular.module('ZenLounge').controller('EventsController', ['$scope', 'webcallse
             return 0;
         }
     };
-	
+
 	var getActEvent = function() {
         for(j=0;j<$scope.events.length;j++) {
 			for (i=0; i< $scope.activities.length;i++) {
-				if($scope.activities[i].ID == $scope.events[j].activity) {
+				if($scope.activities[i].id == $scope.events[j].idactivity) {
 					$scope.events[j].eventActName=$scope.activities[i].name;
 				}
 			}
 		}
     };
-	
+
+
 	var getRoomEvent = function() {
 	for(j=0;j<$scope.events.length;j++) {
 		for (i=0; i< $scope.rooms.length;i++) {
@@ -135,11 +132,22 @@ angular.module('ZenLounge').controller('EventsController', ['$scope', 'webcallse
 	var getSpeakerEvent = function() {
         for(j=0;j<$scope.events.length;j++) {
 			for (i=0; i< $scope.speakers.length;i++) {
-				if($scope.speakers[i].id == $scope.events[j].speaker) {
-					$scope.events[j].eventSpeakerName=$scope.speakers[i].name;
+				if($scope.speakers[i].id == $scope.events[j].idspeaker) {
+					$scope.events[j].eventSpeakerName=$scope.speakers[i].job;
 				}
 			}
 		}
+    };
+
+    var getPeriodEvent = function() {
+        for(j=0;j<$scope.events.length;j++) {
+            for (i=0; i< $scope.periods.length;i++) {
+                if($scope.periods[i].id == $scope.events[j].idperiod) {
+                    $scope.events[j].start=timeConverter($scope.periods[i].startdate);
+                    $scope.events[j].end=timeConverter($scope.periods[i].enddate);
+                }
+            }
+        }
     };
 	
 	var getState = function() {	
@@ -157,7 +165,7 @@ angular.module('ZenLounge').controller('EventsController', ['$scope', 'webcallse
 			}
 		}
 	}
-	
+
 	var isRepetitive = function() {
 		$scope.event[j].eventRepetitive="No";
 		for(j=0;j<$scope.events.length;j++) {
@@ -168,6 +176,18 @@ angular.module('ZenLounge').controller('EventsController', ['$scope', 'webcallse
 			}
 		}
 	};
-	
+
+    function timeConverter(UNIX_timestamp){
+        var a = new Date(UNIX_timestamp * 1000);
+        var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+        var year = a.getFullYear();
+        var month = months[a.getMonth()];
+        var date = a.getDate();
+        var hour = a.getHours();
+        var min = a.getMinutes();
+        var sec = a.getSeconds();
+        var time = date + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec ;
+        return time;
+    }
 	
 }]);

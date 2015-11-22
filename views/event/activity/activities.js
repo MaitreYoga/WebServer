@@ -4,7 +4,7 @@
 angular.module('ZenLounge').controller('ownActivitiesController', ['$scope', 'webcallservice','$cookies','$rootScope', function ($scope, webcallservice, cookies,$root) {
 
     webcallservice.getActivities(function (response) {
-        $scope.acts = response.activities;
+        $scope.acts = response;
 
      });
 

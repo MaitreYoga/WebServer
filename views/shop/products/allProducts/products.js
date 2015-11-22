@@ -3,13 +3,36 @@
  */
 angular.module('ZenLounge').controller('ProductsController', ['$scope', 'webcallservice','$cookies','$rootScope', function ($scope, webcallservice, cookies,$root) {
 
+    $scope.compteur=0;
     $scope.recherche ="";
     $scope.selectedCat="";
     $root.cart= cookies.getObject('cart');
     //cookies.remove('cart');
-    //$scope.categories = webcallservice.getProductCategories();
+    $scope.getProducts = webcallservice.getProducts(function (data) {
+        $scope.products = data;
+        jointure();
+    });
+    webcallservice.getProductCategories(function(data) {$scope.categories=data;jointure();});
+    webcallservice.getBrands(function(response) {$scope.brands=response.data;jointure();});
 
-    $scope.products = [
+    var jointure = function() {
+        $scope.compteur+=1;
+        if($scope.compteur==3) {
+            for(i=0;i<$scope.products.length;i++) {
+                for(j=0;j<$scope.categories.length;j++) {
+                    if($scope.products[i].idcategory==$scope.categories[j].id) {
+                        $scope.products[i].catName=$scope.categories[j].name;
+                    }
+                }
+                for(k=0;k<$scope.brands.length;k++){
+                    if($scope.products[i].idbrand==$scope.brands[k].id) {
+                        $scope.products[i].brandName=$scope.brands[k].name;
+                    }
+                }
+            }
+        }
+    };
+    /*$scope.products = [
         {
             name:"chaussures adidas",
             brand:"adidas",
@@ -40,19 +63,8 @@ angular.module('ZenLounge').controller('ProductsController', ['$scope', 'webcall
             seller:"titi",
             quantityWanted:0
         }
-    ];
+    ];*/
 
-    $scope.categories= [];
-    getCategories = function (tableau) {
-        for (i = 0; i < tableau.length; i++) {
-            if($scope.categories.indexOf(tableau[i].productCat)>=0) {
-
-            } else {
-                $scope.categories.push(tableau[i].productCat)
-            }
-        }
-    };
-    getCategories($scope.products);
 
 
     $scope.getTotal = function(){
@@ -65,7 +77,9 @@ angular.module('ZenLounge').controller('ProductsController', ['$scope', 'webcall
     };
 
     $scope.plusOne = function(index) {
-        if ($scope.products[index].quantityAvailable>$scope.products[index].quantityWanted) {
+        if($scope.products[index].quantityWanted==undefined) {
+            $scope.products[index].quantityWanted = 1;
+        }else if ($scope.products[index].quantityavailable>$scope.products[index].quantityWanted) {
             $scope.products[index].quantityWanted += 1;
         }
 
@@ -89,7 +103,6 @@ angular.module('ZenLounge').controller('ProductsController', ['$scope', 'webcall
         else {
             return 0;
         }
-
     };
 
     $scope.addToCart = function(index){
@@ -104,7 +117,4 @@ angular.module('ZenLounge').controller('ProductsController', ['$scope', 'webcall
         $root.cart.push($scope.products[index]);
         cookies.putObject('cart',$root.cart)
     };
-    /*$scope.getProducts = webcallservice.getProducts(function (data) {
-		$scope.products = data;
-	});*/
 }]);
