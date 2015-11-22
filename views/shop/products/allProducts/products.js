@@ -32,40 +32,6 @@ angular.module('ZenLounge').controller('ProductsController', ['$scope', 'webcall
             }
         }
     };
-    /*$scope.products = [
-        {
-            name:"chaussures adidas",
-            brand:"adidas",
-            price:10,
-            quantityAvailable:2,
-            memberPrice:8,
-            productCat:"chaussures",
-            seller:"toto",
-            quantityWanted:0
-        },
-        {
-            name:"chaussures nike",
-            brand:"nike",
-            price:20,
-            quantityAvailable:12,
-            memberPrice:15,
-            productCat:"chaussures",
-            seller:"titi",
-            quantityWanted:0
-        },
-        {
-            name:"bandeau nike",
-            brand:"nike",
-            price:20,
-            quantityAvailable:12,
-            memberPrice:15,
-            productCat:"bando",
-            seller:"titi",
-            quantityWanted:0
-        }
-    ];*/
-
-
 
     $scope.getTotal = function(){
         var total = 0;
@@ -92,7 +58,7 @@ angular.module('ZenLounge').controller('ProductsController', ['$scope', 'webcall
     };
 
     $scope.isSearched = function(index) {
-        if($scope.selectedCat=="" || $scope.selectedCat==$scope.products[index].productCat){
+        if($scope.selectedCat=="" || $scope.selectedCat==$scope.products[index].idcategory){
             if($scope.recherche=="" || $scope.products[index].name.indexOf($scope.recherche)>-1) {
                 return 1 ;
             }

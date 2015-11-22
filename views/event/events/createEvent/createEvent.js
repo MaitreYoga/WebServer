@@ -48,46 +48,7 @@ angular.module('ZenLounge').controller('CreateEventController', ['$scope', 'webc
             alert("event created");
 		})
 	};
-	
-	/*$scope.rooms = [
-        {
-            id:1,
-			name:"Room 1",
-            surface:50,
-            numberPeople:20
-        },
-        {
-            id:2,
-			name:"Room conference",
-            surface:100,
-            numberPeople:100
-        }
-	];
-	
-	$scope.activities = [
-        {
-            id:1,
-			name:"Yoga"
-        },
-        {
-            id:2,
-			name:"Conference"
-        }
-	];
-	
-	$scope.speakers = [
-        {
-            id:1,
-			firstName:"Martin",
-			lastName:"Dupont"
-        },
-        {
-            id:2,
-			firstName:"Jeanne",
-			lastName:"Smith"
-        }
-	];*/
-	
+
 
 
 }]);

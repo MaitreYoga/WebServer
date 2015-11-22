@@ -2,9 +2,6 @@
 <!-- products table -->
 <span class="title1bis lign">Your products</span>
 <div class="row clearfix">
-	
-{{products}}
-{{test}}
 <table class="table table-striped" height="20">
         <thead>
             <tr>
@@ -22,8 +19,8 @@
 			<tr ng-repeat="product in products">
                 <td>{{product.quantityavailable}}</td>
                 <td>{{product.name}}</td>
-                <td>{{product.idbrand}}</td>
-                <td>{{product.idcategory}}</td>
+                <td>{{product.brandName}}</td>
+                <td>{{product.catName}}</td>
 				<td>{{product.price}}</td>
                 <td><a href="#/manageProducts/{{product.id}}"><button>Update</button></a></td>
                 <td><button ng-click="delete(product)">Delete</button></td>

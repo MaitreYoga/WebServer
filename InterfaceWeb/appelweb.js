@@ -33,6 +33,17 @@ angular.module('WebCall', []).
             });
         };
 
+
+        this.updateUser = function(user, callback) {
+            $http({
+                url: api + '/users',
+                method: "PUT",
+                data: user
+            }).success(function successCallback(response) {
+                callback(response);
+            });
+        };
+
         this.userProfile = function (id,success,error) {
             $http({
                 url: api + '/users/'+id,
@@ -60,7 +71,24 @@ angular.module('WebCall', []).
 
         this.updateProduct =function() {};
 
-        this.createProduct = function() {};
+        this.createProduct = function(product,callback) {
+            $http({
+                url: api + '/products',
+                method: "POST",
+                data: product
+            }).success(function () {
+                callback();
+            });
+        };
+        this.deleteProduct = function(product,callback) {
+            $http({
+                url: api + '/products/'+product.id,
+                method: "DELETE"
+            })
+                .success(function () {
+                callback();
+            });
+        };
 
         this.getOwnProducts = function (success,error) {
             $http({
@@ -77,7 +105,7 @@ angular.module('WebCall', []).
 			$http({
                 url: api + '/productcategories',
                 method: "POST",
-                data: catadd,
+                data: catadd
             }).success(function successCallback(response) {
                 callback(response);
             });
@@ -122,7 +150,11 @@ angular.module('WebCall', []).
         this.getEvents = function (callback) {
             $http.get(api + '/events').success(function (response) {callback(response); });
         };
-		
+
+        this.getRegistrations = function(callback) {
+            $http.get(api + '/inscriptions').success(function (response) {callback(response); });
+        }
+
 		this.getEvent = function (id,success,error) {
             $http({
                 url: api + '/events',
@@ -146,9 +178,6 @@ angular.module('WebCall', []).
             }).then(function(response){success(response)},function(response){error(response)})
         };
 
-		this.getRegistrations = function (callback) {
-            $http.get(api + '/registrations').success(function (response) {callback(response); });
-        };
 		
 		this.getRepetitives = function (callback) {
             $http.get(api + '/repetitives').success(function (response) {callback(response); });

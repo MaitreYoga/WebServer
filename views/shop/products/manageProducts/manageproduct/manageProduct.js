@@ -1,7 +1,7 @@
 /**
  * Created by lucasesteban on 19/11/15.
  */
-angular.module('ZenLounge').controller('ownProductCtrl', ['$scope', 'webcallservice','$routeParams','$location', function($scope,webcallservice,$params,loc){
+angular.module('ZenLounge').controller('ownProductCtrl', ['$scope', 'webcallservice','$routeParams','$location','$cookies', function($scope,webcallservice,$params,loc,cookies){
     if($params.id!="new") {
         webcallservice.getProduct($params.id,
             function(response) {
@@ -12,14 +12,15 @@ angular.module('ZenLounge').controller('ownProductCtrl', ['$scope', 'webcallserv
             }
         );
     } else {
-        $scope.product={};
+        $scope.product= new Object();
+        $scope.product.id="";
     };
 
 
     $scope.categories=[{name : "cc"},{name:"dd"}];
     $scope.brands=[{name : "zz"},{name:"aa"}];
     webcallservice.getProductCategories( function (response) {
-        $scope.categories= response.data;
+        $scope.categories= response;
     });
 
     webcallservice.getBrands(
@@ -33,23 +34,21 @@ angular.module('ZenLounge').controller('ownProductCtrl', ['$scope', 'webcallserv
 
     $scope.validate = function() {
         if($params.id!="new") {
-            webcallservice.updateProduct($params.id,
+            alert("update")
+            webcallservice.updateProduct($scope.product,
                 function() {
                     alert("Product created");
-                    loc.path("#/manageProducts");
                 },
                 function () {
                     alert("Error updating product")
                 }
             );
         } else {
-            webcallservice.createProduct($params.id,
-                function() {
+            $scope.product.idmember=cookies.getObject('loggedUser').idmember;
+            alert(cookies.getObject('loggedUser').idmember)
+            webcallservice.createProduct($scope.product,
+                function(response) {
                     alert("Product created");
-                    loc.path("#/manageProducts");
-                },
-                function () {
-                    alert("Error creating product")
                 }
             );
         }

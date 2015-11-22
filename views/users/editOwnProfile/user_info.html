@@ -70,42 +70,9 @@
 </div>
 <!-- end password -->
 
-<!-- address -->
-<span class="title1bis lign">Address</span>
-
-<div class="row clearfix">
-	<div class="col-md-3 col-xs-6 column">
-		<div class="form-group">
-			<label  >Number</label>
-			<input type="text" class="form-control" ng-model="user.number">
-		</div>
-	</div>
-	
-	<div class="col-md-3 col-xs-6 column">
-		<div class="form-group">
-			<label  >Street</label>
-			<input type="text" class="form-control" ng-model="user.name">
-		</div>
-	</div>
-		
-	<div class="col-md-3 col-xs-6 column">
-		<div class="form-group">
-			<label  >Post code</label>
-			<input type="number" class="form-control" ng-model="user.pc" >
-		</div>
-	</div>
-	
-	<div class="col-md-3 col-xs-6 column">
-		<div class="form-group">
-			<label >City</label>
-			<input type="text" class="form-control" maxlength="30" ng-model="user.city">
-		</div>
-	</div>
-</div>			
-
 <center><div class="row clearfix">
 	<div class="wrap">
-		<INPUT class="btn btn-primary buttonGreen" TYPE="submit" name="valide" value="Update">
+		<INPUT class="btn btn-primary buttonGreen" TYPE="submit" ng-click="update()" name="valide" value="Update">
 	</div></center>
 </div>
 	

@@ -5,62 +5,52 @@
 angular.module('ZenLounge').controller('ownProductsCtrl', ['$scope', 'webcallservice','$cookies','$rootScope', function ($scope, webcallservice, cookies,$root) {
 
     $scope.user=cookies.getObject('loggedUser');
-    
+    $scope.compteur = 0;
+    $scope.compter= function() {
+        $scope.compteur += 1;
+        if($scope.compteur==3) {
+            jointure();
+        }
+    };
+
     webcallservice.getProducts(function (data) {
         $scope.products = [];
+        $scope.test=data;
         var products = data;
         for (i=0;i<products.length;i++) {
             if($scope.user.idmember==products[i].idmember) {
                 $scope.products.push(products[i]);
             }
         }
+        $scope.compter();
      });
 
-    /*$scope.products = [
-        {
-            id :"1",
-            name:"chaussures adidas",
-            brand:"adidas",
-            price:10,
-            quantityAvailable:2,
-            memberPrice:8,
-            productCat:"chaussures",
-            seller:"toto",
-            quantityWanted:0
-        },
-        {
-            id :"2",
-            name:"chaussures nike",
-            brand:"nike",
-            price:20,
-            quantityAvailable:12,
-            memberPrice:15,
-            productCat:"chaussures",
-            seller:"titi",
-            quantityWanted:0
-        },
-        {
-            id :"3",
-            name:"bandeau nike",
-            brand:"nike",
-            price:20,
-            quantityAvailable:12,
-            memberPrice:15,
-            productCat:"bando",
-            seller:"titi",
-            quantityWanted:0
-        }
-    ];
-*/
-/*
     $scope.delete= function (product) {
-        $scope.products = $scope.products
-            .filter(function (el) {
-                return el.name !== product.name;
-            });
-        /*webcallservice.deleteProduct(product, function() {
-         //$scope.notifs.remove(product);
-         });
-    }*/
+        webcallservice.deleteProduct(product, function() {
+            alert("product deleted");
+        });
+    };
+    webcallservice.getBrands( function (response) {
+        $scope.brands=response.data;
+        $scope.compter();
+    });
+    webcallservice.getProductCategories(function(response) {
+        $scope.categories=response;
+        $scope.compter();
+    });
+    var jointure = function() {
+            for(i=0;i<$scope.products.length;i++) {
+                for(j=0;j<$scope.categories.length;j++) {
+                    if($scope.products[i].idcategory==$scope.categories[j].id) {
+                        $scope.products[i].catName=$scope.categories[j].name;
+                    }
+                }
+                for(k=0;k<$scope.brands.length;k++){
+                    if($scope.products[i].idbrand==$scope.brands[k].id) {
+                        $scope.products[i].brandName=$scope.brands[k].name;
+                    }
+                }
+            }
 
+    };
 }]);

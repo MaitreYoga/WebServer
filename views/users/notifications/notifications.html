@@ -1,5 +1,4 @@
 <div ng-controller="notifsCtrl">
-    {{notifs}}
     <button class="btn btn-primary" ng-click="deleteAllNotif()">Clear all</button>
     <div ng-repeat="notif in notifs" >
             <div class="col-xs-8" ng-class="{toRead : notif.isread==0}">{{notif.label}}</div>

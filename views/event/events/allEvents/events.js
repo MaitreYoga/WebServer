@@ -4,13 +4,16 @@
 angular.module('ZenLounge').controller('EventsController', ['$scope', 'webcallservice','$cookies', function ($scope, webcallservice,cookies) {
     $scope.compteur = 0;
 
+    $scope.user=cookies.getObject('loggedUser');
+
     $scope.compter=function() {
         $scope.compteur +=1;
-        if($scope.compteur==5) {
+        if($scope.compteur==6) {
             getActEvent();
             getRoomEvent();
             getSpeakerEvent();
             getPeriodEvent();
+            getRegistrations();
         }
     };
 
@@ -42,7 +45,6 @@ angular.module('ZenLounge').controller('EventsController', ['$scope', 'webcallse
 		$scope.speakers = data;
         $scope.compter();
     });
-
     $scope.register = function(event) {
         var registration={};
         registration.id=null;
@@ -52,14 +54,11 @@ angular.module('ZenLounge').controller('EventsController', ['$scope', 'webcallse
         webcallservice.register(registration,function() {alert('You have registred')})
     };
 	
-	/*$scope.registrations = webcallservice.getRegistrations(function (data) {
-		$scope.registrations = data.registrations;
-	});*/
- /*   id insci
-    id getState()
-    id member en post
-    id event
-*/
+	webcallservice.getRegistrations(function (data) {
+		$scope.registrations = data;
+        $scope.compter();
+	});
+
 	
 	$scope.recherche ="";
 
@@ -87,11 +86,21 @@ angular.module('ZenLounge').controller('EventsController', ['$scope', 'webcallse
 		}
     };
 
+    var getRegistrations = function() {
+        for(j=0;j<$scope.events.length;j++) {
+            for (i=0; i< $scope.registrations.length;i++) {
+                if($scope.registrations[i].idevent == $scope.events[j].id && $scope.registrations[i].idmember==$scope.user.idmember) {
+                    $scope.events[j].registration=$scope.registrations[i].id;
+                }
+            }
+        }
+    };
+
 
 	var getRoomEvent = function() {
 	for(j=0;j<$scope.events.length;j++) {
 		for (i=0; i< $scope.rooms.length;i++) {
-			if($scope.rooms[i].idRoom == $scope.events[j].room) {
+			if($scope.rooms[i].id == $scope.events[j].idroom) {
 				$scope.events[j].eventRoomName=$scope.rooms[i].name;
 			}
 		}

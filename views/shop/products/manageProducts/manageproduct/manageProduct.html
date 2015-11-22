@@ -1,6 +1,5 @@
 <div ng-controller="ownProductCtrl">
 	<div class="row clearfix lign">
-		
 		<div class="col-xs-11 column borderGreyWhite lign">
 		<center><div class="titleSignUp">Information</div></center><br>
 
@@ -23,9 +22,9 @@
 				</div>
 				<div class="col-md-4 col-xs-8 column">
 					<div class="form-group">
-						<select name="repeatSelect" ng-model="product.category" required>
+						<select name="repeatSelect" ng-model="product.idcategory" required>
 							<option lab value="">Choose a category</option><br>
-							<option nng-repeat="category in categories" value="{{category.name}}">{{category.name}}</option>
+							<option ng-repeat="category in categories" value="{{category.id}}">{{category.name}}</option>
 						</select>
 					</div>
 				</div>
@@ -35,9 +34,9 @@
 				</div>
 				<div class="col-md-4 col-xs-8 column">
 					<div class="form-group">
-						<select name="repeatSelect" ng-model="product.category" required>
+						<select name="repeatSelect" ng-model="product.idbrand" required>
 							<option lab value="">Choose a brand</option><br>
-							<option ng-repeat="brand in brands" value="{{brand.name}">{{brand.name}}</option>
+							<option ng-repeat="brand in brands" value="{{brand.id}}">{{brand.name}}</option>
 						</select>
 					</div>
 				</div>
@@ -58,7 +57,7 @@
 				</div>
 				<div class="col-md-2 col-xs-8 column">
 					<div class="form-group">
-						<input type="number" class="form-control" ng-model="product.quantityAvailable" placeholder="Quantity" name="quantityProduct" maxlength="50" required title="This field is required" x-moz-errormessage="This field is required"/>
+						<input type="number" class="form-control" ng-model="product.quantityavailable" placeholder="Quantity" name="quantityProduct" maxlength="50" required title="This field is required" x-moz-errormessage="This field is required"/>
 					</div>
 				</div>
 				
@@ -67,7 +66,7 @@
 				</div>
 				<div class="col-md-2 col-xs-8 column">
 					<div class="form-group">
-						<input type="number" class="form-control" ng-model="product.memeberReduction" placeholder="Reduction" name="memberProduct" maxlength="50"/>
+						<input type="number" class="form-control" ng-model="product.memberreduction" placeholder="Reduction" name="memberProduct" maxlength="50"/>
 					</div>
 				</div>
 				
@@ -82,15 +81,15 @@
 				</div>
 				<div class="col-md-10 col-xs-8 column">
 					<div class="form-group">
-						<input type="text" class="form-control" ng-model="product.urlImage" placeholder="Image of your product" name="nameProduct" maxlength="50" required title="This field is required" x-moz-errormessage="This field is required"/>
+						<input type="text" class="form-control" ng-model="product.urlimage" placeholder="Image of your product" name="nameProduct" maxlength="50" required title="This field is required" x-moz-errormessage="This field is required"/>
 					</div>
 				</div>
 			</div>
 		</div>
-		
-		
+
+
 	</div>
-    
+
 	<center><INPUT class="btn btn-primary buttonGreen logo2" ng-click="validate()" name="valide" value="Save"></center>
 <br>
 </div>
