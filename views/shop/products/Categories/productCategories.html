@@ -17,7 +17,7 @@
 					<input type="text" class="form-control" name="name" placeholder="Name" ng-model="cat.name"/>
                     <select name="repeatSelect"  ng-model="cat.idparentcategory" required>
                         <option lab value="">Choose a parent category</option><br>
-                        <option ng-repeat="catp in productCats" value="{{catp.id}">{{catp.name}}</option>
+                        <option ng-repeat="catp in productCats" value="{{catp.id}}">{{catp.name}}</option>
                     </select>
 				</div>
 			</div>
