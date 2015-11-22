@@ -24,24 +24,19 @@ angular.module('ZenLounge').controller('notifsCtrl', ['$scope', 'webcallservice'
 
     $scope.read = function (notif) {
         notif.isread=1;
-        alert(notif.isread);
-        /*webcallservice.readNotif(notif, function() {
+        webcallservice.readNotif(notif, function() {
             notif.isread=1;
-        });*/
-    }
+        });
+    };
 
     $scope.delete= function (notif) {
-        $scope.notifs = $scope.notifs
-            .filter(function (el) {
-                return el.id !== notif.id;
-            });
-        /*webcallservice.deleteNotif(notif, function() {
-            $scope.notifs.remove(notif);
-        });*/
-    }
-    $scope.deleteAllNotifs= function () {
-        webcallservice.deleteAllNotifs(function() {
-            $scope.notifs= [];
+        webcallservice.deleteNotif(notif.id, function() {
+            $alert("supprimé");
         });
+    };
+    $scope.deleteAllNotifs= function () {
+        for(i=0;i<$scope.notifs.length;i++) {
+            webcallservice.deleteNotif($scope.notifs[i].id)
+        };
     }
 }]);

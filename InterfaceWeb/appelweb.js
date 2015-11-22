@@ -6,7 +6,7 @@ angular.module('WebCall', []).
         
         //api = 'http://localhost:8080/ZenLounge';
         //api = 'https://zenlounge-api.herokuapp.com';
-        api = 'https://zenlounge-api-preprod.herokuapp.com';
+        api = 'http://zenlounge-api-preprod.herokuapp.com';
 
         //users
         this.login = function (login, mdp, success, error) {
@@ -165,37 +165,29 @@ angular.module('WebCall', []).
         };
 
         //Notifications
-        this.getNotifs = function(callback) {
+        this.getNotifs = function(id,callback) {
             $http({
-                url : api+'/notifications',
+                url : api+'/users/'+id+'/notifications',
                 method:"GET"
             }).success(function success(response){callback(response)});
         }
         this.readNotif = function(notif) {
             $http({
-                url : api + '/notifications',
-                method :"PUT",
-                params : notif
+                url : api + '/notifications/'+notif.id+'/read',
+                method :"GET"
             });
         }
-        this.deleteNotif = function(notif) {
+        this.deleteNotif = function(notif,callback) {
             $http({
-                url : api+'/notifications',
-                method:'DELETE',
-                params : notif
-            });
-        }
-        this.deleteAllNotifs= function(callback){
-            $http({
-                url : api+'/notifications',
-                method :'DELETE'
-            }).success(function(response){callback} )
-        }
+                url : api+'/notifications/'+notif,
+                method:'DELETE'
+            }).then(callback,function(){});
+        };
     }])
     .run(function($http,$cookies) {
         if ($cookies.getObject('loggedUser') !== undefined) {
            // $http.defaults.headers.Access-Control-Allow-Origin="*";
-            $http.defaults.headers.Authorization = $cookies.getObject('loggedUser').login+$cookies.getObject('loggedUser').connectiontoken;
+            $http.defaults.headers.Authorization = $cookies.getObject('loggedUser').connectiontoken;
            // $http.defaults.headers.common.token = $cookies.getObject('loggedUser').connectiontoken;
         }
     });
