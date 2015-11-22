@@ -4,11 +4,19 @@
 
 angular.module('ZenLounge').controller('ownProductsCtrl', ['$scope', 'webcallservice','$cookies','$rootScope', function ($scope, webcallservice, cookies,$root) {
 
-    /*webcallservice.getOwnProdcuts(function (data) {
-     $scope.products = data;
-     });*/
+    $scope.user=cookies.getObject('loggedUser');
+    
+    webcallservice.getProducts(function (data) {
+        $scope.products = [];
+        var products = data;
+        for (i=0;i<products.length;i++) {
+            if($scope.user.idmember==products[i].idmember) {
+                $scope.products.push(products[i]);
+            }
+        }
+     });
 
-    $scope.products = [
+    /*$scope.products = [
         {
             id :"1",
             name:"chaussures adidas",
@@ -43,8 +51,8 @@ angular.module('ZenLounge').controller('ownProductsCtrl', ['$scope', 'webcallser
             quantityWanted:0
         }
     ];
-
-
+*/
+/*
     $scope.delete= function (product) {
         $scope.products = $scope.products
             .filter(function (el) {
@@ -52,7 +60,7 @@ angular.module('ZenLounge').controller('ownProductsCtrl', ['$scope', 'webcallser
             });
         /*webcallservice.deleteProduct(product, function() {
          //$scope.notifs.remove(product);
-         });*/
-    }
+         });
+    }*/
 
 }]);
