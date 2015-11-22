@@ -34,6 +34,7 @@
         <script src="views/users/profile/profile.js"></script>
         <script src="views/users/notifications/notifications.js"></script>
         <script src="views/shop/products/manageProducts/manageProducts.js"></script>
+        <script src="views/shop/products/brands/productBrand.js"></script>
         <script src="views/shop/products/manageProducts/manageproduct/manageProduct.js"></script>
         <script src="views/event/activity/activities.js"></script>
         <script src="views/event/activity/manageOneActivity/manageOwnActivity.js"></script>

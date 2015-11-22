@@ -79,6 +79,25 @@ angular.module('WebCall', []).
                 method: "GET"
             }).then(function(response){success(response)},function(response){error(response)})
         };
+		
+		this.addProductBrands = function(name, callback) {
+			$http({
+                url: api + '/brands',
+                method: "POST",
+                data: name
+            }).success(function successCallback(response) {
+                callback(response);
+            });
+		};
+
+        this.deleteProductBrands = function(brand, callback) {
+            $http({
+                url: api + '/brands/'+brand,
+                method: "DELETE"
+            }).success(function successCallback(response) {
+                callback(response);
+            });
+        };
 
     //events
         this.getEvents = function (callback) {
