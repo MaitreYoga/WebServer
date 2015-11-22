@@ -185,9 +185,8 @@ angular.module('WebCall', []).
         };
     }])
     .run(function($http,$cookies) {
-        if ($cookies.getObject('loggedUser') !== undefined) {
-           // $http.defaults.headers.Access-Control-Allow-Origin="*";
-            $http.defaults.headers.Authorization = $cookies.getObject('loggedUser').connectiontoken;
+        if ($cookies.getObject('loggedUser')) {
+            $http.defaults.headers.common.Authorization = $cookies.getObject('loggedUser').connectiontoken;
            // $http.defaults.headers.common.token = $cookies.getObject('loggedUser').connectiontoken;
         }
     });
