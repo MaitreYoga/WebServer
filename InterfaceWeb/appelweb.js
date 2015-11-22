@@ -249,7 +249,7 @@ angular.module('WebCall', []).
             $http.get(api + '/accessories').success(function (response) {callback(response); });
         };
 
-        this.CreateAccessory = function(callback){
+        this.createAccessory = function(callback){
               $http({
                 url: api + '/accessories',
                 method: "POST",
