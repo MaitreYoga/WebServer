@@ -24,6 +24,14 @@ angular.module('ZenLounge', ['ngRoute','WebCall','ngCookies'])
         .when('/users/:id/profile',{
             templateUrl : 'views/users/profile/profile.html'
         })
+		 .when('/planningUser',
+        {
+            templateUrl: 'views/users/planningUser/planning_user.html'
+        })
+		 .when('/payment',
+        {
+            templateUrl: 'views/users/payment/payment.html'
+        })
         .when('/products',
         {
             templateUrl: 'views/shop/products/allProducts/products.html'
@@ -31,6 +39,10 @@ angular.module('ZenLounge', ['ngRoute','WebCall','ngCookies'])
         .when('/products/:id',
         {
             templateUrl: 'views/shop/products/product/product.html'
+        })
+        .when('/categories',
+        {
+            templateUrl: 'views/shop/products/categories/productCategories.html'
         })
         .when('/events',
         {
@@ -47,10 +59,6 @@ angular.module('ZenLounge', ['ngRoute','WebCall','ngCookies'])
            .when('/createroom',
         {
             templateUrl: 'views/event/rooms/createroom/createRoom.html'
-        })
-        .when('/activities',
-        {
-            templateUrl: 'views/event/activity/activities.html'
         })
         .when('/activitycategories',
         {
@@ -83,6 +91,10 @@ angular.module('ZenLounge', ['ngRoute','WebCall','ngCookies'])
         .when('/manageActivities',
         {
             templateUrl : 'views/event/activity/activities.html'
+        })
+		.when('/createActivity',
+        {
+            templateUrl : 'views/event/activity/createActivity/createActivity.html'
         })
         .when('/manageActivity/:id',
         {

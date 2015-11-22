@@ -7,18 +7,19 @@
 			<span class="title1">Sign Up</h3></span></center>
 		</div> 										
 	</div>
+	<br>
 	<form ng-submit="addUser()"> <!-- ACTION -->
 	<div class="row clearfix lign">
 	
 		<!-- personal info -->
-		<div class="col-xs-5 column borderGreyWhite lign">
+		<div class="col-xs-11 col-md-5 column borderGreyWhite">
 		<center><div class="titleSignUp">Personal information</div></center>
 		
 			<!-- name -->
 			<div class="rowclearfix marginSignUp">
 				<div class="col-xs-6 column">
 					<div class="form-group">
-						<label f class="title2small">Last name*</label>
+						<label class="title2small">Last name*</label>
 						<input type="text"  ng-model="user.lastname" class="form-control" placeholder="Last name" name="last name" maxlength="30" required title="This field is required" x-moz-errormessage="This field is required"/>
 					</div>
 				</div>
@@ -61,11 +62,10 @@
 					<input type="email" class="form-control" ng-model="user.mailadress" placeholder="Email address" name="mail"  maxlength="50" required title="This field is required" x-moz-errormessage="This field is required"/>
 				</div>
 			</div>
-		
 		</div>
 		
 		<!-- address-->
-		<div class="col-xs-5 column borderGreyWhite lign">
+		<div class="col-xs-11 col-md-5 column borderGreyWhite ">
 		<center><div class="titleSignUp">Location</div></center>
 		
 			<div class="rowclearfix">

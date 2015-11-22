@@ -1,26 +1,39 @@
 <div ng-controller="ActivityCategoriesController">
-	<p>
-		<div class="titre2small">List of activity categories :</h2>
-			<table width="300px" style="line-height:200%">
-					<tr ng-repeat="catact in activityCategories">
-						<td>{{catact.name}} <button ng-click="delete(catact)">Supprimer</button></td>
-					</tr>
-			</table>
+
+	<div class="row clearfix">
+		<div class="col-md-6 col-xs-12 column lign">
+			<center><div class="title2">List of activity categories :</div>
+				<table width="300px" style="line-height:200%">
+						<tr ng-repeat="catact in activityCategories">
+							<td>{{catact.name}}</td>
+							<td><button ng-click="delete(catact)">Supprimer</button></td>
+						</tr>
+				</table></center>
 		</div>
-	</p>
-	<p>
+
 		<form ng-submit=addActivityCategory()>
-			<div class="col-xs-4 column">
+		<div class="col-md-6 col-xs-12 column lign">
+			<div class="row clearfix">
 				<div class="form-group">
 					<label ><span class="title2">Add a new activity category :</span></label>
 					<input type="text" class="form-control" name="name" placeholder="Name" ng-model="activityCategory.name"/>
 				</div>
 			</div>
-			<div class="col-xs-4 column">
+			<div class="row clearfix">	
+				<div class="col-md-2 col-xs-2 column"></div>
+				<div class="col-md-8 col-xs-8 column">
+					<div class="form-group">				
+						<input type="text" class="form-control" name="name" placeholder="Name" ng-model="newCatAct.name"/>
+					</div>
+				</div>
+				<div class="col-md-2 col-xs-2 column"></div>
+			</div>
+			<div class="row clearfix">	
 				<div id="newElement278_wrap" class="wrap">
-					<input class="btn btn-primary buttonGreen" TYPE="submit" name="valide" value="Add"/>
+					<center><input class="btn btn-primary " TYPE="submit" name="valide" value="Add"/></center>
 				</div>
 			</div>
 		</form>
-	</p>
+		</div>
+	</div>
 </div>

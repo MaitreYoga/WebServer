@@ -6,9 +6,8 @@ angular.module('WebCall', []).
         
         //api = 'http://localhost:8080/ZenLounge';
         //api = 'https://zenlounge-api.herokuapp.com';
-        api = 'http://zenlounge-api-preprod.herokuapp.com';
-       // api = 'https://zenlounge-api.herokuapp.com';
-        //api = 'https://zenlounge-api-preprod.herokuapp.com';
+        //api = 'https://zenlounge-api.herokuapp.com';
+        api = 'https://zenlounge-api-preprod.herokuapp.com';
 
         //users
         this.login = function (login, mdp, success, error) {
@@ -74,7 +73,26 @@ angular.module('WebCall', []).
         this.getProductCategories = function(callback) {
             $http.get(api + '/productcategories').success(function(response) {callback(response);})
         };
+		
+		this.addProductCategories = function(cat, callback) {
+			$http({
+                url: api + '/productcategories',
+                method: "POST",
+                data: cat
+            }).success(function successCallback(response) {
+                callback(response);
+            });
+		};
 
+        this.deleteProductCategories = function(cat, callback) {
+            $http({
+                url: api + '/productcategories/'+cat,
+                method: "DELETE"
+            }).success(function successCallback(response) {
+                callback(response);
+            });
+        };
+        
         this.getBrands = function (success,error) {
             $http({
                 url: api + '/brands',

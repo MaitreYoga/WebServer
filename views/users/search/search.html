@@ -1,21 +1,32 @@
+
 <div ng-controller="SearchController">
-	<p>
+	<div class="rowclearfix lign">
 		<form>
-			<input type = "text" value="" ng-model="id"></input>
-			<button type="submit">Search by id</button>
+			<div class="col-xs-6 column">
+				<input type="text" class="form-control" value="" ng-model="id"></input>
+			</div>
+			<div class="col-xs-6 column">
+				<button class="btn btn-primary" type="submit">Search by id</button>
+			</div>
 		</form>
-	</p>
-	<p>
+	</div>
+<br><br>
+	<div class="rowclearfix lign">
 		<form>
-			<input type = "text" value="" ng-model="name"></input>
-			<button type="submit">Search by login</button>
+			<div class="col-xs-6 column">
+				<input type="text" class="form-control" value="" ng-model="name"></input>
+			</div>
+			<div class="col-xs-6 column">
+				<button class="btn btn-primary"type="submit">Search by login</button>
+			</div>
 		</form>
-	</p>
-	<p>
-		<div class="titre2small" ng-show="users">Result :</h2>
+	</div>
+
+	<div class="rowclearfix lign">
+		<div class="title2small" ng-show="users">Result :</h2>
 		<div ng-repeat="n in users">
 			<h4 ng-show="isSearched(n)"><a href="#/users/{{n.id}}/profile">{{n.firstname}}</a></h4>
 		</div>
 		</div>
-	</p>
+	</div>
 </div>
