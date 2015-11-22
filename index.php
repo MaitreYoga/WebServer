@@ -40,6 +40,7 @@
         <script src="views/shop/products/brands/productBrand.js"></script>
         <script src="views/shop/products/categories/productCategories.js"></script>
         <script src="views/shop/products/manageProducts/manageproduct/manageProduct.js"></script>
+        <script src="views/shop/products/manageProducts/manageProducts.js"></script>
         <script src="views/event/activity/activities.js"></script>
         <script src="views/event/activity/manageOneActivity/manageOwnActivity.js"></script>
         <script src="views/users/search/search.js"></script>
