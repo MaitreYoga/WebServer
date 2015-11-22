@@ -3,4 +3,9 @@
  */
 angular.module('ZenLounge').controller('PaymentController', ['$scope', 'webcallservice','$cookies','$rootScope',function($scope,webcallservice,$cookies,$root){
     $scope.user=$cookies.getObject('loggedUser');
+	
+	/*$scope.getAnnualFee = webcallservice.getAnnualFee(function (data) {
+		$scope.annualFee = data;
+    });*/
+	
 }]);
