@@ -31,6 +31,7 @@
 		<script src="views/event/activityCategory/activitycategory.js"></script>
 		<script src="views/common/signup/signup.js"></script>
         <script src="views/users/profile/profile.js"></script>
+        <script src="views/event/rooms/allrooms/rooms.js"></script>
 		
         <link href="Dependencies/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="Includes/CSS/style.css"/>

@@ -18,6 +18,11 @@ angular.module('ZenLounge').controller('RoomsController', ['$scope', 'webcallser
         }
     ];
 */
+    $scope.deleteRoom = function(room) {
+        webcallservice.deleteRoom(room, function() {
+            alert("Room Deleted");
+        })
+    };
     $scope.isSearched = function(index) {
             if($scope.recherche=="" || $scope.Rooms[index].name.indexOf($scope.recherche)>-1) {
                 return 1 ;
