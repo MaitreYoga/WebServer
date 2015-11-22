@@ -26,7 +26,7 @@ angular.module('ZenLounge', ['ngRoute','WebCall','ngCookies'])
         })
 		 .when('/planningUser',
         {
-            templateUrl: 'views/users/planningUser/planning_user.html'
+            templateUrl: 'views/users/planningUser/planning_user.php'
         })
 		 .when('/payment',
         {
