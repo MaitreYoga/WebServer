@@ -1,5 +1,5 @@
 <div ng-controller="LoginController">
-	<div class="col-xs-6 column" ng-hide="loggedUser.connectiontoken">
+	<div class="col-md-6 col-xs-10 column" ng-hide="loggedUser.connectiontoken">
 		<form ng-submit=login()>
 			<div class="col-xs-4 column">
 				<div class="form-group">
@@ -20,8 +20,8 @@
 			</div>
 		</form>
 	</div>
-    <div class="col-xs-6" ng-show="loggedUser.connectiontoken">
-        <p>Bonjour {{loggedUser.firstname}} ! <button ng-click="logOut()">Se deconnecter</button></p>
+    <div class="col-md-6 col-xs-10" ng-show="loggedUser.connectiontoken">
+        <p>Hello {{loggedUser.firstname}} ! <button ng-click="logOut()">Se deconnecter</button></p>
     </div>
 	<h4 ng-show="errorMessage">{{errorMessage}}</h4>
 </div>

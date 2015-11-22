@@ -1,0 +1,89 @@
+<div ng-controller="CreateActivityController">
+
+	<div class="row clearfix lign">
+		<div class="col-xs-12 column"><center>
+			<span class="title1">Create your activty</h3></span></center>
+		</div> 										
+	</div>
+	
+	<form ng-submit="createActivity()"> <!-- ACTION -->
+	<div class="row clearfix lign">
+	
+		<div class="col-md-2 column"></div>
+		<div class="col-md-7 col-xs-11 column borderGreyWhite lign">
+		<center><div class="titleSignUp">Information</div></center><br>
+			
+			<!-- name -->
+			<div class="row clearfix marginSignUp lign">
+				<div class="col-xs-3 column">
+					<div class="form-group">
+						<label for="to_edit" class="title2small">Name*</label>
+					</div>
+				</div>
+				<div class="col-xs-9 column">
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="Name of your activty" name="nameActivity" maxlength="50" required title="This field is required" x-moz-errormessage="This field is required"/>
+					</div>
+				</div>
+			</div>
+			
+			<div class="row clearfix marginSignUp lign">
+				<div class="col-xs-3 column">
+					<div class="form-group">
+						<label for="to_edit" class="title2small">Short description</label>
+					</div>
+				</div>
+				<div class="col-xs-9 column">
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="Short description" name="shortDescActivity" maxlength="50" />
+					</div>
+				</div>
+			</div>
+			
+			<div class="row clearfix marginSignUp lign">
+				<div class="col-xs-3 column">
+					<div class="form-group">
+						<label for="to_edit" class="title2small">Long description</label>
+					</div>
+				</div>
+				<div class="col-xs-9 column">
+					<div class="form-group">
+						<textarea type="text" cols="40" rows="10" class="form-control" placeholder="Long description" name="longDescActivity" maxlength="500"></textarea>
+					</div>
+				</div>
+			</div>
+			
+			<div class="row clearfix marginSignUp lign">
+				<div class="col-xs-3 column">
+					<label for="to_edit" class="title2small">Category*</label>
+				</div>
+				<div class="col-xs-9 column">
+					<div class="form-group">
+						<select name="repeatSelect" id="repeatSelect" ng-model="selectedCategory" required>
+							<option lab value="">Choose a category</option><br>
+							<option ng-repeat="cat in cats" value="{{cat.id}}">{{cat.name}}</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			
+		
+		</div>
+	</div>
+		
+	<p class="textItalic">* Fields required</p>
+	
+	
+	<!-- button -->
+	<div class="row clearfix ">
+		<div class="wrap">
+			<center><INPUT class="btn btn-primary buttonGreen logo2" TYPE="submit" name="valide" value="Create activity"></center>
+		</div>
+	</div>
+		
+</div>
+</form>
+
+<br>
+
+</div>

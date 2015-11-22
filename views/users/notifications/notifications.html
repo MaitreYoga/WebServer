@@ -1,8 +1,8 @@
 <div ng-controller="NotifsCtrl">
-    <button ng-click="deleteAllNotif()">Clear all</button>
+    <button class="btn btn-primary" ng-click="deleteAllNotif()">Clear all</button>
     <div ng-repeat="notif in notifs" >
             <div class="col-xs-8" ng-class="{toRead : notif.isread==0}">{{notif.label}}</div>
-            <div class="col-xs-2"><button ng-show="notif.isread==0" ng-click="read(notif)">Mark as read</button></div>
-            <div class="col-xs-2"><button ng-click="delete(notif)">Delete</button></div>
+            <div class="col-xs-2"><button class="btn btn-primary" ng-show="notif.isread==0" ng-click="read(notif)">Mark as read</button></div>
+            <div class="col-xs-2"><button class="btn btn-primary" ng-click="delete(notif)">Delete</button></div>
     </div>
 </div>
