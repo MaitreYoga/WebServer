@@ -41,10 +41,9 @@ angular.module('WebCall', []).
         };
 
         this.getUsers = function (callback) {
-            alert("getusers");
             $http.get(api + '/users').success(function (response) {callback(response); });
         };
-
+		
     //shop
         //products
         this.getProducts = function (callback) {
@@ -74,11 +73,11 @@ angular.module('WebCall', []).
             $http.get(api + '/productcategories').success(function(response) {callback(response);})
         };
 		
-		this.addProductCategories = function(cat, callback) {
+		this.addProductCategories = function(catadd, callback) {
 			$http({
                 url: api + '/productcategories',
                 method: "POST",
-                data: cat
+                data: catadd,
             }).success(function successCallback(response) {
                 callback(response);
             });
@@ -202,6 +201,17 @@ angular.module('WebCall', []).
                 callback(response);
             });
 		};
+		
+		this.createEvent = function(event, callback) {
+			$http({
+                url: api + '/events',
+                method: "POST",
+                data: event
+            }).success(function successCallback(response) {
+                callback(response);
+            });
+		};
+		
 		// Rooms
 
         this.deleteActivityCategories = function(activityCat, callback) {
@@ -265,7 +275,7 @@ angular.module('WebCall', []).
           this.updateAccessory = function() {};
 
 		this.getSpeakers = function (callback) {
-            $http.get(api + '/speakers').success(function (response) {callback(response); });
+			$http.get(api + '/speakers').success(function (response) {callback(response); });
         };
 
         //Notifications

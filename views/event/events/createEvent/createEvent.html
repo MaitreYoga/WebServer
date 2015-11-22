@@ -22,7 +22,7 @@
 				</div>
 				<div class="col-xs-10 column">
 					<div class="form-group">
-						<input type="text" class="form-control" placeholder="Name of your event" name="nameEvent" maxlength="50" required title="This field is required" x-moz-errormessage="This field is required"/>
+						<input type="text" ng-model="event.name" class="form-control" placeholder="Name of your event" name="nameEvent" maxlength="50" required title="This field is required" x-moz-errormessage="This field is required"/>
 					</div>
 				</div>
 			</div>
@@ -34,9 +34,9 @@
 				</div>
 				<div class="col-xs-10 column">
 					<div class="form-group">
-						<select name="repeatSelect" id="repeatSelect" ng-model="selectedRoom" required>
+						<select name="repeatSelect" id="repeatSelect" ng-model="event.idroom" required>
 							<option lab value="">Choose a room</option><br>
-							<option ng-repeat="room in rooms" value="{{room.id}}">{{room.name}} (capacity: {{room.numberPeople}})</option>
+							<option ng-repeat="room in rooms" value="{{room.id}}">{{room.name}} (Surface: {{room.surface}}m²)</option>
 						</select>
 					</div>
 				</div>
@@ -49,7 +49,7 @@
 				</div>
 				<div class="col-xs-10 column">
 					<div class="form-group">
-						<select name="repeatSelect" id="repeatSelect" ng-model="selectedAct" required>
+						<select name="repeatSelect" id="repeatSelect" ng-model="event.idactivity" required>
 							<option lab value="">Choose an activity</option><br>
 							<option ng-repeat="activity in activities" value="{{activity.id}}">{{activity.name}}</option>
 						</select>
@@ -64,9 +64,9 @@
 				</div>
 				<div class="col-xs-10 column">
 					<div class="form-group">
-						<select name="repeatSelect" id="repeatSelect" ng-model="selectedAct" required>
+						<select name="repeatSelect" id="repeatSelect" ng-model="event.idspeaker" required>
 							<option lab value="">Choose a speaker</option><br>
-							<option ng-repeat="speaker in speakers" value="{{speaker.id}}">{{speaker.firstName}} {{speaker.lastName}}</option>
+							<option ng-repeat="speaker in speakers" value="{{speaker.id}}">{{speaker.speakerName}}</option>
 						</select>
 					</div>
 				</div>
@@ -79,7 +79,7 @@
 				</div>
 				<div class="col-xs-10 column">
 					<div class="form-group">
-						<input type="number" min=0 class="form-control" placeholder="Price of your event" name="priceEvent" maxlength="30" required title="This field is required" x-moz-errormessage="This field is required"/>
+						<input type="number" min=0 class="form-control" ng-model="event.price" placeholder="Price of your event" name="priceEvent" maxlength="30" required title="This field is required" x-moz-errormessage="This field is required"/>
 					</div>
 				</div>				
 			</div>
@@ -228,7 +228,7 @@
 					</div>
 						
 					<div class="col-xs-5 column" >
-						<input type="date" name="startDate" class="form-control" required>
+						<input type="date" name="startDate" class="form-control" >
 					</div>
 					
 					<div class="col-xs-1 column" >
@@ -236,7 +236,7 @@
 					</div>
 						
 					<div class="col-xs-5 column">
-						<input type="date" name="endDate" class="form-control" required>
+						<input type="date" name="endDate" class="form-control" >
 					</div>
 				</div>
 				
