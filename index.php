@@ -44,6 +44,8 @@
         <script src="views/event/activity/manageOneActivity/manageOwnActivity.js"></script>
         <script src="views/users/search/search.js"></script>
         <script src="views/event/rooms/createroom/createRoom.js"></script>
+        <script src="views/event/rooms/Accessories/accessories.js"></script>
+        <script src="views/event/rooms/Accessories/CreateAccessories/CreateAccessories.js"></script>
 
         <link href="Dependencies/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="Includes/CSS/style.css"/>

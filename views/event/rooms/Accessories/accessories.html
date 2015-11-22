@@ -1,5 +1,5 @@
 <div ng-controller="AccessoriesController">
- 
+{{accessories}}
     <p>
     <div class="row clearfix textAlign lign">
         <div class="col-xs-3"><center><label>Find an accessory</label> <input type="text"  ng-model="recherche"></center></div>
@@ -20,6 +20,7 @@
 
             <tr ng-repeat="accessory in accessories" ng-show="isSearched($index)">
                 <th>{{accessory.description}}</th>
+                 <th><button ng-click="deleteAccessory(accessory)">Delete</button></th>
                
             </tr>
         </table>

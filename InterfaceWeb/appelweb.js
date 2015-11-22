@@ -233,28 +233,28 @@ angular.module('WebCall', []).
                 url : api+'/rooms/'+room.id,
                 method:'DELETE'
             }).success(function() {alert("ok")});
-        }
+        };
         // Accessories
             this.getAccessories = function (callback) {
-            $http.get(api + '/accessories').success(function (response) {alert(response);callback(response); });
+            $http.get(api + '/accessories').success(function (response) {callback(response); });
         };
 
         this.CreateAccessory = function(callback){
               $http({
                 url: api + '/accessories',
                 method: "POST",
-                data: name
+                data: accessory
             }).success(function successCallback(response) {
                 callback(response);
             });
         };
-         this.deleteAccessory = function(notif) {
+         this.deleteAccessory = function(accessory) {
             $http({
-                url : api+'/accessories',
-                method:'DELETE',
-                params : notif
-            });
-        }
+                url : api+'/accessories/'+accessory.id,
+                method:'DELETE'
+               }).success(function() {alert("ok")});
+         
+        };
         this.getAccessory = function (id,success) {
             $http({
                 url: api + '/accessories',
