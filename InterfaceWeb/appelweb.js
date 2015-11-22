@@ -218,22 +218,21 @@ angular.module('WebCall', []).
             $http.get(api + '/rooms').success(function (response) {callback(response); });
         };
 		
-        this.CreateRoom = function(callback) {
+        this.CreateRoom = function(room,callback) {
             $http({
                 url: api + '/rooms',
                 method: "POST",
-                data: name
+                data: room
             }).success(function successCallback(response) {
                 callback(response);
             });
 
         };
-        this.deleteRoom = function(notif) {
+        this.deleteRoom = function(room) {
             $http({
-                url : api+'/rooms',
-                method:'DELETE',
-                params : notif
-            });
+                url : api+'/rooms/'+room.id,
+                method:'DELETE'
+            }).success(function() {alert("ok")});
         }
         // Accessories
             this.getAccessories = function (callback) {
