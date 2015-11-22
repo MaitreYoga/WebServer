@@ -25,7 +25,7 @@ angular.module('ZenLounge').controller('LoginController', ['$scope', 'webcallser
                     $cookies.put('userID',successresponse.data.firstName);
                     $cookies.putObject('loggedUser',successresponse.data);
                     $root.loggedUser = $cookies.getObject('loggedUser');
-                    window.location = "http://localhost:8080/";
+                    window.location = "";
                 }
 			},
 			function(errorResponse){
@@ -36,7 +36,7 @@ angular.module('ZenLounge').controller('LoginController', ['$scope', 'webcallser
     $scope.logOut = function() {
         $root.loggedUser= null;
         $cookies.remove('loggedUser');
-        window.location = "http://localhost:8080/";
+        window.location = "";
     }
 
 }]);

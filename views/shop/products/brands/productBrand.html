@@ -1,0 +1,26 @@
+<div ng-controller="ProductBrandsController">
+	<p>
+		<div class="titre2small">List of product brands :</h2>
+			<table width="300px" style="line-height:200%">
+					<tr ng-repeat="brand in productBrands">
+						<td>{{brand.name}} <button ng-click="delete(brand)">Supprimer</button></td>
+					</tr>
+			</table>
+		</div>
+	</p>
+	<p>
+		<form ng-submit=addProductBrand()>
+			<div class="col-xs-4 column">
+				<div class="form-group">
+					<label ><span class="title2">Add a new product brand :</span></label>
+					<input type="text" class="form-control" name="name" placeholder="Name" ng-model="brand.name"/>
+				</div>
+			</div>
+			<div class="col-xs-4 column">
+				<div id="newElement278_wrap" class="wrap">
+					<input class="btn btn-primary buttonGreen" TYPE="submit" name="valide" value="Add"/>
+				</div>
+			</div>
+		</form>
+	</p>
+</div>

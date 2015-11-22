@@ -1,10 +1,12 @@
 <div ng-controller="ActivityCategoriesController">
+
 	<div class="row clearfix">
 		<div class="col-md-6 col-xs-12 column lign">
 			<center><div class="title2">List of activity categories :</div>
 				<table width="300px" style="line-height:200%">
 						<tr ng-repeat="catact in activityCategories">
 							<td>{{catact.name}}</td>
+							<td><button ng-click="delete(catact)">Supprimer</button></td>
 						</tr>
 				</table></center>
 		</div>
@@ -13,7 +15,8 @@
 		<div class="col-md-6 col-xs-12 column lign">
 			<div class="row clearfix">
 				<div class="form-group">
-				<center><label ><span class="title2">Add a new activity category :</span></label></center>
+					<label ><span class="title2">Add a new activity category :</span></label>
+					<input type="text" class="form-control" name="name" placeholder="Name" ng-model="activityCategory.name"/>
 				</div>
 			</div>
 			<div class="row clearfix">	

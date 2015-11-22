@@ -6,6 +6,7 @@ angular.module('WebCall', []).
         
         //api = 'http://localhost:8080/ZenLounge';
         //api = 'https://zenlounge-api.herokuapp.com';
+        //api = 'https://zenlounge-api.herokuapp.com';
         api = 'https://zenlounge-api-preprod.herokuapp.com';
 
         //users
@@ -26,7 +27,7 @@ angular.module('WebCall', []).
             $http({
                 url: api + '/users',
                 method: "POST",
-                params: user
+                data: user
             }).success(function successCallback(response) {
                 callback(response);
             });
@@ -40,6 +41,7 @@ angular.module('WebCall', []).
         };
 
         this.getUsers = function (callback) {
+            alert("getusers");
             $http.get(api + '/users').success(function (response) {callback(response); });
         };
 
@@ -70,13 +72,51 @@ angular.module('WebCall', []).
 
         this.getProductCategories = function(callback) {
             $http.get(api + '/productcategories').success(function(response) {callback(response);})
-        }
+        };
+		
+		this.addProductCategories = function(cat, callback) {
+			$http({
+                url: api + '/productcategories',
+                method: "POST",
+                data: cat
+            }).success(function successCallback(response) {
+                callback(response);
+            });
+		};
 
+        this.deleteProductCategories = function(cat, callback) {
+            $http({
+                url: api + '/productcategories/'+cat,
+                method: "DELETE"
+            }).success(function successCallback(response) {
+                callback(response);
+            });
+        };
+        
         this.getBrands = function (success,error) {
             $http({
                 url: api + '/brands',
                 method: "GET"
             }).then(function(response){success(response)},function(response){error(response)})
+        };
+		
+		this.addProductBrands = function(name, callback) {
+			$http({
+                url: api + '/brands',
+                method: "POST",
+                data: name
+            }).success(function successCallback(response) {
+                callback(response);
+            });
+		};
+
+        this.deleteProductBrands = function(brand, callback) {
+            $http({
+                url: api + '/brands/'+brand,
+                method: "DELETE"
+            }).success(function successCallback(response) {
+                callback(response);
+            });
         };
 
     //events
@@ -90,8 +130,15 @@ angular.module('WebCall', []).
                 method: "GET",
                 params: {id: id}
             }).then(function(response){success(response)},function(response){error(response)})
-        }
-		
+        };
+
+        this.getPeriods = function (success,error) {
+            $http({
+                url: api + '/periods',
+                method: "GET"
+            }).then(function(response){success(response)},function(response){error(response)})
+        };
+
 		this.getRegistrations = function (callback) {
             $http.get(api + '/registrations').success(function (response) {callback(response); });
         };
@@ -101,7 +148,7 @@ angular.module('WebCall', []).
         };
 		
         this.getRooms = function (callback) {
-            $http.get(api + '/rooms').success(function (response) {alert(response);callback(response); });
+            $http.get(api + '/rooms').success(function (response) {callback(response); });
         };
         
 		this.getActivities = function (callback) {
@@ -121,18 +168,32 @@ angular.module('WebCall', []).
         };
 		
 		this.getActivityCategories = function(callback) {
-            $http.get(api + '/categories').success(function (response) {callback(response); });
+            $http({
+                url: api + '/activitycategories',
+                method: "GET"
+            }).success(function success(response) {
+                callback(response);
+            });
 		};
 		
 		this.addActivityCategories = function(name, callback) {
 			$http({
-                url: api + '/categories',
+                url: api + '/activitycategories',
                 method: "POST",
                 data: name
             }).success(function successCallback(response) {
                 callback(response);
             });
 		};
+
+        this.deleteActivityCategories = function(activityCat, callback) {
+            $http({
+                url: api + '/activitycategories/'+activityCat,
+                method: "DELETE"
+            }).success(function successCallback(response) {
+                callback(response);
+            });
+        };
 		
 		this.getRooms = function (callback) {
             $http.get(api + '/rooms').success(function (response) {callback(response); });
@@ -143,36 +204,28 @@ angular.module('WebCall', []).
         };
 
         //Notifications
-        this.getNotifs = function(callback) {
+        this.getNotifs = function(id,callback) {
             $http({
-                url : api+'/notifications',
+                url : api+'/users/'+id+'/notifications',
                 method:"GET"
             }).success(function success(response){callback(response)});
         }
         this.readNotif = function(notif) {
             $http({
-                url : api + '/notifications',
-                method :"PUT",
-                params : notif
+                url : api + '/notifications/'+notif.id+'/read',
+                method :"GET"
             });
         }
-        this.deleteNotif = function(notif) {
+        this.deleteNotif = function(notif,callback) {
             $http({
-                url : api+'/notifications',
-                method:'DELETE',
-                params : notif
-            });
-        }
-        this.deleteAllNotifs= function(callback){
-            $http({
-                url : api+'/notifications',
-                method :'delete'
-            }).success(function(response){callback} )
-        }
+                url : api+'/notifications/'+notif,
+                method:'DELETE'
+            }).then(callback,function(){});
+        };
     }])
     .run(function($http,$cookies) {
-        if ($cookies.getObject('loggedUser') !== undefined) {
-            $http.defaults.headers.common.login = $cookies.getObject('loggedUser').login;
-            $http.defaults.headers.common.token = $cookies.getObject('loggedUser').connectiontoken;
+        if ($cookies.getObject('loggedUser')) {
+            $http.defaults.headers.common.Authorization = $cookies.getObject('loggedUser').connectiontoken;
+           // $http.defaults.headers.common.token = $cookies.getObject('loggedUser').connectiontoken;
         }
     });
