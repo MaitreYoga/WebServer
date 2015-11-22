@@ -158,6 +158,15 @@ angular.module('WebCall', []).
         this.getRooms = function (callback) {
             $http.get(api + '/rooms').success(function (response) {callback(response); });
         };
+        this.getRoom = function (id,success,error) {
+            $http({
+                url: api + '/rooms',
+                method: "GET",
+                params: {id: id}
+            }).then(function(response){success(response)},function(response){error(response)})
+        }
+        
+    
         
 		this.getActivities = function (callback) {
             $http.get(api + '/activities').success(function (response) {callback(response); });
@@ -193,6 +202,7 @@ angular.module('WebCall', []).
                 callback(response);
             });
 		};
+		// Rooms
 
         this.deleteActivityCategories = function(activityCat, callback) {
             $http({
@@ -203,10 +213,58 @@ angular.module('WebCall', []).
             });
         };
 		
+
 		this.getRooms = function (callback) {
             $http.get(api + '/rooms').success(function (response) {callback(response); });
         };
 		
+        this.CreateRoom = function(callback) {
+            $http({
+                url: api + '/rooms',
+                method: "POST",
+                data: name
+            }).success(function successCallback(response) {
+                callback(response);
+            });
+
+        };
+        this.deleteRoom = function(notif) {
+            $http({
+                url : api+'/rooms',
+                method:'DELETE',
+                params : notif
+            });
+        }
+        // Accessories
+            this.getAccessories = function (callback) {
+            $http.get(api + '/accessories').success(function (response) {alert(response);callback(response); });
+        };
+
+        this.CreateAccessory = function(callback){
+              $http({
+                url: api + '/accessories',
+                method: "POST",
+                data: name
+            }).success(function successCallback(response) {
+                callback(response);
+            });
+        };
+         this.deleteAccessory = function(notif) {
+            $http({
+                url : api+'/accessories',
+                method:'DELETE',
+                params : notif
+            });
+        }
+        this.getAccessory = function (id,success) {
+            $http({
+                url: api + '/accessories',
+                method: "GET",
+                params: {id: id}
+            }).then(function(response){success(response)},function(response){})
+        };
+          this.updateAccessory = function() {};
+
 		this.getSpeakers = function (callback) {
             $http.get(api + '/speakers').success(function (response) {callback(response); });
         };

@@ -1,33 +1,44 @@
-/**
- * Created by camilledelm on 15/11/15.
- */
-angular.module('ZenLounge').controller('CreateRoomController', ['$scope', 'webcallservice', function ($scope, webcallservice) {
-	/*$scope.getActivities = webcallservice.getActivities(function (data) {
-		$scope.activities = data;
-	});
-	
-	$scope.getRooms = webcallservice.getRooms(function (data) {
-		$scope.rooms = data;
-	});*/
 
-	
-	$scope.rooms = [
+angular.module('ZenLounge').controller('RoomsController', ['$scope', 'webcallservice', function ($scope, webcallservice) {
+
+ $scope.getRooms = webcallservice.getRooms(function (data) {
+        $scope.rooms = data;
+        alert('ok');
+    });
+    
+    	$scope.recherche ="";
+        $scope.newroom=   new Object();
+
+		/*$scope.Rooms =  [
         {
-            id:1,
-			name:"Room 1",
-            surface:50,
-            numberPeople:20
+            name:"chaussures adidas",
+            surface:60
+         
         },
         {
-            id:2,
-			name:"Room conference",
-            surface:100,
-            numberPeople:100
+            name:"chaussures nike",
+            surface:80
         }
-	];
-	
-	$scope.create= function()
+    ];
+*/
+    $scope.CreateRoom = function() {
+        webcallservice.CreateRoom($scope.newroom.name,function(data) {
+            $scope.newroom="";
+        })
+    };
+    $scope.isSearched = function(index) {
+            if($scope.recherche=="" || $scope.rooms[index].name.indexOf($scope.recherche)>-1) {
+                return 1 ;
+            }
+            else {
+                return 0;
+            }
+    $scope.DeleteRoom = function(){
+    
+        })
+    }
+         
+    };
 
 
-
-}]);
+	}]);
