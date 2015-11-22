@@ -3,6 +3,7 @@
  */
 angular.module('ZenLounge').controller('notifsCtrl', ['$scope', 'webcallservice','$cookies','$rootScope', function ($scope, webcallservice, cookies,$root) {
 
+	$scope.notifs = new Object();
     $scope.user = cookies.getObject('loggedUser');
 
     webcallservice.getNotifs($scope.user.id,function (data) {

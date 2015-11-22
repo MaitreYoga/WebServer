@@ -74,11 +74,11 @@ angular.module('WebCall', []).
             $http.get(api + '/productcategories').success(function(response) {callback(response);})
         };
 		
-		this.addProductCategories = function(cat, callback) {
+		this.addProductCategories = function(catadd, callback) {
 			$http({
                 url: api + '/productcategories',
                 method: "POST",
-                data: cat
+                data: catadd,
             }).success(function successCallback(response) {
                 callback(response);
             });
