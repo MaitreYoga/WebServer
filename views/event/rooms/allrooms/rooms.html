@@ -1,5 +1,5 @@
 <div ng-controller="RoomsController">
- 
+ {{rooms}}
     <p>
     <div class="row clearfix textAlign lign">
         <div class="col-xs-3"><center><label>Find a room</label> <input type="text"  ng-model="recherche"></center></div>
@@ -15,12 +15,13 @@
             <tr>
                 <th width="20%">Name</th>
                 <th width="20%">Surface</th>
+                <th></th>
             </tr>
 
-            <tr ng-repeat="room in Rooms" ng-show="isSearched($index)">
+            <tr ng-repeat="room in rooms" ng-show="isSearched($index)">
                 <th>{{room.name}}</th>
                 <th>{{room.surface}}</th>
-                 
+                 <th><button ng-click="deleteRoom(room)">Delete</button></th>
             </tr>
         </table>
     </p>

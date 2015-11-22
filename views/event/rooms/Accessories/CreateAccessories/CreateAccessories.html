@@ -1,0 +1,46 @@
+<div ng-controller="CreateAccessoriesController">
+
+    <div class="row clearfix lign">
+        <div class="col-xs-10 column"><center>
+            <span class="title1">Create an accessory</h3></span></center>
+        </div>                                      
+    </div>
+    
+    <form ng-submit="createAccessorie()"> <!-- ACTION -->
+    <div class="row clearfix lign">
+    
+        <!-- general info-->
+        <div class="col-xs-5 column borderGreyWhite lign">
+        <center><div class="titleSignUp">Information</div></center><br>
+            
+            <!-- description -->
+            <div class="row clearfix marginSignUp lign">
+                <div class="col-xs-2 column">
+                    <div class="form-group">
+                        <label for="to_edit" class="title2small">Description*</label>
+                    </div>
+                </div>
+                <div class="col-xs-10 column">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Description of the accessory" ng-model="acc.description"  name="nameRoom" maxlength="50" required title="This field is required" x-moz-errormessage="This field is required"/>
+                    </div>
+                </div>
+            </div>
+            
+        
+    <p class="textItalic">* Fields required</p>
+    
+    
+    <!-- button -->
+    <div class="row clearfix ">
+        <div class="wrap">
+            <center><INPUT class="btn btn-primary buttonGreen logo2" TYPE="submit" ng-click="validate()" name="valide" value="Create accessorie"></center>
+        </div>
+    </div>
+        
+</div>
+</form>
+
+<br>
+
+</div>
