@@ -38,7 +38,7 @@
         <script src="views/users/notifications/notifications.js"></script>
         <script src="views/shop/products/manageProducts/manageProducts.js"></script>
         <script src="views/shop/products/brands/productBrand.js"></script>
-        <script src="views/shop/products/categories/productCategories.js"></script>
+        <script src="views/shop/products/Categories/productCategories.js"></script>
         <script src="views/shop/products/manageProducts/manageproduct/manageProduct.js"></script>
         <script src="views/shop/products/manageProducts/manageProducts.js"></script>
         <script src="views/event/activity/activities.js"></script>
@@ -46,7 +46,7 @@
         <script src="views/users/search/search.js"></script>
         <script src="views/event/rooms/createroom/createRoom.js"></script>
         <script src="views/event/rooms/Accessories/accessories.js"></script>
-        <script src="views/event/rooms/Accessories/CreateAccessories/CreateAccessories.js"></script>
+        <script src="views/event/rooms/Accessories/CreateAccessories/createAccessories.js"></script>
 
         <link href="Dependencies/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="Includes/CSS/style.css"/>
